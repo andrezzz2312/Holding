@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Three JS</title>
+  </head>
+  <body>
+    <div id="video" class="video">
+      <video id="video0" class="video-container" muted autoplay loop>
+        <source src="../assets/1.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <button id="button1" class="button">Compact FootPrint</button>
+    <svg id="svg1" class="svg" width="100%" height="100%">
+      <line x1="7rem" y1="3rem" x2="30%" y2="30%" stroke="#f04923" />
+    </svg>
+    <svg id="svg2" class="svg" width="100%" height="100%">
+      <circle class="svgDot" cx="30%" cy="30%" r="6" fill="#f04923" />
+    </svg>
+
+    <div id="showCont" class="hidden">
+      <div id="container1" class="container">
+        <label id="button2" class="button2">Compact FootPrint</label>
+        <p>
+          Smallest, fully contained, palletizing unit
+          <br />
+          for a single pallet and load/unload
+          <br />
+          function utlizing a pallet jack or forklift
+        </p>
+      </div>
+      <svg id="svg3" class="svg" width="100%" height="100%">
+        <line x1="12%" y1="12%" x2="50%" y2="41%" stroke="#f04923" />
+      </svg>
+      <svg id="svg4" class="svg" width="100%" height="100%">
+        <circle class="svgDot" cx="50%" cy="41%" r="6" fill="#f04923" />
+      </svg>
+    </div>
+
+    <button id="back" class="hidden">Back to features</button>
+    <!-- <button id="button2" class="button2">Compact FootPrint</button> -->
+
+    <script src="main.js"></script>
+  </body>
+</html>
