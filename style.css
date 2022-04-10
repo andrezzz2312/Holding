@@ -81,13 +81,13 @@
   cursor: pointer;
   z-index: 2;
   overflow: hidden;
-  transition: all ease-in-out 1;
+  transition: all ease-in-out 1s;
 }
 
 .hidden {
   opacity: 0;
   pointer-events: none;
-  transition: all ease-in-out 1;
+  transition: all ease-in-out 1s;
 }
 
 .video {
@@ -121,9 +121,7 @@ p {
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.48);
   z-index: 2;
-}
-.contshow {
-  animation: show 2s ease-in-out forwards;
+  transition: all ease-in-out 1s;
 }
 
 .vanish {
