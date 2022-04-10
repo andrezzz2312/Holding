@@ -6,9 +6,10 @@ const video2 = document.getElementById('video2')
 const video3 = document.getElementById('video3')
 const video4 = document.getElementById('video4')
 const showCont = document.getElementById('showCont')
-const back = document.getElementById('back')
+const back = document.querySelector('.back')
 
 button1.addEventListener('click', function (e) {
+  console.log(back)
   button1.classList.add('vanish')
   svg1.classList.add('vanish')
   svg2.classList.add('vanish')

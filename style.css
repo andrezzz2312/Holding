@@ -42,7 +42,7 @@ body {
   overflow: hidden;
 }
 
-#back::before,
+.back::before,
 .button::before,
 .label::before {
   content: '';
@@ -73,7 +73,7 @@ body {
   top: 30%;
   animation: morph 1s ease-in-out infinite;
 }
-#back {
+.back {
   position: absolute;
   bottom: 2rem;
   left: 47%;
