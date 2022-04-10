@@ -6,6 +6,9 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
 .video > video {
   position: absolute;
   top: 0;
@@ -73,7 +76,8 @@
 #back {
   position: absolute;
   bottom: 2rem;
-  left: 50%;
+  left: 47%;
+
   border: none;
   padding: 0.5rem;
   color: white;
