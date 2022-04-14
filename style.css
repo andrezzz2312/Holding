@@ -6,45 +6,71 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
 }
-.video > video {
+
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.videoContainer > video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  justify-self: center;
+  align-self: center;
 }
-#video1 {
-  z-index: -1;
-}
-#video2 {
-  z-index: -2;
-}
-#video3 {
-  z-index: -3;
-}
-#video4 {
-  z-index: -4;
-}
+
 .button {
-  position: relative;
-  left: 3rem;
-  top: 2rem;
+  position: absolute;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   color: white;
   background-color: #ff4500;
   cursor: pointer;
   z-index: 2;
   overflow: hidden;
 }
-
+#compactFP_button {
+  left: 8%;
+  top: 10%;
+}
+#remoteAC_button {
+  left: 30%;
+  top: 5%;
+}
+#quickC_button {
+  left: 65%;
+  top: 10%;
+}
+#easilyAGP_button {
+  left: 70%;
+  top: 50%;
+}
+#fourCIDO_button {
+  left: 63%;
+  top: 70%;
+}
+#maximumU_button {
+  left: 60%;
+  top: 85%;
+}
+#quickS_button {
+  left: 8%;
+  top: 75%;
+}
+#viewR_button {
+  left: 38%;
+  top: 90%;
+}
 .back::before,
-.button::before,
-.label::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -55,13 +81,42 @@ body {
     35deg,
     transparent,
     transparent,
+    transparent,
+    transparent,
     #fff,
+    transparent,
+    transparent,
     transparent,
     transparent
   );
   transition: 0.5s;
-  animation: gloss 1s ease-in-out infinite;
+  animation: gloss 2s ease-in-out infinite;
+  overflow: hidden;
 }
+.compactFP_label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    35deg,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    #fff,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  );
+  transition: 0.5s;
+  animation: gloss 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
 .svg {
   position: absolute;
   left: 0;
@@ -73,20 +128,6 @@ body {
   top: 30%;
   animation: morph 1s ease-in-out infinite;
 }
-.back {
-  position: absolute;
-  bottom: 2rem;
-  left: 47%;
-
-  border: none;
-  padding: 0.5rem;
-  color: white;
-  background-color: #ff4500;
-  cursor: pointer;
-  z-index: 2;
-  overflow: hidden;
-  transition: all ease-in-out 1s;
-}
 
 .hidden {
   opacity: 0;
@@ -94,49 +135,155 @@ body {
   transition: all ease-in-out 1s;
 }
 
-.video {
+.videoContainer {
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: -1;
   transition: all ease-in-out 1s;
 }
 .container {
-  position: absolute;
-  left: 10%;
-  top: 10%;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  z-index: 1;
-}
-.label {
-  border: none;
-  padding: 0.5rem;
-  color: white;
-  background-color: #ff4500;
-  width: 50%;
-  height: auto;
+  position: relative;
   overflow: hidden;
-}
-p {
-  color: white;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.48);
-  z-index: 2;
-  transition: all ease-in-out 1s;
+  height: 100%;
+  width: 100%;
 }
 
+.text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+}
+#remoteACText {
+  left: 5%;
+  top: 20%;
+}
+#compactFP_text {
+  left: 10%;
+  top: 10%;
+}
+#quickC_text {
+  left: 10%;
+  top: 10%;
+}
+#easilyAGP_text {
+  left: 10%;
+  top: 30%;
+}
+
+.label {
+  border: none;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  color: white;
+  background-color: #ff4500;
+  overflow: hidden;
+}
+#remoteAC_label {
+  font-size: 1.2rem;
+}
+#quickC_label {
+  font-size: 1.2rem;
+}
+#easilyAGP_label {
+  font-size: 1.2rem;
+}
+
+.paragraph {
+  color: white;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  transition: all ease-in-out 1s;
+  overflow: hidden;
+}
+#remoteAC_paragraph {
+  font-size: 1.2rem;
+}
+#quickC_paragraph {
+  font-size: 1.2rem;
+}
+#easilyAGP_paragraph {
+  font-size: 1.2rem;
+}
+
+.backButton {
+  position: absolute;
+  width: fit-content;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #ff4500;
+  cursor: pointer;
+  z-index: 50;
+  overflow: hidden;
+  /* transition: all ease-in-out 5s; */
+}
+#compactFP_backButton {
+  bottom: 4rem;
+  left: 10%;
+}
+#remoteAC_backButton {
+  bottom: 4rem;
+  left: 5%;
+}
+#quickC_backButton {
+  bottom: 4rem;
+  left: 10%;
+}
+#easilyAGP_backButton {
+  bottom: 4rem;
+  left: 10%;
+}
+
+#showCont {
+  transition: all 3s ease-in-out;
+}
 .vanish {
   animation: vanish 2s ease-in-out forwards;
   pointer-events: none;
 }
-.video-vanish {
+
+.short-vanish {
   animation: vanish 0.5s ease-in-out forwards;
 }
-.video-show {
-  animation: vanish 1s ease-in-out reverse forwards;
+.show {
+  pointer-events: all;
+  animation: show 2s ease-in-out forwards;
+}
+
+.warning {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(239, 20%, 10%, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -100;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  margin: 2rem;
+  text-align: center;
+}
+.warnIcon {
+  font-size: 3rem;
+  color: #ff4500;
+}
+@media screen and (orientation: portrait) {
+  .warning {
+    z-index: 100;
+  }
 }
 
 @keyframes vanish {

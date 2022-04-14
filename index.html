@@ -5,53 +5,273 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Three JS</title>
   </head>
   <body>
-    <div id="video" class="video">
-      <video id="video1" muted autoplay loop>
-        <source src="../assets/1.mp4" type="video/mp4" />
-      </video>
-      <video id="video2" muted>
-        <source src="../assets/2.mp4" type="video/mp4" />
-      </video>
-      <video id="video3" muted loop>
-        <source src="../assets/3.mp4" type="video/mp4" />
-      </video>
-      <video id="video4" muted>
-        <source src="../assets/4.mp4" type="video/mp4" />
-      </video>
-    </div>
-
-    <button id="button1" class="button">Compact FootPrint</button>
-    <svg id="svg1" class="svg" width="100%" height="100%">
-      <line x1="7rem" y1="3rem" x2="30%" y2="30%" stroke="#f04923" />
-    </svg>
-    <svg id="svg2" class="svg" width="100%" height="100%">
-      <circle class="svgDot" cx="30%" cy="30%" r="6" fill="#f04923" />
-    </svg>
-
-    <div id="showCont" class="hidden">
-      <div class="container">
-        <label class="label">Compact FootPrint</label>
-        <p>
-          Smallest, fully contained, palletizing unit
-          <br />
-          for a single pallet and load/unload
-          <br />
-          function utlizing a pallet jack or forklift
-        </p>
+    <div class="warning">
+      <div class="modal">
+        <i class="fa-solid fa-circle-exclamation warnIcon"></i>
+        <span>
+          Use the device in landscape mode in order to properly use this website
+        </span>
       </div>
-      <svg id="svg3" class="svg" width="100%" height="100%">
-        <line x1="12%" y1="12%" x2="50%" y2="41%" stroke="#f04923" />
-      </svg>
-      <svg id="svg4" class="svg" width="100%" height="100%">
-        <circle class="svgDot" cx="50%" cy="41%" r="6" fill="#f04923" />
-      </svg>
     </div>
+    <div class="container">
+      <div id="loop" class="videoContainer">
+        <video id="loopvideo" class="loopvideo" muted autoplay loop>
+          <source src="assets/loop.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-    <button class="hidden back">Back to features</button>
+      <div id="compactFP_video" class="videoContainer">
+        <video id="compactFP1_video" class="video" muted>
+          <source src="assets/Compact FootPrint/1.mp4" type="video/mp4" />
+        </video>
+        <video id="compactFP2_video" class="video" muted loop>
+          <source src="assets/Compact FootPrint/2.mp4" type="video/mp4" />
+        </video>
+        <video id="compactFP3_video" class="video" muted>
+          <source src="assets/Compact FootPrint/3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div id="remoteAC_video" class="videoContainer">
+        <video id="remoteAC1_video" class="video" muted>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/1.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="remoteAC2_video" class="video" muted loop>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/2.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="remoteAC3_video" class="video" muted>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/3.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div id="quickC_video" class="videoContainer">
+        <video id="quickC1_video" class="video" muted>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/1.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="quickC2_video" class="video" muted loop>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/2.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="quickC3_video" class="video" muted>
+          <source
+            src="assets/Remote Access Capability - Quick Changeover/3.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div id="easilyAGP_video" class="videoContainer">
+        <video id="easilyAGP1_video" class="video" muted>
+          <source
+            src="assets/Easily Accessible Grace Port/1.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="easilyAGP2_video" class="video" muted loop>
+          <source
+            src="assets/Easily Accessible Grace Port/2.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video id="easilyAGP3_video" class="video" muted>
+          <source
+            src="assets/Easily Accessible Grace Port/3.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
 
-    <script src="main.js"></script>
+      <div class="buttons">
+        <button id="compactFP_button" class="button">Compact FootPrint</button>
+        <svg id="compactFP_line_svg" class="svg" width="100%" height="100%">
+          <line x1="10%" y1="10%" x2="30%" y2="30%" stroke="#f04923" />
+        </svg>
+        <svg id="compactFP_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="30%" cy="30%" r="6" fill="#f04923" />
+        </svg>
+        <button id="remoteAC_button" class="button">
+          Remote Access Capability
+        </button>
+        <svg id="remoteAC_line_svg" class="svg" width="100%" height="100%">
+          <line x1="40%" y1="7%" x2="57%" y2="49%" stroke="#f04923" />
+        </svg>
+        <svg id="remoteAC_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="57%" cy="49%" r="6" fill="#f04923" />
+        </svg>
+        <button id="quickC_button" class="button">Quick Changeover</button>
+        <svg id="quickC_line_svg" class="svg" width="100%" height="100%">
+          <line x1="72%" y1="10%" x2="60%" y2="45%" stroke="#f04923" />
+        </svg>
+        <svg id="quickC_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="60%" cy="45%" r="6" fill="#f04923" />
+        </svg>
+        <button id="easilyAGP_button" class="button">
+          Easily Accessible Grace Port
+        </button>
+        <svg id="easilyAGP_line_svg" class="svg" width="100%" height="100%">
+          <line x1="75%" y1="53%" x2="65%" y2="50%" stroke="#f04923" />
+        </svg>
+        <svg id="easilyAGP_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="65%" cy="50%" r="6" fill="#f04923" />
+        </svg>
+        <button id="fourCIDO_button" class="button">
+          Four Case Infeed Direction Options
+        </button>
+        <svg id="fourCIDO_line_svg" class="svg" width="100%" height="100%">
+          <line x1="75%" y1="75%" x2="65%" y2="66%" stroke="#f04923" />
+        </svg>
+        <svg id="fourCIDO_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="65%" cy="66%" r="6" fill="#f04923" />
+        </svg>
+        <button id="maximumU_button" class="button">Maximum Update</button>
+        <svg id="maximumU_line_svg" class="svg" width="100%" height="100%">
+          <line x1="65%" y1="85%" x2="48%" y2="50%" stroke="#f04923" />
+        </svg>
+        <svg id="maximumU_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="48%" cy="50%" r="6" fill="#f04923" />
+        </svg>
+        <button id="quickS_button" class="button">Quick Startup</button>
+        <svg id="quickS_line_svg" class="svg" width="100%" height="100%">
+          <line x1="13%" y1="77%" x2="35%" y2="75%" stroke="#f04923" />
+        </svg>
+        <svg id="quickS_circle_svg" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="35%" cy="75%" r="6" fill="#f04923" />
+        </svg>
+        <button id="viewR_button" class="button">View Rotation</button>
+      </div>
+
+      <div id="showCont" class="textContainer hidden">
+        <div id="compactFP_text" class="text">
+          <label id="compactFP_label" class="label">Compact FootPrint</label>
+          <p class="paragraph">
+            Smallest, fully contained, palletizing unit
+            <br />
+            for a single pallet and load/unload
+            <br />
+            function utlizing a pallet jack or forklift
+          </p>
+        </div>
+        <svg id="svg3" class="svg" width="100%" height="100%">
+          <line x1="12%" y1="12%" x2="50%" y2="41%" stroke="#f04923" />
+        </svg>
+        <svg id="svg4" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="50%" cy="41%" r="6" fill="#f04923" />
+        </svg>
+        <button id="compactFP_backButton" class="hidden backButton">
+          Back to features
+        </button>
+      </div>
+
+      <div id="showCont" class="textContainer hidden">
+        <div id="remoteAC_text" class="text">
+          <label id="remoteAC_label" class="label">
+            Remote Access Capability
+          </label>
+          <p id="remoteAC_paragraph" class="paragraph">
+            Allows Pearson's support team on-demand
+            <br />
+            access to the equipment's PLC and HMI
+            <br />
+            through a secure VPN connection via an eWON
+            <br />
+            router ISECOM STAR and ISO 27001 certified
+            <br />
+            to support emergency troubleshooting and
+            <br />
+            reduce on-site visits
+          </p>
+        </div>
+        <svg id="svg3" class="svg" width="100%" height="100%">
+          <line x1="15%" y1="22%" x2="60%" y2="25%" stroke="#f04923" />
+        </svg>
+        <svg id="svg4" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="60%" cy="25%" r="6" fill="#f04923" />
+        </svg>
+        <button id="remoteAC_backButton" class="backButton hidden">
+          Back to features
+        </button>
+      </div>
+
+      <div id="showCont" class="textContainer hidden">
+        <div id="quickC_text" class="text">
+          <label id="quickC_label" class="label">Quick Changeover</label>
+          <p id="quickC_paragraph" class="paragraph">
+            The easy-to use pallet configuration tool
+            <br />
+            allows to quickly create, modify, copy or
+            <br />
+            clear new pattern recipes on the HMI or
+            <br />
+            adjust parameters such as case or pallet
+            <br />
+            height, number of layers, pick/drop speeds
+            <br />
+            or delays during production. A changeover
+            <br />
+            using a pre-programmed recipe can be
+            <br />
+            accomplished in under 1min. To set up a
+            <br />
+            new recipe, trained technicians require
+            <br />
+            approximately 5 min
+          </p>
+        </div>
+        <svg id="svg3" class="svg" width="100%" height="100%">
+          <line x1="15%" y1="22%" x2="60%" y2="25%" stroke="#f04923" />
+        </svg>
+        <svg id="svg4" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="60%" cy="25%" r="6" fill="#f04923" />
+        </svg>
+        <button id="quickC_backButton" class="backButton hidden">
+          Back to features
+        </button>
+      </div>
+      <div id="showCont" class="textContainer hidden">
+        <div id="easilyAGP_text" class="text">
+          <label id="easilyAGP_label" class="label">
+            Easily Accesible Grace Port
+          </label>
+          <p id="easilyAGP_paragraph" class="paragraph">
+            Grace ports provide convenient communication
+            <br />
+            and low-voltage power portals at the outside of the
+            <br />
+            machine's electrical cabinet
+          </p>
+        </div>
+        <svg id="svg3" class="svg" width="100%" height="100%">
+          <line x1="15%" y1="35%" x2="66%" y2="23%" stroke="#f04923" />
+        </svg>
+        <svg id="svg4" class="svg" width="100%" height="100%">
+          <circle class="svgDot" cx="66%" cy="23%" r="6" fill="#f04923" />
+        </svg>
+        <button id="easilyAGP_backButton" class="backButton hidden">
+          Back to features
+        </button>
+      </div>
+    </div>
   </body>
+  <script src="main.js"></script>
 </html>
