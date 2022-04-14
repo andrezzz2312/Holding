@@ -25,7 +25,9 @@ const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
 let video2 = ''
 let video3 = ''
-
+// const buttons = document.querySelectorAll('button')
+// const svgLines = document.querySelectorAll('')
+// const svgCircles = document.querySelectorAll('')
 const videos = document.querySelectorAll('.video')
 const showCont = document.querySelectorAll('#showCont')
 const backButtons = document.querySelectorAll('.backButton')
