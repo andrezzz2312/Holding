@@ -21,16 +21,11 @@ const quickS_line_svg = document.getElementById('quickS_line_svg')
 const quickS_circle_svg = document.getElementById('quickS_circle_svg')
 const viewR_button = document.getElementById('viewR_button')
 const loop = document.getElementById('loopvideo')
-const compactFP1_video = document.getElementById('compactFP1_video')
-const compactFP2_video = document.getElementById('compactFP2_video')
-const compactFP3_video = document.getElementById('compactFP3_video')
-const remoteAC1_video = document.getElementById('remoteAC1_video')
-const remoteAC2_video = document.getElementById('remoteAC2_video')
-const remoteAC3_video = document.getElementById('remoteAC3_video')
-const easilyAGP1_video = document.getElementById('easilyAGP1_video')
-const easilyAGP2_video = document.getElementById('easilyAGP2_video')
-const easilyAGP3_video = document.getElementById('easilyAGP3_video')
-const videoContainer = document.querySelector('.videoContainer')
+const videoHolder = document.querySelector('#videoHolder')
+let video1 = ''
+let video2 = ''
+let video3 = ''
+
 const videos = document.querySelectorAll('.video')
 const showCont = document.querySelectorAll('#showCont')
 const backButtons = document.querySelectorAll('.backButton')
@@ -100,28 +95,61 @@ function HideShowBackButton(container, backButton, direction) {
   }
 }
 
+function createVideos(id1, id2, id3, source1, source2, source3) {
+  video1 = document.createElement('video')
+  video1.src = source1
+  video1.muted = true
+  video1.setAttribute('id', id1)
+  video1.classList.add('video')
+  video1.style.zIndex = '-2'
+
+  video2 = document.createElement('video')
+  video2.src = source2
+  video2.loop = true
+  video2.muted = true
+  video2.setAttribute('id', id2)
+  video2.classList.add('video')
+  video2.style.zIndex = '-3'
+
+  video3 = document.createElement('video')
+  video3.src = source3
+  video3.muted = true
+  video3.setAttribute('id', id3)
+  video3.classList.add('video')
+  video3.style.zIndex = '-4'
+
+  videoHolder.appendChild(video1)
+  videoHolder.appendChild(video2)
+  videoHolder.appendChild(video3)
+}
+
 Align()
 
 compactFP_button.addEventListener('click', function (e) {
   Setup()
   Align()
-  compactFP1_video.style.zIndex = '-2'
-  compactFP2_video.style.zIndex = '-3'
-  compactFP3_video.style.zIndex = '-4'
+  createVideos(
+    'compactFP1_video',
+    'compactFP2_video',
+    'compactFP3_video',
+    'assets/Compact FootPrint/1.mp4',
+    'assets/Compact FootPrint/2.mp4',
+    'assets/Compact FootPrint/3.mp4'
+  )
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
-    compactFP1_video.play()
+    video1.play()
 
-    compactFP1_video.addEventListener('ended', () => {
-      InterpolateVideo(loop, compactFP1_video, compactFP2_video)
+    video1.addEventListener('ended', () => {
+      InterpolateVideo(loop, video1, video2)
       HideShowBackButton(showCont[0], backButtons[0], 0)
       backButtons[0].addEventListener('click', function () {
-        InterpolateVideo(compactFP2_video, compactFP2_video, compactFP3_video)
+        InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont[0], backButtons[0], 1)
 
-        compactFP3_video.addEventListener('ended', () => {
-          compactFP3_video.classList.add('short-vanish')
+        video3.addEventListener('ended', () => {
+          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
@@ -130,9 +158,9 @@ compactFP_button.addEventListener('click', function (e) {
           setTimeout(() => {
             Align()
             loop.style.zIndex = '-1'
-            compactFP1_video.classList.remove('short-vanish')
-            compactFP2_video.classList.remove('short-vanish')
-            compactFP3_video.classList.remove('short-vanish')
+            video1.remove()
+            video2.remove()
+            video3.remove()
           }, 1000)
         })
       })
@@ -143,23 +171,29 @@ compactFP_button.addEventListener('click', function (e) {
 remoteAC_button.addEventListener('click', function (e) {
   Setup()
   Align()
-  remoteAC1_video.style.zIndex = '-2'
-  remoteAC2_video.style.zIndex = '-3'
-  remoteAC3_video.style.zIndex = '-4'
+  createVideos(
+    'remoteAC1_video',
+    'remoteAC2_video',
+    'remoteAC3_video',
+    'assets/Remote Access Capability - Quick Changeover/1.mp4',
+    'assets/Remote Access Capability - Quick Changeover/2.mp4',
+    'assets/Remote Access Capability - Quick Changeover/3.mp4'
+  )
+
   setTimeout(() => {
     loop.classList.add('short-vanish')
-    remoteAC1_video.play()
+    video1.play()
 
-    remoteAC1_video.addEventListener('ended', () => {
-      InterpolateVideo(loop, remoteAC1_video, remoteAC2_video)
+    video1.addEventListener('ended', () => {
+      InterpolateVideo(loop, video1, video2)
       HideShowBackButton(showCont[1], backButtons[1], 0)
 
       backButtons[1].addEventListener('click', function () {
-        InterpolateVideo(remoteAC2_video, remoteAC2_video, remoteAC3_video)
+        InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont[1], backButtons[1], 1)
 
-        remoteAC3_video.addEventListener('ended', () => {
-          remoteAC3_video.classList.add('short-vanish')
+        video3.addEventListener('ended', () => {
+          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
@@ -168,9 +202,9 @@ remoteAC_button.addEventListener('click', function (e) {
           setTimeout(() => {
             Align()
             loop.style.zIndex = '-1'
-            remoteAC1_video.classList.remove('short-vanish')
-            remoteAC2_video.classList.remove('short-vanish')
-            remoteAC3_video.classList.remove('short-vanish')
+            video1.remove()
+            video2.remove()
+            video3.remove()
           }, 1000)
         })
       })
@@ -181,24 +215,30 @@ remoteAC_button.addEventListener('click', function (e) {
 quickC_button.addEventListener('click', function (e) {
   Setup()
   Align()
-  remoteAC1_video.style.zIndex = '-2'
-  remoteAC2_video.style.zIndex = '-3'
-  remoteAC3_video.style.zIndex = '-4'
+  createVideos(
+    'remoteAC1_video',
+    'remoteAC2_video',
+    'remoteAC3_video',
+    'assets/Remote Access Capability - Quick Changeover/1.mp4',
+    'assets/Remote Access Capability - Quick Changeover/2.mp4',
+    'assets/Remote Access Capability - Quick Changeover/3.mp4'
+  )
+
   setTimeout(() => {
     loop.classList.add('short-vanish')
-    remoteAC1_video.play()
+    video1.play()
 
-    remoteAC1_video.addEventListener('ended', () => {
+    video1.addEventListener('ended', () => {
       console.log(showCont[2])
-      InterpolateVideo(loop, remoteAC1_video, remoteAC2_video)
+      InterpolateVideo(loop, video1, video2)
       HideShowBackButton(showCont[2], backButtons[2], 0)
 
       backButtons[2].addEventListener('click', function () {
-        InterpolateVideo(remoteAC2_video, remoteAC2_video, remoteAC3_video)
+        InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont[2], backButtons[2], 1)
 
-        remoteAC3_video.addEventListener('ended', () => {
-          remoteAC3_video.classList.add('short-vanish')
+        video3.addEventListener('ended', () => {
+          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
@@ -207,9 +247,9 @@ quickC_button.addEventListener('click', function (e) {
           setTimeout(() => {
             Align()
             loop.style.zIndex = '-1'
-            remoteAC1_video.classList.remove('short-vanish')
-            remoteAC2_video.classList.remove('short-vanish')
-            remoteAC3_video.classList.remove('short-vanish')
+            video1.remove()
+            video2.remove()
+            video3.remove()
           }, 1000)
         })
       })
@@ -220,24 +260,30 @@ quickC_button.addEventListener('click', function (e) {
 easilyAGP_button.addEventListener('click', function (e) {
   Setup()
   Align()
-  easilyAGP1_video.style.zIndex = '-2'
-  easilyAGP2_video.style.zIndex = '-3'
-  easilyAGP3_video.style.zIndex = '-4'
+  createVideos(
+    'easilyAGP1_video',
+    'easilyAGP2_video',
+    'easilyAGP3_video',
+    'assets/Easily Accessible Grace Port/1.mp4',
+    'assets/Easily Accessible Grace Port/2.mp4',
+    'assets/Easily Accessible Grace Port/3.mp4'
+  )
+
   setTimeout(() => {
     loop.classList.add('short-vanish')
-    easilyAGP1_video.play()
+    video1.play()
 
-    easilyAGP1_video.addEventListener('ended', () => {
+    video1.addEventListener('ended', () => {
       console.log(showCont[3])
-      InterpolateVideo(loop, easilyAGP1_video, easilyAGP2_video)
+      InterpolateVideo(loop, video1, video2)
       HideShowBackButton(showCont[3], backButtons[3], 0)
 
       backButtons[3].addEventListener('click', function () {
-        InterpolateVideo(easilyAGP2_video, easilyAGP2_video, easilyAGP3_video)
+        InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont[3], backButtons[3], 1)
 
-        easilyAGP3_video.addEventListener('ended', () => {
-          easilyAGP3_video.classList.add('short-vanish')
+        video3.addEventListener('ended', () => {
+          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
@@ -246,9 +292,9 @@ easilyAGP_button.addEventListener('click', function (e) {
           setTimeout(() => {
             Align()
             loop.style.zIndex = '-1'
-            easilyAGP1_video.classList.remove('short-vanish')
-            easilyAGP2_video.classList.remove('short-vanish')
-            easilyAGP3_video.classList.remove('short-vanish')
+            video1.remove()
+            video2.remove()
+            video3.remove()
           }, 1000)
         })
       })

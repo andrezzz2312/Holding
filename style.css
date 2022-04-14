@@ -154,7 +154,7 @@ body {
   z-index: 1;
   overflow: hidden;
 }
-#remoteACText {
+#remoteAC_text {
   left: 5%;
   top: 20%;
 }
