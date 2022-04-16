@@ -1,100 +1,35 @@
-const compactFP_button = document.getElementById('compactFP_button')
-const compactFP_line_svg = document.getElementById('compactFP_line_svg')
-const compactFP_circle_svg = document.getElementById('compactFP_circle_svg')
-const remoteAC_button = document.getElementById('remoteAC_button')
-const remoteAC_line_svg = document.getElementById('remoteAC_line_svg')
-const remoteAC_circle_svg = document.getElementById('remoteAC_circle_svg')
-const quickC_button = document.getElementById('quickC_button')
-const quickC_line_svg = document.getElementById('quickC_line_svg')
-const quickC_circle_svg = document.getElementById('quickC_circle_svg')
-const easilyAGP_button = document.getElementById('easilyAGP_button')
-const easilyAGP_line_svg = document.getElementById('easilyAGP_line_svg')
-const easilyAGP_circle_svg = document.getElementById('easilyAGP_circle_svg')
-const fourCIDO_button = document.getElementById('fourCIDO_button')
-const fourCIDO_line_svg = document.getElementById('fourCIDO_line_svg')
-const fourCIDO_circle_svg = document.getElementById('fourCIDO_circle_svg')
-const maximumU_button = document.getElementById('maximumU_button')
-const maximumU_line_svg = document.getElementById('maximumU_line_svg')
-const maximumU_circle_svg = document.getElementById('maximumU_circle_svg')
-const quickS_button = document.getElementById('quickS_button')
-const quickS_line_svg = document.getElementById('quickS_line_svg')
-const quickS_circle_svg = document.getElementById('quickS_circle_svg')
 const viewR_button = document.getElementById('viewR_button')
 const loop = document.getElementById('loopvideo')
 const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
 let video2 = ''
 let video3 = ''
-// const buttons = document.querySelectorAll('button')
-// const svgLines = document.querySelectorAll('')
-// const svgCircles = document.querySelectorAll('')
-const videos = document.querySelectorAll('.video')
-const showCont = document.querySelectorAll('#showCont')
-const backButtons = document.querySelectorAll('.backButton')
+let textContent = ''
+let label = ''
+let paragraph = ''
+let line = ''
+let svg1 = ''
+let circle = ''
+let svg2 = ''
+let backButton = ''
+const mainButtons = document.querySelector('#mainButtons')
+const showCont = document.querySelector('#showCont')
 
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
   videoToVanish.classList.add('short-vanish')
   videoToPlay.play()
 }
-function HideShow(button, svgLine, svgCircle, direction) {
-  if (direction === 0) {
-    button.classList.remove('show')
-    svgLine.classList.remove('show')
-    svgCircle.classList.remove('show')
-    button.classList.add('vanish')
-    svgLine.classList.add('vanish')
-    svgCircle.classList.add('vanish')
-  }
-  if (direction === 1) {
-    button.classList.remove('vanish')
-    svgLine.classList.remove('vanish')
-    svgCircle.classList.remove('vanish')
-    button.classList.add('show')
-    svgLine.classList.add('show')
-    svgCircle.classList.add('show')
-  }
-}
+
 function Setup() {
-  HideShow(compactFP_button, compactFP_line_svg, compactFP_circle_svg, 0)
-  HideShow(remoteAC_button, remoteAC_line_svg, remoteAC_circle_svg, 0)
-  HideShow(quickC_button, quickC_line_svg, quickC_circle_svg, 0)
-  HideShow(easilyAGP_button, easilyAGP_line_svg, easilyAGP_circle_svg, 0)
-  HideShow(fourCIDO_button, fourCIDO_line_svg, fourCIDO_circle_svg, 0)
-  HideShow(maximumU_button, maximumU_line_svg, maximumU_circle_svg, 0)
-  HideShow(quickS_button, quickS_line_svg, quickS_circle_svg, 0)
-  viewR_button.classList.remove('show')
-  viewR_button.classList.add('vanish')
+  mainButtons.classList.toggle('show')
+  mainButtons.classList.toggle('vanish')
 }
-function Exit() {
-  HideShow(compactFP_button, compactFP_line_svg, compactFP_circle_svg, 1)
-  HideShow(remoteAC_button, remoteAC_line_svg, remoteAC_circle_svg, 1)
-  HideShow(quickC_button, quickC_line_svg, quickC_circle_svg, 1)
-  HideShow(easilyAGP_button, easilyAGP_line_svg, easilyAGP_circle_svg, 1)
-  HideShow(fourCIDO_button, fourCIDO_line_svg, fourCIDO_circle_svg, 1)
-  HideShow(maximumU_button, maximumU_line_svg, maximumU_circle_svg, 1)
-  HideShow(quickS_button, quickS_line_svg, quickS_circle_svg, 1)
-  viewR_button.classList.remove('vanish')
-  viewR_button.classList.add('show')
-}
-function Align() {
-  videos.forEach((e) => {
-    e.style.zIndex = '-10'
-  })
-}
-function HideShowBackButton(container, backButton, direction) {
-  if (direction === 0) {
-    container.classList.remove('hidden')
-    container.classList.add('show')
-    backButton.classList.remove('hidden')
-    backButton.classList.add('show')
-  }
-  if (direction === 1) {
-    container.classList.remove('show')
-    container.classList.add('short-vanish')
-    backButton.classList.remove('show')
-    backButton.classList.add('short-vanish')
-  }
+
+function HideShowBackButton(container) {
+  container.classList.remove('hidden')
+  container.classList.toggle('short-vanish')
+  container.classList.toggle('show')
 }
 
 function createVideos(id1, id2, id3, source1, source2, source3) {
@@ -125,11 +60,73 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   videoHolder.appendChild(video3)
 }
 
-Align()
+function createContent(textLeft, textTop, labelTitle, pContent) {
+  textContent = document.createElement('div')
+  textContent.classList.add('text')
+  textContent.style.left = textLeft
+  textContent.style.top = textTop
+
+  showCont.appendChild(textContent)
+
+  label = document.createElement('label')
+  label.classList.add('label')
+  label.textContent = labelTitle
+
+  paragraph = document.createElement('p')
+  paragraph.classList.add('paragraph')
+  paragraph.textContent = pContent
+
+  textContent.appendChild(label)
+  textContent.appendChild(paragraph)
+}
+
+function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
+  svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+  svg1.setAttribute('width', '100%')
+  svg1.setAttribute('height', '100%')
+  svg1.classList.add('svg')
+
+  line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
+
+  line.setAttribute('x1', lx1)
+  line.setAttribute('y1', ly1)
+  line.setAttribute('x2', lx2)
+  line.setAttribute('y2', ly2)
+  line.setAttribute('stroke', '#f04923')
+  svg1.appendChild(line)
+
+  svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+  svg2.setAttribute('width', '100%')
+  svg2.setAttribute('height', '100%')
+  svg2.classList.add('svg')
+
+  circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+
+  circle.setAttribute('cx', cx)
+  circle.setAttribute('cy', cy)
+  circle.setAttribute('r', '6%')
+  circle.setAttribute('fill', '#f04923')
+  circle.classList.add('svgDot')
+  svg2.appendChild(circle)
+
+  showCont.appendChild(svg2)
+  showCont.appendChild(svg1)
+}
+
+function createBackButton(left, bottom) {
+  backButton = document.createElement('button')
+  backButton.classList.add('backButton')
+  backButton.textContent = 'Back to Features'
+  backButton.style.left = left
+  backButton.style.bottom = bottom
+  showCont.appendChild(backButton)
+}
 
 compactFP_button.addEventListener('click', function (e) {
   Setup()
-  Align()
+
   createVideos(
     'compactFP1_video',
     'compactFP2_video',
@@ -138,6 +135,14 @@ compactFP_button.addEventListener('click', function (e) {
     'assets/Compact FootPrint/2.mp4',
     'assets/Compact FootPrint/3.mp4'
   )
+  createContent(
+    '10%',
+    '10%',
+    'Compact FootPrint',
+    'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift'
+  )
+  createSvg('12%', '12%', '50%', '41%', '50%', '41%')
+  createBackButton('10%', '4rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -145,24 +150,28 @@ compactFP_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont[0], backButtons[0], 0)
-      backButtons[0].addEventListener('click', function () {
+      HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont[0], backButtons[0], 1)
+        HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
           video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
-          Exit()
 
+          Setup()
           setTimeout(() => {
-            Align()
             loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
           }, 1000)
         })
       })
@@ -172,7 +181,7 @@ compactFP_button.addEventListener('click', function (e) {
 
 remoteAC_button.addEventListener('click', function (e) {
   Setup()
-  Align()
+
   createVideos(
     'remoteAC1_video',
     'remoteAC2_video',
@@ -181,6 +190,14 @@ remoteAC_button.addEventListener('click', function (e) {
     'assets/Remote Access Capability - Quick Changeover/2.mp4',
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
+  createContent(
+    '5%',
+    '20%',
+    ' Remote Access Capability',
+    `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`
+  )
+  createSvg('15%', '22%', '60%', '25%', '60%', '25%')
+  createBackButton('5%', '4rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -188,25 +205,28 @@ remoteAC_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont[1], backButtons[1], 0)
-
-      backButtons[1].addEventListener('click', function () {
+      HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont[1], backButtons[1], 1)
+        HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
           video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
-          Exit()
 
+          Setup()
           setTimeout(() => {
-            Align()
             loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
           }, 1000)
         })
       })
@@ -216,7 +236,7 @@ remoteAC_button.addEventListener('click', function (e) {
 
 quickC_button.addEventListener('click', function (e) {
   Setup()
-  Align()
+
   createVideos(
     'remoteAC1_video',
     'remoteAC2_video',
@@ -225,33 +245,43 @@ quickC_button.addEventListener('click', function (e) {
     'assets/Remote Access Capability - Quick Changeover/2.mp4',
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
+  createContent(
+    '10%',
+    '10%',
+    ' Quick Changeover',
+    `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`
+  )
+  createSvg('15%', '22%', '60%', '25%', '60%', '25%')
+  createBackButton('10%', '4rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
     video1.play()
 
     video1.addEventListener('ended', () => {
-      console.log(showCont[2])
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont[2], backButtons[2], 0)
-
-      backButtons[2].addEventListener('click', function () {
+      HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont[2], backButtons[2], 1)
+        HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
           video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
-          Exit()
 
+          Setup()
           setTimeout(() => {
-            Align()
             loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
           }, 1000)
         })
       })
@@ -261,7 +291,7 @@ quickC_button.addEventListener('click', function (e) {
 
 easilyAGP_button.addEventListener('click', function (e) {
   Setup()
-  Align()
+
   createVideos(
     'easilyAGP1_video',
     'easilyAGP2_video',
@@ -270,33 +300,43 @@ easilyAGP_button.addEventListener('click', function (e) {
     'assets/Easily Accessible Grace Port/2.mp4',
     'assets/Easily Accessible Grace Port/3.mp4'
   )
+  createContent(
+    '10%',
+    '30%',
+    'Easily Accesible Grace Port',
+    `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`
+  )
+  createSvg('15%', '35%', '66%', '23%', '66%', '23%')
+  createBackButton('10%', '4rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
     video1.play()
 
     video1.addEventListener('ended', () => {
-      console.log(showCont[3])
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont[3], backButtons[3], 0)
-
-      backButtons[3].addEventListener('click', function () {
+      HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont[3], backButtons[3], 1)
+        HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
           video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
           loop.classList.remove('short-vanish')
           loop.load()
-          Exit()
 
+          Setup()
           setTimeout(() => {
-            Align()
             loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
           }, 1000)
         })
       })

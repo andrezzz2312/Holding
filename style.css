@@ -153,19 +153,9 @@ body {
   flex-direction: column;
   z-index: 1;
   overflow: hidden;
+  white-space: pre;
 }
-#remoteAC_text {
-  left: 5%;
-  top: 20%;
-}
-#compactFP_text {
-  left: 10%;
-  top: 10%;
-}
-#quickC_text {
-  left: 10%;
-  top: 10%;
-}
+
 #easilyAGP_text {
   left: 10%;
   top: 30%;
@@ -179,15 +169,6 @@ body {
   background-color: #ff4500;
   overflow: hidden;
 }
-#remoteAC_label {
-  font-size: 1.2rem;
-}
-#quickC_label {
-  font-size: 1.2rem;
-}
-#easilyAGP_label {
-  font-size: 1.2rem;
-}
 
 .paragraph {
   color: white;
@@ -196,15 +177,6 @@ body {
   z-index: 2;
   transition: all ease-in-out 1s;
   overflow: hidden;
-}
-#remoteAC_paragraph {
-  font-size: 1.2rem;
-}
-#quickC_paragraph {
-  font-size: 1.2rem;
-}
-#easilyAGP_paragraph {
-  font-size: 1.2rem;
 }
 
 .backButton {
@@ -217,20 +189,9 @@ body {
   cursor: pointer;
   z-index: 50;
   overflow: hidden;
-  /* transition: all ease-in-out 5s; */
+  /* pointer-events: none; */
 }
-#compactFP_backButton {
-  bottom: 4rem;
-  left: 10%;
-}
-#remoteAC_backButton {
-  bottom: 4rem;
-  left: 5%;
-}
-#quickC_backButton {
-  bottom: 4rem;
-  left: 10%;
-}
+
 #easilyAGP_backButton {
   bottom: 4rem;
   left: 10%;
@@ -248,7 +209,6 @@ body {
   animation: vanish 0.5s ease-in-out forwards;
 }
 .show {
-  pointer-events: all;
   animation: show 2s ease-in-out forwards;
 }
 
