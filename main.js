@@ -157,12 +157,14 @@ compactFP_button.addEventListener('click', function (e) {
         HideShowBackButton(showCont)
         loop.style.zIndex = '-5'
         loop.classList.remove('short-vanish')
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           video3.classList.add('short-vanish')
-          // loop.load()
+          loop.play()
           Setup()
           setTimeout(() => {
-            // loop.style.zIndex = '-1'
+            loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
