@@ -36,6 +36,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   video1 = document.createElement('video')
   video1.src = source1
   video1.muted = true
+  video1.removeAttribute('controls')
   video1.setAttribute('id', id1)
   video1.classList.add('video')
   video1.style.zIndex = '-2'
@@ -44,6 +45,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   video2.src = source2
   video2.loop = true
   video2.muted = true
+  video2.removeAttribute('controls')
   video2.setAttribute('id', id2)
   video2.classList.add('video')
   video2.style.zIndex = '-3'
@@ -51,6 +53,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   video3 = document.createElement('video')
   video3.src = source3
   video3.muted = true
+  video3.removeAttribute('controls')
   video3.setAttribute('id', id3)
   video3.classList.add('video')
   video3.style.zIndex = '-4'
@@ -59,6 +62,8 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   videoHolder.appendChild(video2)
   videoHolder.appendChild(video3)
 }
+
+function disableVideoControls() {}
 
 function createContent(textLeft, textTop, labelTitle, pContent) {
   textContent = document.createElement('div')
