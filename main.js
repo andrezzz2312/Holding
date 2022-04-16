@@ -63,8 +63,6 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
   videoHolder.appendChild(video3)
 }
 
-function disableVideoControls() {}
-
 function createContent(textLeft, textTop, labelTitle, pContent) {
   textContent = document.createElement('div')
   textContent.classList.add('text')
@@ -322,6 +320,63 @@ easilyAGP_button.addEventListener('click', function (e) {
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
       HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
+        InterpolateVideo(video2, video2, video3)
+        HideShowBackButton(showCont)
+
+        video3.addEventListener('ended', () => {
+          loop.style.zIndex = '-5'
+          video3.classList.add('short-vanish')
+          loop.classList.remove('short-vanish')
+          loop.load()
+
+          Setup()
+          setTimeout(() => {
+            loop.style.zIndex = '-1'
+            video1.remove()
+            video2.remove()
+            video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
+          }, 1000)
+        })
+      })
+    })
+  }, 2000)
+})
+
+fourCIDO_button.addEventListener('click', function (e) {
+  Setup()
+
+  createVideos(
+    'fourCIDO1_video',
+    'fourCIDO2_video',
+    'fourCIDO3_video',
+    'assets/Four Case Infeed Direction Options/1.mp4',
+    'assets/Four Case Infeed Direction Options/2.mp4',
+    'assets/Four Case Infeed Direction Options/3.mp4'
+  )
+  createContent(
+    '10%',
+    '30%',
+    'Four Case Infeed Direction Options',
+    `The modular configuration offers various\ninfeed configurations to choose from to\nbetter accomodate your plant layout`
+  )
+  createSvg('15%', '35%', '66%', '23%', '66%', '23%')
+  createBackButton('10%', '4rem')
+
+  setTimeout(() => {
+    loop.classList.add('short-vanish')
+    video1.play()
+    setTimeout(() => {
+      HideShowBackButton(showCont)
+    }, 6000)
+    video1.addEventListener('ended', () => {
+      InterpolateVideo(loop, video1, video2)
+
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
