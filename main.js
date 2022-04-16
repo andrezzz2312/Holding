@@ -162,7 +162,7 @@ compactFP_button.addEventListener('click', function (e) {
           loop.load()
           Setup()
           setTimeout(() => {
-            loop.style.zIndex = '-1'
+            // loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
             video3.remove()
