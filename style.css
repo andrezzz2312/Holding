@@ -243,11 +243,11 @@ video::-webkit-media-controls {
   font-size: 3rem;
   color: #ff4500;
 }
-@media screen and (orientation: portrait) {
+/* @media screen and (orientation: portrait) {
   .warning {
     z-index: 100;
   }
-}
+} */
 
 @keyframes vanish {
   0% {
