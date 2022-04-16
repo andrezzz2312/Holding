@@ -157,8 +157,8 @@ compactFP_button.addEventListener('click', function (e) {
         HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
+          video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
           Setup()
@@ -211,8 +211,9 @@ remoteAC_button.addEventListener('click', function (e) {
         HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
+          video3.classList.add('short-vanish')
+
           loop.classList.remove('short-vanish')
           loop.load()
 
@@ -266,8 +267,8 @@ quickC_button.addEventListener('click', function (e) {
         HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
+          video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
 
@@ -321,8 +322,8 @@ easilyAGP_button.addEventListener('click', function (e) {
         HideShowBackButton(showCont)
 
         video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
           loop.style.zIndex = '-5'
+          video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
 
