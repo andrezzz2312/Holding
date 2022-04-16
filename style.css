@@ -226,6 +226,7 @@ video::-webkit-media-controls {
   align-items: center;
   justify-content: center;
   z-index: -100;
+  opacity: 0;
 }
 .modal {
   display: flex;
@@ -243,11 +244,12 @@ video::-webkit-media-controls {
   font-size: 3rem;
   color: #ff4500;
 }
-/* @media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) {
   .warning {
     z-index: 100;
+    opacity: 1;
   }
-} */
+}
 
 @keyframes vanish {
   0% {
