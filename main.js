@@ -155,9 +155,8 @@ compactFP_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.style.zIndex = '-5'
         video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
