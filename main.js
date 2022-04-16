@@ -166,7 +166,7 @@ compactFP_button.addEventListener('click', function (e) {
             loop.style.zIndex = '-1'
             video1.remove()
             video2.remove()
-            video3.remove()
+            // video3.remove()
             textContent.remove()
             svg1.remove()
             svg2.remove()
