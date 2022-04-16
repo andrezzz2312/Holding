@@ -27,6 +27,10 @@ body {
   align-self: center;
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
 .button {
   position: absolute;
   border: none;
