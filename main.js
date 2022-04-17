@@ -33,34 +33,37 @@ function HideShowBackButton(container) {
 }
 
 function createVideos(id1, id2, id3, source1, source2, source3) {
-  video1 = document.createElement('video')
-  video1.src = source1
-  video1.muted = true
-  video1.removeAttribute('controls')
-  video1.setAttribute('id', id1)
-  video1.classList.add('video')
-  video1.style.zIndex = '-2'
-
-  video2 = document.createElement('video')
-  video2.src = source2
-  video2.loop = true
-  video2.muted = true
-  video2.removeAttribute('controls')
-  video2.setAttribute('id', id2)
-  video2.classList.add('video')
-  video2.style.zIndex = '-3'
-
-  video3 = document.createElement('video')
-  video3.src = source3
-  video3.muted = true
-  video3.removeAttribute('controls')
-  video3.setAttribute('id', id3)
-  video3.classList.add('video')
-  video3.style.zIndex = '-4'
-
-  videoHolder.appendChild(video1)
-  videoHolder.appendChild(video2)
-  videoHolder.appendChild(video3)
+  if (source1) {
+    video1 = document.createElement('video')
+    video1.src = source1
+    video1.muted = true
+    video1.removeAttribute('controls')
+    video1.setAttribute('id', id1)
+    video1.classList.add('video')
+    video1.style.zIndex = '-2'
+    videoHolder.appendChild(video1)
+  }
+  if (source2) {
+    video2 = document.createElement('video')
+    video2.src = source2
+    video2.loop = true
+    video2.muted = true
+    video2.removeAttribute('controls')
+    video2.setAttribute('id', id2)
+    video2.classList.add('video')
+    video2.style.zIndex = '-3'
+    videoHolder.appendChild(video2)
+  }
+  if (source3) {
+    video3 = document.createElement('video')
+    video3.src = source3
+    video3.muted = true
+    video3.removeAttribute('controls')
+    video3.setAttribute('id', id3)
+    video3.classList.add('video')
+    video3.style.zIndex = '-4'
+    videoHolder.appendChild(video3)
+  }
 }
 
 function createContent(textLeft, textTop, labelTitle, pContent) {
@@ -400,5 +403,112 @@ fourCIDO_button.addEventListener('click', function (e) {
         })
       })
     }, 6000)
+  }, 2000)
+})
+
+maximumU_button.addEventListener('click', function (e) {
+  Setup()
+
+  createVideos(
+    'Maximum Uptime1_video',
+    'Maximum Uptime2_video',
+    'Maximum Uptime3_video',
+    'assets/Maximum Uptime/1.mp4',
+    'assets/Maximum Uptime/2.mp4',
+    'assets/Maximum Uptime/3.mp4'
+  )
+  createContent(
+    '58%',
+    '35%',
+    'Compact FootPrint',
+    'Smallest, fully contained, palletizing unit for a single pallet and load/unload function utlizing a pallet jack or forklift'
+  )
+  createSvg('59%', '37%', '18%', '60%', '18%', '60%')
+  createBackButton('43%', '2rem')
+
+  setTimeout(() => {
+    loop.classList.add('short-vanish')
+    video1.play()
+
+    video1.addEventListener('ended', () => {
+      InterpolateVideo(loop, video1, video2)
+      HideShowBackButton(showCont)
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
+        InterpolateVideo(video2, video2, video3)
+        HideShowBackButton(showCont)
+        loop.style.zIndex = '-5'
+        loop.classList.remove('short-vanish')
+        loop.load()
+        loop.pause()
+        video3.addEventListener('ended', () => {
+          video3.classList.add('short-vanish')
+          loop.play()
+          Setup()
+          setTimeout(() => {
+            loop.style.zIndex = '-1'
+            video1.remove()
+            video2.remove()
+            video3.remove()
+            textContent.remove()
+            svg1.remove()
+            svg2.remove()
+            backButton.remove()
+          }, 1000)
+        })
+      })
+    })
+  }, 2000)
+})
+
+quickS_button.addEventListener('click', function (e) {
+  Setup()
+
+  createVideos(
+    null,
+    'quickS1_video',
+    null,
+    null,
+    'assets/Quick Start Up/1.mp4',
+    null
+  )
+  createContent(
+    '8%',
+    '75%',
+    'Quick Startup',
+    'The cell comespre-assembled on a common base for easy placement and start-up'
+  )
+
+  createSvg('13%', '79%', '35%', '75%', '35%', '75%')
+  createBackButton('43%', '2rem')
+
+  setTimeout(() => {
+    video2.play()
+
+    InterpolateVideo(loop, loop, video2)
+    HideShowBackButton(showCont)
+    setTimeout(() => {
+      loop.load()
+      loop.pause()
+      loop.style.zIndex = '-5'
+    }, 1000)
+
+    backButton.addEventListener('click', function () {
+      backButton.style.pointerEvents = 'none'
+      HideShowBackButton(showCont)
+      video2.classList.add('short-vanish')
+      loop.play()
+      loop.classList.remove('short-vanish')
+
+      setTimeout(() => {
+        Setup()
+        loop.style.zIndex = '-1'
+        video2.remove()
+        textContent.remove()
+        svg1.remove()
+        svg2.remove()
+        backButton.remove()
+      }, 1000)
+    })
   }, 2000)
 })
