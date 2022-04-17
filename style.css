@@ -41,6 +41,10 @@ video::-webkit-media-controls {
   z-index: 2;
   overflow: hidden;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 #compactFP_button {
   left: 8%;
   top: 10%;
@@ -171,7 +175,7 @@ video::-webkit-media-controls {
 
 .paragraph {
   color: white;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   transition: all ease-in-out 1s;
@@ -243,6 +247,11 @@ video::-webkit-media-controls {
   .warning {
     z-index: 100;
     opacity: 1;
+  }
+}
+@media screen and (max-width: 700px) {
+  * {
+    font-size: 0.8rem;
   }
 }
 
