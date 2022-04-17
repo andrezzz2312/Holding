@@ -360,21 +360,19 @@ fourCIDO_button.addEventListener('click', function (e) {
     'assets/Four Case Infeed Direction Options/3.mp4'
   )
   createContent(
-    '10%',
-    '30%',
+    '65%',
+    '40%',
     'Four Case Infeed Direction Options',
-    `The modular configuration offers various\ninfeed configurations to choose from to\nbetter accomodate your plant layout`
+    `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`
   )
-  createSvg('15%', '35%', '66%', '23%', '66%', '23%')
-  createBackButton('10%', '4rem')
+  createSvg('66%', '42%', '60%', '50%', '60%', '50%')
+  createBackButton('43%', '2rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
     video1.play()
     setTimeout(() => {
       HideShowBackButton(showCont)
-    }, 6000)
-    video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
 
       backButton.addEventListener('click', function () {
@@ -401,6 +399,6 @@ fourCIDO_button.addEventListener('click', function (e) {
           }, 1000)
         })
       })
-    })
+    }, 6000)
   }, 2000)
 })

@@ -157,12 +157,7 @@ video::-webkit-media-controls {
   flex-direction: column;
   z-index: 1;
   overflow: hidden;
-  white-space: pre;
-}
-
-#easilyAGP_text {
-  left: 10%;
-  top: 30%;
+  max-width: 20em;
 }
 
 .label {
@@ -271,13 +266,13 @@ video::-webkit-media-controls {
 
 @keyframes morph {
   0% {
-    r: 6;
+    r: 3;
   }
   50% {
-    r: 10;
+    r: 6;
   }
   100% {
-    r: 6;
+    r: 3;
   }
 }
 @keyframes gloss {
