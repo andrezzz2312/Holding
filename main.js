@@ -1,4 +1,3 @@
-const viewR_button = document.getElementById('viewR_button')
 const loop = document.getElementById('loopvideo')
 const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
