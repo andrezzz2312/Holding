@@ -37,7 +37,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
     video1 = document.createElement('video')
     video1.src = source1
     video1.muted = true
-    video1.setAttribute('webkit-playsinline', '')
+    video1.setAttribute('playsinline', '')
     video1.controls = false
     video1.setAttribute('id', id1)
     video1.classList.add('video')
@@ -49,7 +49,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
     video2.src = source2
     video2.loop = true
     video2.muted = true
-    video2.setAttribute('webkit-playsinline', '')
+    video2.setAttribute('playsinline', '')
     video2.controls = false
     video2.setAttribute('id', id2)
     video2.classList.add('video')
@@ -60,7 +60,7 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
     video3 = document.createElement('video')
     video3.src = source3
     video3.muted = true
-    video3.setAttribute('webkit-playsinline', '')
+    video3.setAttribute('playsinline', '')
     video3.controls = false
     video3.setAttribute('id', id3)
     video3.classList.add('video')
