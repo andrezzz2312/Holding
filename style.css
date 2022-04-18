@@ -287,13 +287,13 @@ a {
 
 @keyframes morph {
   0% {
-    r: 3;
+    /* r: 3; */
   }
   50% {
-    r: 6;
+    /* r: 6; */
   }
   100% {
-    r: 3;
+    /* r: 3; */
   }
 }
 @keyframes gloss {
