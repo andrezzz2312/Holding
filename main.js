@@ -15,6 +15,8 @@ let backButton = ''
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 
+var draw = SVG().addTo('#compactFP_circle').size('100%', '100%')
+
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
   videoToVanish.classList.add('short-vanish')

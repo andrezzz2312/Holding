@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <title>Holding</title>
   </head>
   <body>
@@ -29,16 +30,13 @@
           <line x1="10%" y1="10%" x2="30%" y2="30%" stroke="#f04923" />
         </svg>
         <svg id="compactFP_circle_svg" class="svg" width="100%" height="100%">
-          <circle id="my-circle" cx="30%" cy="30%" r="6" fill="#f04923" />
-          <animate
-            href="#my-circle"
-            attributeName="r"
-            from="3"
-            to="6"
-            values="3; 6; 3;"
-            keyTimes="0; 0.5; 1"
-            dur="1s"
-            repeatCount="indefinite"
+          <circle
+            class="svgDot"
+            id="compactFP_circle"
+            cx="30%"
+            cy="30%"
+            r="6px"
+            fill="#f04923"
           />
         </svg>
 
@@ -183,5 +181,6 @@
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
   <script src="main.js"></script>
 </html>

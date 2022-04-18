@@ -146,6 +146,8 @@ a {
   left: 30%;
   top: 30%;
   -webkit-animation: morph 1s ease-in-out infinite;
+  -moz-animation: morph 1s ease-in-out infinite;
+  -o-animation: morph 1s ease-in-out infinite;
   animation: morph 1s ease-in-out infinite;
 }
 
@@ -287,13 +289,13 @@ a {
 
 @keyframes morph {
   0% {
-    r: 3;
+    r: 3px;
   }
   50% {
-    r: 6;
+    r: 6px;
   }
   100% {
-    r: 3;
+    r: 3px;
   }
 }
 @keyframes gloss {
