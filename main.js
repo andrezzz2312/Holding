@@ -228,7 +228,7 @@ remoteAC_button.addEventListener('click', function (e) {
 
           loop.classList.remove('short-vanish')
           loop.load()
-
+          loop.pause()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -283,7 +283,7 @@ quickC_button.addEventListener('click', function (e) {
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
-
+          loop.pause()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -338,7 +338,7 @@ easilyAGP_button.addEventListener('click', function (e) {
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
-
+          loop.pause()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -393,7 +393,7 @@ fourCIDO_button.addEventListener('click', function (e) {
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
           loop.load()
-
+          loop.pause()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
