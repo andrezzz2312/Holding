@@ -89,7 +89,8 @@ a {
   top: 90%;
 }
 .back::before,
-.button::before {
+.button::before,
+.backButton::before {
   content: '';
   position: absolute;
   top: 0;
@@ -116,12 +117,10 @@ a {
 .label::before {
   content: '';
   position: absolute;
-
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-
   background: linear-gradient(
     35deg,
     transparent,
@@ -174,31 +173,34 @@ a {
 
 .text {
   position: absolute;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: start;
   z-index: 1;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  max-width: 20rem;
+  top: 6rem;
+  left: 6rem;
 }
-
-.label {
-  border: none;
-  padding: 0.5rem 1rem;
-  width: fit-content;
-  color: white;
+.labelCont {
+  position: relative;
   background-color: #ff4500;
+  padding: 0.5rem 1rem;
   overflow: hidden;
+  text-align: center;
+  color: white;
+}
+.pCont {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  max-width: 25rem;
+}
+.label {
 }
 
 .paragraph {
-  color: white;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2;
-  transition: all ease-in-out 1s;
-  overflow: hidden;
 }
 
 .backButton {
@@ -269,7 +271,7 @@ a {
   }
 }
 @media screen and (max-width: 700px) {
-  .text {
+  .pCont {
     max-width: 20rem;
   }
 
@@ -278,14 +280,11 @@ a {
   }
 }
 @media screen and (min-width: 1000px) {
-  .text {
+  .pCont {
     font-size: 1.5rem;
     max-width: 27rem;
   }
-  .label {
-    font-size: 1.5rem;
-  }
-  .paragraph {
+  .labelCont {
     font-size: 1.5rem;
   }
   .backButton {

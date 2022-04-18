@@ -14,6 +14,8 @@ let svg2 = ''
 let backButton = ''
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
+let labelCont = document.querySelector('.labelCont')
+let pCont = document.querySelector('.pCont')
 
 var draw = SVG().addTo('#compactFP_circle').size('100%', '100%')
 
@@ -77,6 +79,12 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
   textContent.style.left = textLeft
   textContent.style.top = textTop
 
+  labelCont = document.createElement('div')
+  labelCont.classList.add('labelCont')
+
+  pCont = document.createElement('div')
+  pCont.classList.add('pCont')
+
   showCont.appendChild(textContent)
 
   label = document.createElement('label')
@@ -84,11 +92,12 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
   label.textContent = labelTitle
 
   paragraph = document.createElement('p')
-  paragraph.classList.add('paragraph')
   paragraph.textContent = pContent
 
-  textContent.appendChild(label)
-  textContent.appendChild(paragraph)
+  textContent.appendChild(labelCont)
+  textContent.appendChild(pCont)
+  labelCont.appendChild(label)
+  pCont.appendChild(paragraph)
 }
 
 function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
