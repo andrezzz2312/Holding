@@ -221,14 +221,14 @@ remoteAC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
 
           loop.classList.remove('short-vanish')
-          loop.load()
-          loop.pause()
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -277,13 +277,14 @@ quickC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
-          loop.pause()
+
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -332,13 +333,14 @@ easilyAGP_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
-          loop.pause()
+
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -387,13 +389,13 @@ fourCIDO_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
-          loop.pause()
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
