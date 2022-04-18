@@ -74,7 +74,7 @@ a {
 }
 #fourCIDO_button {
   left: 63%;
-  top: 70%;
+  top: 72%;
 }
 #maximumU_button {
   left: 60%;
@@ -89,7 +89,8 @@ a {
   top: 90%;
 }
 .back::before,
-.button::before {
+.button::before,
+.backButton::before {
   content: '';
   position: absolute;
   top: 0;
@@ -112,13 +113,14 @@ a {
   animation: gloss 2s ease-in-out infinite;
   overflow: hidden;
 }
-.compactFP_label::before {
+
+.label::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
-  height: 30%;
+  height: 100%;
   background: linear-gradient(
     35deg,
     transparent,
@@ -146,6 +148,8 @@ a {
   left: 30%;
   top: 30%;
   -webkit-animation: morph 1s ease-in-out infinite;
+  -moz-animation: morph 1s ease-in-out infinite;
+  -o-animation: morph 1s ease-in-out infinite;
   animation: morph 1s ease-in-out infinite;
 }
 
@@ -169,29 +173,34 @@ a {
 
 .text {
   position: absolute;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: start;
   z-index: 1;
-  overflow: hidden;
-  max-width: 20em;
+  top: 6rem;
+  left: 6rem;
 }
-
-.label {
-  border: none;
-  padding: 0.5rem 1rem;
-  width: fit-content;
-  color: white;
+.labelCont {
+  position: relative;
   background-color: #ff4500;
+  padding: 0.5rem 1rem;
   overflow: hidden;
+  text-align: center;
+  color: white;
+}
+.pCont {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  max-width: 25rem;
+}
+.label {
 }
 
 .paragraph {
-  color: white;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2;
-  transition: all ease-in-out 1s;
-  overflow: hidden;
 }
 
 .backButton {
@@ -262,8 +271,27 @@ a {
   }
 }
 @media screen and (max-width: 700px) {
+  .pCont {
+    max-width: 20rem;
+  }
+
   * {
     font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .pCont {
+    font-size: 1.5rem;
+    max-width: 27rem;
+  }
+  .labelCont {
+    font-size: 1.5rem;
+  }
+  .backButton {
+    font-size: 1.5rem;
+  }
+  .button {
+    font-size: 1.5rem;
   }
 }
 
@@ -287,13 +315,13 @@ a {
 
 @keyframes morph {
   0% {
-    r: 3;
+    r: 3px;
   }
   50% {
-    r: 6;
+    r: 6px;
   }
   100% {
-    r: 3;
+    r: 3px;
   }
 }
 @keyframes gloss {

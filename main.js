@@ -14,6 +14,10 @@ let svg2 = ''
 let backButton = ''
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
+let labelCont = document.querySelector('.labelCont')
+let pCont = document.querySelector('.pCont')
+
+var draw = SVG().addTo('#compactFP_circle').size('100%', '100%')
 
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -75,6 +79,12 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
   textContent.style.left = textLeft
   textContent.style.top = textTop
 
+  labelCont = document.createElement('div')
+  labelCont.classList.add('labelCont')
+
+  pCont = document.createElement('div')
+  pCont.classList.add('pCont')
+
   showCont.appendChild(textContent)
 
   label = document.createElement('label')
@@ -82,11 +92,12 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
   label.textContent = labelTitle
 
   paragraph = document.createElement('p')
-  paragraph.classList.add('paragraph')
   paragraph.textContent = pContent
 
-  textContent.appendChild(label)
-  textContent.appendChild(paragraph)
+  textContent.appendChild(labelCont)
+  textContent.appendChild(pCont)
+  labelCont.appendChild(label)
+  pCont.appendChild(paragraph)
 }
 
 function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
@@ -115,7 +126,7 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
 
   circle.setAttribute('cx', cx)
   circle.setAttribute('cy', cy)
-  circle.setAttribute('r', '6%')
+  circle.setAttribute('r', '6px')
   circle.setAttribute('fill', '#f04923')
   circle.classList.add('svgDot')
   svg2.appendChild(circle)
@@ -219,14 +230,14 @@ remoteAC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
 
           loop.classList.remove('short-vanish')
-          loop.load()
-
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -257,7 +268,7 @@ quickC_button.addEventListener('click', function (e) {
   )
   createContent(
     '10%',
-    '10%',
+    '20%',
     ' Quick Changeover',
     `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`
   )
@@ -275,13 +286,14 @@ quickC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
 
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -330,13 +342,14 @@ easilyAGP_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
 
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -385,13 +398,13 @@ fourCIDO_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowBackButton(showCont)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
-
+          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
