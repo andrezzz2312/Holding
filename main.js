@@ -119,7 +119,7 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
   circle.setAttribute('cy', cy)
   circle.setAttribute('r', '6px')
   circle.setAttribute('fill', '#f04923')
-  circle.setAttribute('id', 'showCont_circle')
+  circle.classList.add('svgDot')
   svg2.appendChild(circle)
 
   // circleAnimation = document.createElementNS(
