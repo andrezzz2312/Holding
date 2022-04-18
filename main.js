@@ -13,36 +13,35 @@ let svg2 = ''
 let backButton = ''
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
-let labelCont = document.querySelector('.labelCont')
-let pCont = document.querySelector('.pCont')
 
-var draw = SVG().addTo('#compactFP_circle').size('100%', '100%')
-
+// Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
   videoToVanish.classList.add('short-vanish')
   videoToPlay.play()
 }
 
+// Vanish/show the main buttons and svgs
 function Setup() {
   mainButtons.classList.toggle('show')
   mainButtons.classList.toggle('vanish')
 }
 
-function HideShowBackButton(container) {
-  container.classList.remove('hidden')
-  container.classList.toggle('short-vanish')
-  container.classList.toggle('show')
+// Vanish/show when a main button is pressed
+function HideShowCont() {
+  showCont.classList.remove('hidden')
+  showCont.classList.toggle('short-vanish')
+  showCont.classList.toggle('show')
 }
 
-function createVideos(id1, id2, id3, source1, source2, source3) {
+// Create the video tags storaged in videoContainer div
+function createVideos(source1, source2, source3) {
   if (source1) {
     video1 = document.createElement('video')
     video1.src = source1
     video1.muted = true
     video1.setAttribute('playsinline', '')
     video1.controls = false
-    video1.setAttribute('id', id1)
     video1.classList.add('video')
     video1.style.zIndex = '-2'
     videoHolder.appendChild(video1)
@@ -54,7 +53,6 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
     video2.muted = true
     video2.setAttribute('playsinline', '')
     video2.controls = false
-    video2.setAttribute('id', id2)
     video2.classList.add('video')
     video2.style.zIndex = '-3'
     videoHolder.appendChild(video2)
@@ -65,23 +63,23 @@ function createVideos(id1, id2, id3, source1, source2, source3) {
     video3.muted = true
     video3.setAttribute('playsinline', '')
     video3.controls = false
-    video3.setAttribute('id', id3)
     video3.classList.add('video')
     video3.style.zIndex = '-4'
     videoHolder.appendChild(video3)
   }
 }
 
+// Create the content storaged in showCont div / Left and Top position of the container div, label title and content of the paragraph
 function createContent(textLeft, textTop, labelTitle, pContent) {
   textContent = document.createElement('div')
   textContent.classList.add('text')
   textContent.style.left = textLeft
   textContent.style.top = textTop
 
-  labelCont = document.createElement('div')
+  const labelCont = document.createElement('div')
   labelCont.classList.add('labelCont')
 
-  pCont = document.createElement('div')
+  const pCont = document.createElement('div')
   pCont.classList.add('pCont')
 
   showCont.appendChild(textContent)
@@ -99,6 +97,7 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
   pCont.appendChild(paragraph)
 }
 
+// Create the svgs for the showCont div / 4 first parameters are the x and y points of the first and second point respectively, last 2 are the x and y points of the dot
 function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
   svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
@@ -143,13 +142,12 @@ function createBackButton(left, bottom) {
   showCont.appendChild(backButton)
 }
 
+////////// Event Listeners for the main buttons //////////
+
 compactFP_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'compactFP1_video',
-    'compactFP2_video',
-    'compactFP3_video',
     'assets/Compact FootPrint/1.mp4',
     'assets/Compact FootPrint/2.mp4',
     'assets/Compact FootPrint/3.mp4'
@@ -169,11 +167,11 @@ compactFP_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont)
+      HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
+        HideShowCont()
         loop.style.zIndex = '-5'
         loop.classList.remove('short-vanish')
         loop.load()
@@ -202,9 +200,6 @@ remoteAC_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'remoteAC1_video',
-    'remoteAC2_video',
-    'remoteAC3_video',
     'assets/Remote Access Capability - Quick Changeover/1.mp4',
     'assets/Remote Access Capability - Quick Changeover/2.mp4',
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
@@ -224,19 +219,19 @@ remoteAC_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont)
+      HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
-        loop.load()
-        loop.pause()
+        HideShowCont()
+
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
 
           loop.classList.remove('short-vanish')
-          loop.play()
+          loop.load()
+
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -258,16 +253,13 @@ quickC_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'remoteAC1_video',
-    'remoteAC2_video',
-    'remoteAC3_video',
     'assets/Remote Access Capability - Quick Changeover/1.mp4',
     'assets/Remote Access Capability - Quick Changeover/2.mp4',
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
   createContent(
     '10%',
-    '20%',
+    '10%',
     ' Quick Changeover',
     `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`
   )
@@ -280,19 +272,18 @@ quickC_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont)
+      HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
-        loop.load()
-        loop.pause()
+        HideShowCont()
+
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
+          loop.load()
 
-          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -314,9 +305,6 @@ easilyAGP_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'easilyAGP1_video',
-    'easilyAGP2_video',
-    'easilyAGP3_video',
     'assets/Easily Accessible Grace Port/1.mp4',
     'assets/Easily Accessible Grace Port/2.mp4',
     'assets/Easily Accessible Grace Port/3.mp4'
@@ -336,19 +324,18 @@ easilyAGP_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont)
+      HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
-        loop.load()
-        loop.pause()
+        HideShowCont()
+
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
+          loop.load()
 
-          loop.play()
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -370,9 +357,6 @@ fourCIDO_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'fourCIDO1_video',
-    'fourCIDO2_video',
-    'fourCIDO3_video',
     'assets/Four Case Infeed Direction Options/1.mp4',
     'assets/Four Case Infeed Direction Options/2.mp4',
     'assets/Four Case Infeed Direction Options/3.mp4'
@@ -390,20 +374,20 @@ fourCIDO_button.addEventListener('click', function (e) {
     loop.classList.add('short-vanish')
     video1.play()
     setTimeout(() => {
-      HideShowBackButton(showCont)
+      HideShowCont()
       InterpolateVideo(loop, video1, video2)
 
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
-        loop.load()
-        loop.pause()
+        HideShowCont()
+
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.play()
+          loop.load()
+
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'
@@ -425,9 +409,6 @@ maximumU_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'Maximum Uptime1_video',
-    'Maximum Uptime2_video',
-    'Maximum Uptime3_video',
     'assets/Maximum Uptime/1.mp4',
     'assets/Maximum Uptime/2.mp4',
     'assets/Maximum Uptime/3.mp4'
@@ -447,11 +428,11 @@ maximumU_button.addEventListener('click', function (e) {
 
     video1.addEventListener('ended', () => {
       InterpolateVideo(loop, video1, video2)
-      HideShowBackButton(showCont)
+      HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
-        HideShowBackButton(showCont)
+        HideShowCont()
         loop.style.zIndex = '-5'
         loop.classList.remove('short-vanish')
         loop.load()
@@ -479,14 +460,7 @@ maximumU_button.addEventListener('click', function (e) {
 quickS_button.addEventListener('click', function (e) {
   Setup()
 
-  createVideos(
-    null,
-    'quickS1_video',
-    null,
-    null,
-    'assets/Quick Start Up/1.mp4',
-    null
-  )
+  createVideos(null, 'assets/Quick Start Up/1.mp4', null)
   createContent(
     '8%',
     '75%',
@@ -501,7 +475,7 @@ quickS_button.addEventListener('click', function (e) {
     video2.play()
 
     InterpolateVideo(loop, loop, video2)
-    HideShowBackButton(showCont)
+    HideShowCont()
     setTimeout(() => {
       loop.load()
       loop.pause()
@@ -510,7 +484,7 @@ quickS_button.addEventListener('click', function (e) {
 
     backButton.addEventListener('click', function () {
       backButton.style.pointerEvents = 'none'
-      HideShowBackButton(showCont)
+      HideShowCont()
       video2.classList.add('short-vanish')
       loop.play()
       loop.classList.remove('short-vanish')
