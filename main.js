@@ -117,26 +117,26 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
 
   circle.setAttribute('cx', cx)
   circle.setAttribute('cy', cy)
-  circle.setAttribute('r', '6')
+  circle.setAttribute('r', '6px')
   circle.setAttribute('fill', '#f04923')
   circle.setAttribute('id', 'showCont_circle')
   svg2.appendChild(circle)
 
-  circleAnimation = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'animate'
-  )
-  circleAnimation.setAttribute('href', '#showCont_circle')
-  circleAnimation.setAttribute('attributeName', 'r')
-  circleAnimation.setAttribute('from', '3')
-  circleAnimation.setAttribute('to', '6')
-  circleAnimation.setAttribute('begin', '1s')
-  circleAnimation.setAttribute('values', '3; 6; 3')
-  circleAnimation.setAttribute('keyTimes', '0; 0.5; 1')
-  circleAnimation.setAttribute('dur', '1s')
-  circleAnimation.setAttribute('repeatCount', 'indefinite')
+  // circleAnimation = document.createElementNS(
+  //   'http://www.w3.org/2000/svg',
+  //   'animate'
+  // )
+  // circleAnimation.setAttribute('href', '#showCont_circle')
+  // circleAnimation.setAttribute('attributeName', 'r')
+  // circleAnimation.setAttribute('from', '3')
+  // circleAnimation.setAttribute('to', '6')
+  // circleAnimation.setAttribute('begin', '1s')
+  // circleAnimation.setAttribute('values', '3; 6; 3')
+  // circleAnimation.setAttribute('keyTimes', '0; 0.5; 1')
+  // circleAnimation.setAttribute('dur', '1s')
+  // circleAnimation.setAttribute('repeatCount', 'indefinite')
 
-  svg2.appendChild(circleAnimation)
+  // svg2.appendChild(circleAnimation)
 
   showCont.appendChild(svg2)
   showCont.appendChild(svg1)
