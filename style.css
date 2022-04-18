@@ -145,6 +145,7 @@ a {
   position: absolute;
   left: 30%;
   top: 30%;
+  -webkit-animation: morph 1s ease-in-out infinite;
   animation: morph 1s ease-in-out infinite;
 }
 
