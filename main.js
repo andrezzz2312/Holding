@@ -259,7 +259,7 @@ quickC_button.addEventListener('click', function (e) {
   )
   createContent(
     '10%',
-    '10%',
+    '20%',
     ' Quick Changeover',
     `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`
   )
