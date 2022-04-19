@@ -267,11 +267,7 @@ p {
   }
 }
 
-/* @media screen and (orientation: portrait) {
-  
-} */
-
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
   .pCont {
     max-width: 20rem;
   }
@@ -279,7 +275,7 @@ p {
   * {
     font-size: 0.8rem;
   }
-}
+} */
 @media screen and (max-width: 1000px) {
   .pCont {
     max-width: 15rem;
@@ -295,13 +291,13 @@ p {
     max-width: 27rem;
   }
   .label {
-    font-size: 1;
+    font-size: 1.3rem;
   }
   p {
-    font-size: 1;
+    font-size: 1.3rem;
   }
   .backButton {
-    font-size: 1;
+    font-size: 1rem;
   }
   .button {
     font-size: 1rem;
