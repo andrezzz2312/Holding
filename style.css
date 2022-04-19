@@ -62,11 +62,11 @@ a {
   color: white;
 }
 #compactFP_button {
-  left: 12%;
+  left: 14%;
   top: 10%;
 }
 #remoteAC_button {
-  left: 37%;
+  left: 40%;
   top: 6%;
 }
 #quickC_button {
@@ -86,8 +86,8 @@ a {
   top: 85%;
 }
 #quickS_button {
-  left: 7%;
-  top: 76.5%;
+  left: 8%;
+  top: 77%;
 }
 .viewR_container {
   position: absolute;
@@ -102,7 +102,6 @@ a {
 }
 #viewR_button {
   border: none;
-  padding: 0.4rem 0.7rem;
   color: white;
   background-color: #ff4500;
   cursor: pointer;
