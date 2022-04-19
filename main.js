@@ -24,7 +24,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 // Vanish/show the main buttons and svgs
 function Setup() {
   mainButtons.classList.toggle('show')
-  mainButtons.classList.toggle('vanish')
+  mainButtons.classList.toggle('short-vanish')
 }
 
 // Vanish/show when a main button is pressed
@@ -193,7 +193,7 @@ compactFP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 2000)
+  }, 700)
 })
 
 remoteAC_button.addEventListener('click', function (e) {
@@ -246,7 +246,7 @@ remoteAC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 2000)
+  }, 700)
 })
 
 quickC_button.addEventListener('click', function (e) {
@@ -298,7 +298,7 @@ quickC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 2000)
+  }, 700)
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
@@ -315,7 +315,7 @@ easilyAGP_button.addEventListener('click', function (e) {
     'Easily Accesible Grace Port',
     `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`
   )
-  createSvg('15%', '35%', '66%', '23%', '66%', '23%')
+  createSvg('15%', '34%', '66%', '28%', '66%', '28%')
   createBackButton('10%', '4rem')
 
   setTimeout(() => {
@@ -327,8 +327,10 @@ easilyAGP_button.addEventListener('click', function (e) {
       HideShowCont()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
         HideShowCont()
+        setTimeout(() => {
+          InterpolateVideo(video2, video2, video3)
+        }, 500)
 
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
@@ -337,6 +339,7 @@ easilyAGP_button.addEventListener('click', function (e) {
           loop.load()
 
           Setup()
+
           setTimeout(() => {
             loop.style.zIndex = '-1'
             video1.remove()
@@ -350,7 +353,7 @@ easilyAGP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 2000)
+  }, 700)
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
@@ -402,7 +405,7 @@ fourCIDO_button.addEventListener('click', function (e) {
         })
       })
     }, 6000)
-  }, 2000)
+  }, 700)
 })
 
 maximumU_button.addEventListener('click', function (e) {
@@ -416,8 +419,8 @@ maximumU_button.addEventListener('click', function (e) {
   createContent(
     '58%',
     '35%',
-    'Compact FootPrint',
-    'Smallest, fully contained, palletizing unit for a single pallet and load/unload function utlizing a pallet jack or forklift'
+    'Maximum Uptime',
+    'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements'
   )
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
   createBackButton('43%', '2rem')
@@ -454,7 +457,7 @@ maximumU_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 2000)
+  }, 700)
 })
 
 quickS_button.addEventListener('click', function (e) {
@@ -480,7 +483,7 @@ quickS_button.addEventListener('click', function (e) {
       loop.load()
       loop.pause()
       loop.style.zIndex = '-5'
-    }, 1000)
+    }, 700)
 
     backButton.addEventListener('click', function () {
       backButton.style.pointerEvents = 'none'
@@ -497,7 +500,7 @@ quickS_button.addEventListener('click', function (e) {
         svg1.remove()
         svg2.remove()
         backButton.remove()
-      }, 1000)
+      }, 700)
     })
-  }, 2000)
+  }, 700)
 })
