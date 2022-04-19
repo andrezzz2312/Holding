@@ -11,6 +11,8 @@ let svg1 = ''
 let circle = ''
 let svg2 = ''
 let backButton = ''
+let backButtonContainer = ''
+let x = window.matchMedia('(max-height: 450px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 
@@ -70,8 +72,16 @@ function createVideos(source1, source2, source3) {
 }
 
 // Create the content storaged in showCont div / Left and Top position of the container div, label title and content of the paragraph
-function createContent(textLeft, textTop, labelTitle, pContent) {
+function createContent(
+  textLeft,
+  textTop,
+  labelTitle,
+  pContent,
+  pContentId,
+  textId
+) {
   textContent = document.createElement('div')
+  textContent.setAttribute('id', textId ? textId : '')
   textContent.classList.add('text')
   textContent.style.left = textLeft
   textContent.style.top = textTop
@@ -81,6 +91,7 @@ function createContent(textLeft, textTop, labelTitle, pContent) {
 
   const pCont = document.createElement('div')
   pCont.classList.add('pCont')
+  pCont.setAttribute('id', pContentId ? pContentId : 'a')
 
   showCont.appendChild(textContent)
 
@@ -112,6 +123,7 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
   line.setAttribute('x2', lx2)
   line.setAttribute('y2', ly2)
   line.setAttribute('stroke', '#f04923')
+
   svg1.appendChild(line)
 
   svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
@@ -137,9 +149,11 @@ function createBackButton(left, bottom) {
   backButton = document.createElement('button')
   backButton.classList.add('backButton')
   backButton.textContent = 'Back to Features'
-  backButton.style.left = left
-  backButton.style.bottom = bottom
-  showCont.appendChild(backButton)
+
+  backButtonContainer = document.createElement('div')
+  backButtonContainer.classList.add('viewR_container')
+  backButtonContainer.appendChild(backButton)
+  showCont.appendChild(backButtonContainer)
 }
 
 ////////// Event Listeners for the main buttons //////////
@@ -156,7 +170,7 @@ compactFP_button.addEventListener('click', function (e) {
     '10%',
     '17%',
     'Compact FootPrint',
-    'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift'
+    'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
   )
   createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
   createBackButton('42%', '2rem')
@@ -188,7 +202,8 @@ compactFP_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -205,12 +220,13 @@ remoteAC_button.addEventListener('click', function (e) {
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
   createContent(
-    '5%',
-    '20%',
+    '12%',
+    '24%',
     ' Remote Access Capability',
-    `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`
+    `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`,
+    'remoteAC_p'
   )
-  createSvg('15%', '22%', '60%', '25%', '60%', '25%')
+  createSvg('15%', '27%', '60%', '25%', '60%', '25%')
   createBackButton('5%', '4rem')
 
   setTimeout(() => {
@@ -241,7 +257,8 @@ remoteAC_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -258,12 +275,13 @@ quickC_button.addEventListener('click', function (e) {
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
   createContent(
-    '10%',
-    '10%',
+    '12%',
+    '30%',
     ' Quick Changeover',
-    `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`
+    `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
+    'quickC_p'
   )
-  createSvg('15%', '22%', '60%', '25%', '60%', '25%')
+  createSvg('19%', '34%', '60%', '25%', '60%', '25%')
   createBackButton('10%', '4rem')
 
   setTimeout(() => {
@@ -293,7 +311,8 @@ quickC_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -313,7 +332,8 @@ easilyAGP_button.addEventListener('click', function (e) {
     '10%',
     '30%',
     'Easily Accesible Grace Port',
-    `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`
+    `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`,
+    'easilyAGP_p'
   )
   createSvg('15%', '34%', '66%', '28%', '66%', '28%')
   createBackButton('10%', '4rem')
@@ -348,7 +368,8 @@ easilyAGP_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -368,7 +389,8 @@ fourCIDO_button.addEventListener('click', function (e) {
     '65%',
     '40%',
     'Four Case Infeed Direction Options',
-    `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`
+    `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
+    'fourCIDO_p'
   )
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
   createBackButton('43%', '2rem')
@@ -400,7 +422,8 @@ fourCIDO_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -420,7 +443,8 @@ maximumU_button.addEventListener('click', function (e) {
     '58%',
     '35%',
     'Maximum Uptime',
-    'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements'
+    'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
+    'maximumU_p'
   )
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
   createBackButton('43%', '2rem')
@@ -452,7 +476,8 @@ maximumU_button.addEventListener('click', function (e) {
             textContent.remove()
             svg1.remove()
             svg2.remove()
-            backButton.remove()
+            backButtonContainer.remove()
+            backButtonContainer.remove
           }, 500)
         })
       })
@@ -468,10 +493,16 @@ quickS_button.addEventListener('click', function (e) {
     '8%',
     '75%',
     'Quick Startup',
-    'The cell comespre-assembled on a common base for easy placement and start-up'
+    'The cell comespre-assembled on a common base for easy placement and start-up',
+    'quickS_p',
+    'quickS_text'
   )
+  if (x.matches) {
+    createSvg('13%', '30%', '35%', '75%', '35%', '75%')
+  } else {
+    createSvg('13%', '79%', '35%', '75%', '35%', '75%')
+  }
 
-  createSvg('13%', '79%', '35%', '75%', '35%', '75%')
   createBackButton('43%', '2rem')
 
   setTimeout(() => {
@@ -495,13 +526,11 @@ quickS_button.addEventListener('click', function (e) {
       setTimeout(() => {
         Setup()
         loop.style.zIndex = '-1'
-        video1.remove()
         video2.remove()
-        video3.remove()
         textContent.remove()
         svg1.remove()
         svg2.remove()
-        backButton.remove()
+        backButtonContainer.remove()
       }, 500)
     })
   }, 700)

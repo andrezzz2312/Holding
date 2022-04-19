@@ -11,15 +11,20 @@
   font-size: 0.9rem;
   font-weight: 600;
 }
-
-button {
-  font-size: 0.8rem;
-}
 body {
   position: absolute;
   height: 100%;
   width: 100%;
 }
+
+button {
+  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.viewR_a {
+  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
+}
+
 .videoContainer > video {
   position: absolute;
   top: 0;
@@ -27,7 +32,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: fill;
-
   justify-self: center;
   align-self: center;
 }
@@ -83,7 +87,7 @@ a {
 }
 #maximumU_button {
   left: 60%;
-  top: 85%;
+  top: 78%;
 }
 #quickS_button {
   left: 8%;
@@ -95,9 +99,9 @@ a {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 4rem;
+  height: 5%;
   bottom: 0%;
-
+  margin-bottom: 1rem;
   left: 0;
 }
 #viewR_button {
@@ -184,25 +188,51 @@ a {
 .labelCont {
   position: relative;
   background-color: #ff4500;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   overflow: hidden;
   text-align: center;
   color: white;
 }
 .pCont {
-  padding: 0.8rem;
+  padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  max-width: 27%;
 }
 p {
-  max-width: 23rem;
+  font-weight: 500;
+  font-size: calc(8px + (20 - 8) * ((100vw - 320px) / (1440 - 320)));
+}
+.label {
+  font-weight: 600;
+  font-size: calc(8px + (20 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
+#remoteAC_p {
+  max-width: 33%;
+}
+#quickC_p {
+  max-width: 40%;
+}
+#easilyAGP_p {
+  max-width: 40%;
+}
+#easilyAGP_p {
+  max-width: 40%;
+}
+#fourCIDO_p {
+  max-width: 28%;
+}
+#maximumU_p {
+  max-width: 29%;
+}
+#quickS_p {
+  max-width: 32%;
+}
 .backButton {
-  position: absolute;
-  width: fit-content;
+  position: relative;
   border: none;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 1.5rem;
   color: white;
   background-color: #ff4500;
   cursor: pointer;
@@ -215,9 +245,6 @@ p {
   left: 10%;
 }
 
-#showCont {
-  /* transition: all 3s ease-in-out; */
-}
 .vanish {
   animation: vanish 1s ease-in-out forwards;
   pointer-events: none;
@@ -259,64 +286,18 @@ p {
   font-size: 3rem;
   color: #ff4500;
 }
-
+@media (max-height: 450px) and (orientation: landscape) {
+  #quickS_text {
+    left: 7% !important;
+    top: 30% !important;
+  }
+}
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {
   .warning {
     z-index: 100;
     opacity: 1;
   }
 }
-
-/* 
- 
-@media screen and (max-width: 1000px) {
-  .pCont {
-    max-width: 15rem;
-  }
-
-  * {
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-}
-@media screen and (min-width: 1000px) {
-  .p {
-    max-width: 27rem;
-  }
-  .label {
-    font-size: 1.3rem;
-  }
-  p {
-    font-size: 1.3rem;
-  }
-  .backButton {
-    font-size: 3rem;
-  }
-  .button {
-    font-size: 1rem;
-  }
-  a {
-    font-size: 1rem;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .label {
-    font-size: 4rem;
-  }
-  p {
-    font-size: 3.5rem;
-    max-width: 55rem;
-  }
-  .backButton {
-    font-size: 3.5em;
-  } 
-  .button {
-    font-size: 1rem;
-  }
-  a {
-    font-size: 1rem;
-  }
-}  */
 
 @keyframes vanish {
   0% {
