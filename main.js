@@ -154,12 +154,12 @@ compactFP_button.addEventListener('click', function (e) {
   )
   createContent(
     '10%',
-    '10%',
+    '17%',
     'Compact FootPrint',
     'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift'
   )
-  createSvg('12%', '12%', '50%', '41%', '50%', '41%')
-  createBackButton('10%', '4rem')
+  createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
+  createBackButton('42%', '2rem')
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
