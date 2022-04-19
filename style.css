@@ -62,16 +62,16 @@ a {
   color: white;
 }
 #compactFP_button {
-  left: 8%;
-  top: 9%;
+  left: 11%;
+  top: 10%;
 }
 #remoteAC_button {
-  left: 32%;
-  top: 5%;
+  left: 35.5%;
+  top: 6%;
 }
 #quickC_button {
   left: 65%;
-  top: 10%;
+  top: 11%;
 }
 #easilyAGP_button {
   left: 77%;
@@ -86,12 +86,13 @@ a {
   top: 85%;
 }
 #quickS_button {
-  left: 4%;
+  left: 6%;
   top: 76%;
 }
 #viewR_button {
   left: 38%;
   top: 90%;
+  padding: 0.4rem 2rem;
 }
 .back::before,
 .button::before,
@@ -186,7 +187,7 @@ p {
   position: absolute;
   width: fit-content;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.5rem;
   color: white;
   background-color: #ff4500;
   cursor: pointer;
