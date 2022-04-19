@@ -286,10 +286,16 @@ p {
   font-size: 3rem;
   color: #ff4500;
 }
-@media (max-height: 450px) and (orientation: landscape) {
+@media (max-height: 550px) and (orientation: landscape) {
   #quickS_text {
     left: 7% !important;
     top: 30% !important;
+  }
+  #fourCIDO_p {
+    max-width: 33%;
+  }
+  #fourCIDO_label {
+    max-width: 23%;
   }
 }
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {

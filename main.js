@@ -12,7 +12,7 @@ let circle = ''
 let svg2 = ''
 let backButton = ''
 let backButtonContainer = ''
-let x = window.matchMedia('(max-height: 450px)')
+let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 
@@ -78,7 +78,8 @@ function createContent(
   labelTitle,
   pContent,
   pContentId,
-  textId
+  textId,
+  labelId
 ) {
   textContent = document.createElement('div')
   textContent.setAttribute('id', textId ? textId : '')
@@ -87,6 +88,7 @@ function createContent(
   textContent.style.top = textTop
 
   const labelCont = document.createElement('div')
+  labelCont.setAttribute('id', labelId ? labelId : '')
   labelCont.classList.add('labelCont')
 
   const pCont = document.createElement('div')
@@ -390,7 +392,9 @@ fourCIDO_button.addEventListener('click', function (e) {
     '40%',
     'Four Case Infeed Direction Options',
     `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
-    'fourCIDO_p'
+    'fourCIDO_p',
+    'fourCIDO_text',
+    'fourCIDO_label'
   )
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
   createBackButton('43%', '2rem')
