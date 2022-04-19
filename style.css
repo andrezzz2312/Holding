@@ -8,7 +8,7 @@
 
 * {
   font-family: 'Roboto', sans-serif;
-  /* font-size: 0.9rem; */
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -62,11 +62,11 @@ a {
   color: white;
 }
 #compactFP_button {
-  left: 11%;
+  left: 12%;
   top: 10%;
 }
 #remoteAC_button {
-  left: 35.5%;
+  left: 37%;
   top: 6%;
 }
 #quickC_button {
@@ -86,11 +86,11 @@ a {
   top: 85%;
 }
 #quickS_button {
-  left: 6%;
-  top: 76%;
+  left: 7%;
+  top: 76.5%;
 }
 #viewR_button {
-  left: 38%;
+  left: 38.5%;
   top: 90%;
   padding: 0.4rem 2rem;
 }
@@ -276,17 +276,17 @@ p {
   }
 }
 @media screen and (min-width: 1000px) {
-  .pCont {
+  .p {
     max-width: 27rem;
   }
   .label {
-    font-size: 1.3rem;
+    font-size: 1;
   }
   p {
-    font-size: 1.3rem;
+    font-size: 1;
   }
   .backButton {
-    font-size: 1.3rem;
+    font-size: 1;
   }
   .button {
     font-size: 1rem;
