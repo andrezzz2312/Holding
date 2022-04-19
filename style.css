@@ -267,15 +267,8 @@ p {
   }
 }
 
-/* @media screen and (max-width: 700px) {
-  .pCont {
-    max-width: 20rem;
-  }
-
-  * {
-    font-size: 0.8rem;
-  }
-} */
+/* 
+ 
 @media screen and (max-width: 1000px) {
   .pCont {
     max-width: 15rem;
@@ -297,7 +290,7 @@ p {
     font-size: 1.3rem;
   }
   .backButton {
-    font-size: 1rem;
+    font-size: 3rem;
   }
   .button {
     font-size: 1rem;
@@ -306,6 +299,24 @@ p {
     font-size: 1rem;
   }
 }
+@media screen and (min-width: 1500px) {
+  .label {
+    font-size: 4rem;
+  }
+  p {
+    font-size: 3.5rem;
+    max-width: 55rem;
+  }
+  .backButton {
+    font-size: 3.5em;
+  } 
+  .button {
+    font-size: 1rem;
+  }
+  a {
+    font-size: 1rem;
+  }
+}  */
 
 @keyframes vanish {
   0% {
