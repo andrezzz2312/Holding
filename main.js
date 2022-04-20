@@ -240,7 +240,7 @@ compactFP_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     })
@@ -276,13 +276,14 @@ remoteAC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowCont()
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
 
           loop.classList.remove('short-vanish')
-          loop.load()
+          loop.play()
 
           Setup()
           setTimeout(() => {
@@ -295,7 +296,7 @@ remoteAC_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     })
@@ -346,12 +347,13 @@ quickC_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowCont()
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
+          loop.play()
 
           Setup()
           setTimeout(() => {
@@ -364,7 +366,7 @@ quickC_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     })
@@ -402,12 +404,13 @@ easilyAGP_button.addEventListener('click', function (e) {
         setTimeout(() => {
           InterpolateVideo(video2, video2, video3)
         }, 500)
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
+          loop.play()
 
           Setup()
 
@@ -421,7 +424,7 @@ easilyAGP_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     })
@@ -459,12 +462,13 @@ fourCIDO_button.addEventListener('click', function (e) {
         backButton.style.pointerEvents = 'none'
         InterpolateVideo(video2, video2, video3)
         HideShowCont()
-
+        loop.load()
+        loop.pause()
         video3.addEventListener('ended', () => {
           loop.style.zIndex = '-5'
           video3.classList.add('short-vanish')
           loop.classList.remove('short-vanish')
-          loop.load()
+          loop.play()
 
           Setup()
           setTimeout(() => {
@@ -477,7 +481,7 @@ fourCIDO_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     }, 6000)
@@ -531,7 +535,7 @@ maximumU_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 900)
+          }, 500)
         })
       })
     })
@@ -595,7 +599,7 @@ quickS_button.addEventListener('click', function (e) {
         svg1.remove()
         svg2.remove()
         backButtonContainer.remove()
-      }, 900)
+      }, 500)
     })
   }, 1000)
 })
