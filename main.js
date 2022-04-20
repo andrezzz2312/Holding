@@ -240,7 +240,7 @@ compactFP_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     })
@@ -295,7 +295,7 @@ remoteAC_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     })
@@ -364,7 +364,7 @@ quickC_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     })
@@ -421,7 +421,7 @@ easilyAGP_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     })
@@ -477,7 +477,7 @@ fourCIDO_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     }, 6000)
@@ -531,7 +531,7 @@ maximumU_button.addEventListener('click', function (e) {
             svg2.remove()
             backButtonContainer.remove()
             backButtonContainer.remove
-          }, 700)
+          }, 900)
         })
       })
     })
@@ -595,7 +595,7 @@ quickS_button.addEventListener('click', function (e) {
         svg1.remove()
         svg2.remove()
         backButtonContainer.remove()
-      }, 700)
+      }, 900)
     })
   }, 1000)
 })
