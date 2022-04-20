@@ -35,7 +35,9 @@ button {
   justify-self: center;
   align-self: center;
 }
-
+.disabled > button {
+  pointer-events: none;
+}
 video::-webkit-media-controls {
   display: none !important;
 }
@@ -70,7 +72,7 @@ a {
   top: 10%;
 }
 #remoteAC_button {
-  left: 40%;
+  left: 36%;
   top: 6%;
 }
 #quickC_button {
@@ -105,6 +107,7 @@ a {
   left: 0;
 }
 #viewR_button {
+  position: relative;
   border: none;
   color: white;
   background-color: #ff4500;
@@ -116,7 +119,8 @@ a {
 .back::before,
 .button::before,
 .backButton::before,
-.label::before {
+.label::before,
+#viewR_button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -193,6 +197,7 @@ a {
   text-align: center;
   color: white;
 }
+
 .pCont {
   padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.7);
@@ -201,11 +206,11 @@ a {
 }
 p {
   font-weight: 500;
-  font-size: calc(8px + (20 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 .label {
   font-weight: 600;
-  font-size: calc(8px + (20 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 #remoteAC_p {
@@ -287,10 +292,6 @@ p {
   color: #ff4500;
 }
 @media (max-height: 550px) and (orientation: landscape) {
-  #quickS_text {
-    left: 7% !important;
-    top: 30% !important;
-  }
   #fourCIDO_p {
     max-width: 33%;
   }

@@ -26,6 +26,8 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 // Vanish/show the main buttons and svgs
 function Setup() {
   mainButtons.classList.toggle('show')
+  mainButtons.classList.toggle('disabled')
+
   mainButtons.classList.toggle('short-vanish')
 }
 
@@ -44,6 +46,7 @@ function createVideos(source1, source2, source3) {
     video1.muted = true
     video1.setAttribute('playsinline', '')
     video1.controls = false
+    video1.preload = true
     video1.classList.add('video')
     video1.style.zIndex = '-2'
     videoHolder.appendChild(video1)
@@ -55,6 +58,7 @@ function createVideos(source1, source2, source3) {
     video2.muted = true
     video2.setAttribute('playsinline', '')
     video2.controls = false
+    video2.preload = true
     video2.classList.add('video')
     video2.style.zIndex = '-3'
     videoHolder.appendChild(video2)
@@ -63,6 +67,7 @@ function createVideos(source1, source2, source3) {
     video3 = document.createElement('video')
     video3.src = source3
     video3.muted = true
+    video3.preload = true
     video3.setAttribute('playsinline', '')
     video3.controls = false
     video3.classList.add('video')
@@ -276,14 +281,29 @@ quickC_button.addEventListener('click', function (e) {
     'assets/Remote Access Capability - Quick Changeover/2.mp4',
     'assets/Remote Access Capability - Quick Changeover/3.mp4'
   )
-  createContent(
-    '12%',
-    '30%',
-    ' Quick Changeover',
-    `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
-    'quickC_p'
-  )
-  createSvg('19%', '34%', '60%', '25%', '60%', '25%')
+  if (x.matches) {
+    createContent(
+      '12%',
+      '20%',
+      ' Quick Changeover',
+      `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
+      'quickC_p'
+    )
+  } else {
+    createContent(
+      '12%',
+      '30%',
+      ' Quick Changeover',
+      `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
+      'quickC_p'
+    )
+  }
+  if (x.matches) {
+    createSvg('19%', '24%', '60%', '25%', '60%', '25%')
+  } else {
+    createSvg('19%', '34%', '60%', '25%', '60%', '25%')
+  }
+
   createBackButton('10%', '4rem')
 
   setTimeout(() => {
@@ -493,14 +513,25 @@ quickS_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(null, 'assets/Quick Start Up/1.mp4', null)
-  createContent(
-    '8%',
-    '75%',
-    'Quick Startup',
-    'The cell comespre-assembled on a common base for easy placement and start-up',
-    'quickS_p',
-    'quickS_text'
-  )
+
+  if (x.matches) {
+    createContent(
+      '7%',
+      '30%',
+      'Quick Startup',
+      'The cell comespre-assembled on a common base for easy placement and start-up',
+      'quickS_p'
+    )
+  } else {
+    createContent(
+      '8%',
+      '75%',
+      'Quick Startup',
+      'The cell comespre-assembled on a common base for easy placement and start-up',
+      'quickS_p'
+    )
+  }
+
   if (x.matches) {
     createSvg('13%', '30%', '35%', '75%', '35%', '75%')
   } else {
