@@ -244,7 +244,7 @@ compactFP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 700)
+  }, 1000)
 })
 
 remoteAC_button.addEventListener('click', function (e) {
@@ -299,7 +299,7 @@ remoteAC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 700)
+  }, 1000)
 })
 
 quickC_button.addEventListener('click', function (e) {
@@ -368,7 +368,7 @@ quickC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 700)
+  }, 1000)
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
@@ -425,7 +425,7 @@ easilyAGP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 700)
+  }, 1000)
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
@@ -481,7 +481,7 @@ fourCIDO_button.addEventListener('click', function (e) {
         })
       })
     }, 6000)
-  }, 700)
+  }, 1000)
 })
 
 maximumU_button.addEventListener('click', function (e) {
@@ -535,7 +535,7 @@ maximumU_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 700)
+  }, 1000)
 })
 
 quickS_button.addEventListener('click', function (e) {
@@ -578,7 +578,7 @@ quickS_button.addEventListener('click', function (e) {
       loop.load()
       loop.pause()
       loop.style.zIndex = '-5'
-    }, 700)
+    }, 1000)
 
     backButton.addEventListener('click', function () {
       backButton.style.pointerEvents = 'none'
@@ -597,5 +597,5 @@ quickS_button.addEventListener('click', function (e) {
         backButtonContainer.remove()
       }, 500)
     })
-  }, 700)
+  }, 1000)
 })

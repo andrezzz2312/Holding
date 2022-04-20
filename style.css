@@ -242,6 +242,7 @@ p {
   cursor: pointer;
   z-index: 50;
   overflow: hidden;
+  font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 #easilyAGP_backButton {
