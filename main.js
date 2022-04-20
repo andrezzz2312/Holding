@@ -55,7 +55,6 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 function Setup() {
   mainButtons.classList.toggle('show')
   mainButtons.classList.toggle('disabled')
-
   mainButtons.classList.toggle('short-vanish')
 }
 
