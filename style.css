@@ -18,11 +18,11 @@ body {
 }
 
 button {
-  font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .viewR_a {
-  font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .videoContainer > video {
@@ -206,11 +206,11 @@ a {
 }
 p {
   font-weight: 500;
-  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 .label {
   font-weight: 600;
-  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 #remoteAC_p {
