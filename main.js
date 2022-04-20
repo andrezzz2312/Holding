@@ -75,6 +75,7 @@ function createVideos(source1, source2, source3) {
     video1.preload = true
     video1.classList.add('video')
     video1.style.zIndex = '-2'
+    video1.load()
     video1.pause()
     videoHolder.appendChild(video1)
   }
@@ -88,6 +89,7 @@ function createVideos(source1, source2, source3) {
     video2.preload = true
     video2.classList.add('video')
     video2.style.zIndex = '-3'
+    video2.load()
     video2.pause()
     videoHolder.appendChild(video2)
   }
@@ -100,6 +102,7 @@ function createVideos(source1, source2, source3) {
     video3.controls = false
     video3.classList.add('video')
     video3.style.zIndex = '-4'
+    video3.load()
     video3.pause()
     videoHolder.appendChild(video3)
   }
