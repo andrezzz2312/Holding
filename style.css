@@ -72,7 +72,7 @@ a {
   top: 10%;
 }
 #remoteAC_button {
-  left: 36%;
+  left: 35.5%;
   top: 6%;
 }
 #quickC_button {
@@ -205,11 +205,11 @@ a {
 }
 p {
   font-weight: 500;
-  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 .label {
   font-weight: 600;
-  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (18 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 #remoteAC_p {
@@ -242,7 +242,7 @@ p {
   cursor: pointer;
   z-index: 50;
   overflow: hidden;
-  font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 #easilyAGP_backButton {
@@ -297,6 +297,15 @@ p {
   }
   #fourCIDO_label {
     max-width: 23%;
+  }
+  p {
+    font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+  }
+  .label {
+    font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+  }
+  .backButton {
+    font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
   }
 }
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {
