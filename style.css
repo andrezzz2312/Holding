@@ -72,7 +72,8 @@ a {
   top: 10%;
 }
 #remoteAC_button {
-  left: 35.5%;
+  /* left: 35.5%; */
+  right: 51.5%;
   top: 6%;
 }
 #quickC_button {
