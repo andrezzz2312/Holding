@@ -41,7 +41,6 @@ function Preload() {
     preloadedVideo.src = videos[i]
     preloadedVideo.remove()
   }
-  loop.play()
 }
 
 // Set which videos are going to swap
