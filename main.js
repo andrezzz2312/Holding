@@ -244,7 +244,7 @@ compactFP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 900)
+  }, 700)
 })
 
 remoteAC_button.addEventListener('click', function (e) {
@@ -299,7 +299,7 @@ remoteAC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 900)
+  }, 700)
 })
 
 quickC_button.addEventListener('click', function (e) {
@@ -368,7 +368,7 @@ quickC_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 900)
+  }, 700)
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
@@ -425,7 +425,7 @@ easilyAGP_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 900)
+  }, 700)
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
@@ -481,7 +481,7 @@ fourCIDO_button.addEventListener('click', function (e) {
         })
       })
     }, 6000)
-  }, 900)
+  }, 700)
 })
 
 maximumU_button.addEventListener('click', function (e) {
@@ -535,7 +535,7 @@ maximumU_button.addEventListener('click', function (e) {
         })
       })
     })
-  }, 900)
+  }, 700)
 })
 
 quickS_button.addEventListener('click', function (e) {
@@ -597,5 +597,5 @@ quickS_button.addEventListener('click', function (e) {
         backButtonContainer.remove()
       }, 500)
     })
-  }, 900)
+  }, 700)
 })
