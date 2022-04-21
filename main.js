@@ -39,7 +39,8 @@ function Preload() {
   for (let i = 0; i < videos.length; i++) {
     const preloadedVideo = document.createElement('video')
     preloadedVideo.src = videos[i]
-    preloadedVideo.remove()
+    preloadedVideo.preload='auto'
+    
   }
 }
 
