@@ -15,6 +15,7 @@ const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 const loaderIcon = document.querySelector('.loader')
 let videosCont= ''
+let counterVideos = 0
 
 
 function Preload() {
@@ -40,9 +41,8 @@ function Preload() {
   for (let i = 0; i < videos.length; i++) {
     const preloadedVideo = document.createElement('video')
     preloadedVideo.src = videos[i]
-    preloadedVideo.preload='metadata'
-    preloadedVideo.muted = 'true'
-   
+    preloadedVideo.preload='auto'
+    preloadedVideo.muted = 'true'   
     preloadedVideo.classList.add('videos')
     preloadedVideo.playsInline= 'true'
     preloadedVideo.controls = false
@@ -51,17 +51,9 @@ function Preload() {
   }
  
   videosCont = document.querySelectorAll('.videos')
-  for (let i = 0; i < videosCont.length; i++) {
-    videosCont[i].addEventListener('canplay',()=>{
 
-    })
   }
-  loaderIcon.classList.add('short-vanish')
-  setTimeout(() => {
-    loaderIcon.style.zIndex='-100'
-  }, 500);
-}
-
+          
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -215,8 +207,22 @@ function createBackButton(left, bottom) {
   showCont.appendChild(backButtonContainer)
 }
 
+
 Preload()
 
+
+window.addEventListener("load", function(event) {
+  videosCont[15].addEventListener('canplay',()=> {
+    loaderIcon.classList.add('short-vanish')
+    setTimeout(() => {
+      loaderIcon.style.zIndex='-100'
+    }, 500);
+  })
+  
+});
+ 
+
+ 
 ////////// Event Listeners for the main buttons //////////
 function SetVideos(videosCont1,videosCont2,videosCont3){
 if (videosCont1) {
