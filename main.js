@@ -40,9 +40,9 @@ function Preload() {
   for (let i = 0; i < videos.length; i++) {
     const preloadedVideo = document.createElement('video')
     preloadedVideo.src = videos[i]
-    preloadedVideo.preload='auto'
+    preloadedVideo.preload='metadata'
     preloadedVideo.muted = 'true'
-    // preloadedVideo.setAttribute('id',i+' video')
+   
     preloadedVideo.classList.add('videos')
     preloadedVideo.playsInline= 'true'
     preloadedVideo.controls = false
