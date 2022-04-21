@@ -213,10 +213,18 @@ Preload()
 
 ////////// Event Listeners for the main buttons //////////
 function SetVideos(videosCont1,videosCont2,videosCont3){
-
+if (videosCont1) {
   videosCont1.style.zIndex='-2'
+}
+if (videosCont2) {
   videosCont2.style.zIndex='-3'
+}
+if (videosCont3) {
   videosCont3.style.zIndex='-4'
+}
+ 
+
+ 
 
 }
 function ResetVideos(){
@@ -602,7 +610,7 @@ quickS_button.addEventListener('click', function (e) {
   createBackButton('43%', '2rem')
 
   setTimeout(() => {
-    videosCont.play()
+    videosCont[15].play()
 
     InterpolateVideo(loop, loop, videosCont[15])
     HideShowCont()
