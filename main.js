@@ -15,6 +15,7 @@ let backButtonContainer = ''
 let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
+const loaderIcon = document.querySelector('.loader')
 
 function Preload() {
   const videos = [
@@ -42,6 +43,10 @@ function Preload() {
     preloadedVideo.preload='auto'
     
   }
+  loaderIcon.classList.add('short-vanish')
+  setTimeout(() => {
+    loaderIcon.style.zIndex='-100'
+  }, 500);
 }
 
 // Set which videos are going to swap
