@@ -40,7 +40,7 @@ function Preload() {
   for (let i = 0; i < videos.length; i++) {
     const preloadedVideo = document.createElement('video')
     preloadedVideo.src = videos[i]
-    preloadedVideo.preload='auto'
+    preloadedVideo.preload='metadata'
     preloadedVideo.muted = 'true'
    
     preloadedVideo.classList.add('videos')
@@ -49,7 +49,13 @@ function Preload() {
     preloadedVideo.style.zIndex='-100'
     videoHolder.appendChild(preloadedVideo)
   }
+ 
   videosCont = document.querySelectorAll('.videos')
+  for (let i = 0; i < videosCont.length; i++) {
+    videosCont[i].addEventListener('canplay',()=>{
+
+    })
+  }
   loaderIcon.classList.add('short-vanish')
   setTimeout(() => {
     loaderIcon.style.zIndex='-100'
@@ -233,7 +239,7 @@ function ResetVideos(){
     videosCont[i].classList.remove('short-vanish')
  
 videosCont[i].currentTime = 0;
-videosCont[i].pause();
+
 
 
 
@@ -272,8 +278,7 @@ SetVideos(videosCont[0],videosCont[1],videosCont[2])
         loop.style.zIndex = '-5'
         loop.classList.remove('short-vanish')
         loop.load()
-        loop.pause()
-   
+        loop.pause()   
         videosCont[2].addEventListener('ended', (e) => {
           e.stopImmediatePropagation();
           videosCont[2].classList.add('short-vanish')
@@ -281,9 +286,7 @@ SetVideos(videosCont[0],videosCont[1],videosCont[2])
           Setup()
           setTimeout(() => {
             loop.style.zIndex = '-1'            
-            textContent.remove()
-            
-            
+            textContent.remove()                     
             ResetVideos()
             svg1.remove()
             svg2.remove()
