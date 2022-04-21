@@ -48,10 +48,11 @@ function Preload() {
     preloadedVideo.controls = false
     preloadedVideo.style.zIndex='-100'
     videoHolder.appendChild(preloadedVideo)
+    setTimeout(() => {
+      
+    }, 250);
   }
- 
-  videosCont = document.querySelectorAll('.videos')
-
+   videosCont = document.querySelectorAll('.videos')
   }
           
 // Set which videos are going to swap
@@ -212,12 +213,12 @@ Preload()
 
 
 window.addEventListener("load", function(event) {
-  videosCont[15].addEventListener('canplay',()=> {
+  
     loaderIcon.classList.add('short-vanish')
     setTimeout(() => {
       loaderIcon.style.zIndex='-100'
     }, 500);
-  })
+  
   
 });
  
@@ -236,20 +237,12 @@ if (videosCont3) {
 }
  
 
- 
-
 }
 function ResetVideos(){
   for (let i = 0; i < videosCont.length; i++) {
     videosCont[i].style.zIndex='-100'   
     videosCont[i].classList.remove('short-vanish')
- 
 videosCont[i].currentTime = 0;
-
-
-
-
-     
   }
   
 }
