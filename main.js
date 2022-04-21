@@ -198,6 +198,10 @@ function createBackButton(left, bottom) {
 
 Preload()
 
+console.log(loop.videoHeight);
+console.log(loop.videoWidth);
+
+
 ////////// Event Listeners for the main buttons //////////
 
 compactFP_button.addEventListener('click', function (e) {
