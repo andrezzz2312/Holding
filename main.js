@@ -10,7 +10,7 @@ let circle = ''
 let svg2 = ''
 let backButton = ''
 let backButtonContainer = ''
-let x = window.matchMedia('(max-height: 700px)')
+let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 const loaderIcon = document.querySelector('.loader')
@@ -40,7 +40,7 @@ function Preload() {
   for (let i = 0; i < videos.length; i++) {
     const preloadedVideo = document.createElement('video')
     preloadedVideo.src = videos[i]
-    preloadedVideo.preload='metadata'
+    preloadedVideo.preload='auto'
     preloadedVideo.muted = 'true'
    
     preloadedVideo.classList.add('videos')
