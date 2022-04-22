@@ -20,6 +20,8 @@ const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
+let counter = 0
+let value = 0
 
 function Preload() {
   const videos = [
@@ -276,30 +278,24 @@ function getImgSizeInfo(img) {
 }
 
  loop.addEventListener('loadedmetadata', function(e){
-
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
   ArreglarLineas() 
   })
 
 
-if (loop.readyState >= 2) {
- 
+if (loop.readyState >= 2) { 
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
-  ArreglarLineas() 
- 
+  ArreglarLineas()  
 }
 
-window.addEventListener("orientationchange", function() {
-  
+window.addEventListener("orientationchange", function() {  
   setTimeout(() => {    
     containVideoWidth = getImgSizeInfo(loop).width
     containVideoHeight = getImgSizeInfo(loop).height 
   ArreglarLineas() 
-  }, 100);
-
-  
+  }, 100);  
 })
 
 ////////// Event Listeners for the main buttons //////////
@@ -320,37 +316,60 @@ compactFP_button.addEventListener('click', function (e) {
   )
   createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
   createBackButton()
-
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
-
-    video1.addEventListener('ended', () => {
-      InterpolateVideo(loop, video1, video2)
-      HideShowCont()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-        loop.style.zIndex = '-5'
-        loop.classList.remove('short-vanish')
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
-          loop.play()
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''            
-          }, 300)
+  
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  })
+ 
+function check1(counter){ 
+  clearcheck = setInterval(repeatcheck,500,counter)  
+  function repeatcheck (counter){
+    if (value===3){      
+      clearInterval(clearcheck)
+      value=0
+      counter=0
+      setTimeout(() => {
+        loop.classList.add('short-vanish')
+        video1.play()    
+        video1.addEventListener('ended', () => {
+          InterpolateVideo(loop, video1, video2)
+          HideShowCont()
+          backButton.addEventListener('click', function () {
+            backButton.style.pointerEvents = 'none'
+            InterpolateVideo(video2, video2, video3)
+            HideShowCont()
+            loop.style.zIndex = '-5'
+            loop.classList.remove('short-vanish')
+            loop.load()
+            loop.pause()
+            video3.addEventListener('ended', () => {
+              video3.classList.add('short-vanish')
+              loop.play()
+              Setup()
+              setTimeout(() => {
+                loop.style.zIndex = '-1'
+                video1.remove()
+                video2.remove()
+                video3.remove()
+                showCont.innerHTML=''            
+              }, 300)
+            })
+          })
         })
-      })
-    })
-  }, 1000)
+      }, 1000)
+    }
+  }
+}
+
+
+  
 })
 
 remoteAC_button.addEventListener('click', function (e) {
@@ -371,38 +390,62 @@ remoteAC_button.addEventListener('click', function (e) {
   createSvg('15%', '27%', '60%', '25%', '60%', '25%')
   createBackButton()
 
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
-
-    video1.addEventListener('ended', () => {
-      InterpolateVideo(loop, video1, video2)
-      HideShowCont()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-
-          loop.classList.remove('short-vanish')
-          loop.play()
-
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''
-          }, 300)
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  
+  })
+ 
+function check1(counter){ 
+  clearcheck = setInterval(repeatcheck,500,counter)  
+  function repeatcheck (counter){
+    if (value===3){      
+      clearInterval(clearcheck)
+      value=0
+      counter=0
+      setTimeout(() => {
+        loop.classList.add('short-vanish')
+        video1.play()
+    
+        video1.addEventListener('ended', () => {
+          InterpolateVideo(loop, video1, video2)
+          HideShowCont()
+          backButton.addEventListener('click', function () {
+            backButton.style.pointerEvents = 'none'
+            loop.load()
+            loop.pause()
+            InterpolateVideo(video2, video2, video3)
+            HideShowCont()
+            
+            video3.addEventListener('ended', () => {
+              loop.style.zIndex = '-5'
+              video3.classList.add('short-vanish')    
+              loop.classList.remove('short-vanish')
+              loop.play()
+    
+              Setup()
+              setTimeout(() => {
+                loop.style.zIndex = '-1'
+                // video1.remove()
+                // video2.remove()
+                // video3.remove()
+                showCont.innerHTML=''
+              }, 500)
+            })
+          })
         })
-      })
-    })
-  }, 1000)
+      }, 1000)
+    
+    }
+  }
+}
+  
 })
 
 quickC_button.addEventListener('click', function (e) {
@@ -438,37 +481,62 @@ quickC_button.addEventListener('click', function (e) {
 
   createBackButton()
 
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  
+  })
 
-    video1.addEventListener('ended', () => {
-      InterpolateVideo(loop, video1, video2)
-      HideShowCont()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-          loop.classList.remove('short-vanish')
-          loop.play()
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (value===3){      
+        clearInterval(clearcheck)
+        value=0
+        counter=0
 
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''
-          }, 300)
-        })
-      })
-    })
-  }, 1000)
+        setTimeout(() => {
+          loop.classList.add('short-vanish')
+          video1.play()
+      
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              loop.load()
+              loop.pause()
+              InterpolateVideo(video2, video2, video3)
+              HideShowCont()
+              
+              video3.addEventListener('ended', () => {
+                loop.style.zIndex = '-5'
+                video3.classList.add('short-vanish')
+                loop.classList.remove('short-vanish')
+                loop.play()
+      
+                Setup()
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML=''
+                }, 300)
+              })
+            })
+          })
+        }, 1000)
+      }
+    }
+  }    
+  
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
@@ -489,40 +557,66 @@ easilyAGP_button.addEventListener('click', function (e) {
   createSvg('15%', '34%', '66%', '28%', '66%', '28%')
   createBackButton()
 
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
 
-    video1.addEventListener('ended', () => {
-      InterpolateVideo(loop, video1, video2)
-      HideShowCont()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        HideShowCont()
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  
+  })
+
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (value===3){      
+        clearInterval(clearcheck)
+        value=0
+        counter=0
+
         setTimeout(() => {
-          InterpolateVideo(video2, video2, video3)
-        }, 500)
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-          loop.classList.remove('short-vanish')
-          loop.play()
-
-          Setup()
-
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''
-          }, 300)
-        })
-      })
-    })
-  }, 1000)
+          loop.classList.add('short-vanish')
+          video1.play()
+      
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              HideShowCont()
+              loop.load()
+              loop.pause()
+              setTimeout(() => {
+                InterpolateVideo(video2, video2, video3)
+              }, 500)
+              
+              video3.addEventListener('ended', () => {
+                loop.style.zIndex = '-5'
+                video3.classList.add('short-vanish')
+                loop.classList.remove('short-vanish')
+                loop.play()
+      
+                Setup()
+      
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML=''
+                }, 500)
+              })
+            })
+          })
+        }, 1000)
+      }
+    }
+  }
+  
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
@@ -545,37 +639,63 @@ fourCIDO_button.addEventListener('click', function (e) {
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
   createBackButton()
 
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
-    setTimeout(() => {
-      HideShowCont()
-      InterpolateVideo(loop, video1, video2)
 
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-          loop.classList.remove('short-vanish')
-          loop.play()
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  
+  })
 
-          Setup()
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (value===3){      
+        clearInterval(clearcheck)
+        value=0
+        counter=0
+
+        setTimeout(() => {
+          loop.classList.add('short-vanish')
+          video1.play()
           setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''
-          }, 300)
-        })
-      })
-    }, 6000)
-  }, 1000)
+            HideShowCont()
+            InterpolateVideo(loop, video1, video2)
+      
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              loop.load()
+              loop.pause()
+              InterpolateVideo(video2, video2, video3)
+              HideShowCont()
+              
+              video3.addEventListener('ended', () => {
+                loop.style.zIndex = '-5'
+                video3.classList.add('short-vanish')
+                loop.classList.remove('short-vanish')
+                loop.play()
+      
+                Setup()
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML=''
+                }, 300)
+              })
+            })
+          }, 6000)
+        }, 1000)
+      }
+    }
+  }
+  
 })
 
 maximumU_button.addEventListener('click', function (e) {
@@ -596,36 +716,60 @@ maximumU_button.addEventListener('click', function (e) {
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
   createBackButton()
 
-  setTimeout(() => {
-    loop.classList.add('short-vanish')
-    video1.play()
 
-    video1.addEventListener('ended', () => {
-      InterpolateVideo(loop, video1, video2)
-      HideShowCont()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-        loop.style.zIndex = '-5'
-        loop.classList.remove('short-vanish')
-        loop.load()
-        loop.pause()
-        video3.addEventListener('ended', () => {
-          video3.classList.add('short-vanish')
-          loop.play()
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML=''
-          }, 300)
-        })
-      })
-    })
-  }, 1000)
+  video1.addEventListener('canplaythrough', function(e){
+    value = value+1   
+    check1(value) 
+  })
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+  video3.addEventListener('canplaythrough', function(e){
+    value = value+1
+  
+  })
+
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (value===3){      
+        clearInterval(clearcheck)
+        value=0
+        counter=0
+        
+        setTimeout(() => {
+          loop.classList.add('short-vanish')
+          video1.play()
+
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              InterpolateVideo(video2, video2, video3)
+              HideShowCont()
+              loop.style.zIndex = '-5'
+              loop.classList.remove('short-vanish')
+              loop.load()
+              loop.pause()
+              video3.addEventListener('ended', () => {
+                video3.classList.add('short-vanish')
+                loop.play()
+                Setup()
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML=''
+                }, 300)
+              })
+            })
+          })
+        }, 1000)        
+      }
+    }
+  }
 })
 
 quickS_button.addEventListener('click', function (e) {
@@ -659,30 +803,48 @@ quickS_button.addEventListener('click', function (e) {
 
   createBackButton()
 
-  setTimeout(() => {
-    video2.play()
 
-    InterpolateVideo(loop, loop, video2)
-    HideShowCont()
-    setTimeout(() => {
-      loop.load()
-      loop.pause()
-      loop.style.zIndex = '-5'
-    }, 1000)
 
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      HideShowCont()
-      video2.classList.add('short-vanish')
-      loop.play()
-      loop.classList.remove('short-vanish')
+  video2.addEventListener('canplaythrough', function(e){
+    value = value+1   
+  })
+ 
 
-      setTimeout(() => {
-        Setup()
-        loop.style.zIndex = '-1'
-        video2.remove()
-        showCont.innerHTML=''
-      }, 300)
-    })
-  }, 1000)
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (value===1){      
+        clearInterval(clearcheck)
+        value=0
+        counter=0        
+        setTimeout(() => {
+          video2.play()
+      
+          InterpolateVideo(loop, loop, video2)
+          HideShowCont()
+          setTimeout(() => {
+            loop.load()
+            loop.pause()
+            loop.style.zIndex = '-5'
+          }, 1000)
+      
+          backButton.addEventListener('click', function () {
+            backButton.style.pointerEvents = 'none'
+            HideShowCont()
+            video2.classList.add('short-vanish')
+            loop.play()
+            loop.classList.remove('short-vanish')
+      
+            setTimeout(() => {
+              Setup()
+              loop.style.zIndex = '-1'
+              video2.remove()
+              showCont.innerHTML=''
+            }, 300)
+          })
+        }, 1000)
+      }
+    }
+  }
+        
 })
