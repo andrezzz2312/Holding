@@ -37,11 +37,11 @@ body {
 }
 
 button {
-  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(5px + (16 - 5) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .viewR_a {
-  font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(5px + (16 - 5) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .centerContainer {
@@ -56,6 +56,7 @@ button {
 }
 .buttonContainer {
   position: relative;
+ 
 }
 .svgContainer {
   display: flex;
@@ -103,7 +104,8 @@ a {
   color: white;
 }
 #compactFP_button {
-  left: 14%;
+  
+  right: 76%;
   top: 10%;
 }
 #remoteAC_button {

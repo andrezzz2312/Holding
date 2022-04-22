@@ -11,7 +11,6 @@ let paragraph = ''
 let line = ''
 let svg1 = ''
 let circle = ''
-let svg2 = ''
 let backButton = ''
 let backButtonContainer = ''
 let containVideoWidth = ''
@@ -231,8 +230,8 @@ function createBackButton() {
 }
 
 function ArreglarLineas() {
-  for (let i = 0; i < svgContainer.length; i++) {
-    console.log('cycle')
+  
+  for (let i = 0; i < svgContainer.length; i++) {    
     svgContainer[i].style.width = containVideoWidth + 'px'
     svgContainer[i].style.height = containVideoHeight + 'px'
   }
@@ -276,11 +275,31 @@ function getImgSizeInfo(img) {
   )
 }
 
-loop.addEventListener('loadedmetadata', function (e) {
-  console.log(getImgSizeInfo(e.target))
-  containVideoWidth = getImgSizeInfo(e.target).width
-  containVideoHeight = getImgSizeInfo(e.target).height
-  ArreglarLineas()
+ loop.addEventListener('loadedmetadata', function(e){
+
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas() 
+  })
+
+
+if (loop.readyState >= 2) {
+ 
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas() 
+ 
+}
+
+window.addEventListener("orientationchange", function() {
+  
+  setTimeout(() => {    
+    containVideoWidth = getImgSizeInfo(loop).width
+    containVideoHeight = getImgSizeInfo(loop).height 
+  ArreglarLineas() 
+  }, 100);
+
+  
 })
 
 ////////// Event Listeners for the main buttons //////////
@@ -326,10 +345,7 @@ compactFP_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''            
           }, 300)
         })
       })
@@ -381,10 +397,7 @@ remoteAC_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''
           }, 300)
         })
       })
@@ -450,10 +463,7 @@ quickC_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''
           }, 300)
         })
       })
@@ -507,10 +517,7 @@ easilyAGP_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''
           }, 300)
         })
       })
@@ -563,10 +570,7 @@ fourCIDO_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''
           }, 300)
         })
       })
@@ -616,10 +620,7 @@ maximumU_button.addEventListener('click', function (e) {
             video1.remove()
             video2.remove()
             video3.remove()
-            textContent.remove()
-            svg1.remove()
-            svg2.remove()
-            backButtonContainer.remove()
+            showCont.innerHTML=''
           }, 300)
         })
       })
@@ -680,10 +681,7 @@ quickS_button.addEventListener('click', function (e) {
         Setup()
         loop.style.zIndex = '-1'
         video2.remove()
-        textContent.remove()
-        svg1.remove()
-        svg2.remove()
-        backButtonContainer.remove()
+        showCont.innerHTML=''
       }, 300)
     })
   }, 1000)
