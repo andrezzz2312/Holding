@@ -1,4 +1,3 @@
-
 const loop = document.getElementById('loopvideo')
 const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
@@ -198,9 +197,8 @@ function createBackButton(left, bottom) {
 
 Preload()
 
-console.log(loop.videoHeight);
-console.log(loop.videoWidth);
-
+console.log(loop.offsetHeight)
+console.log(loop.offsetWidth)
 
 ////////// Event Listeners for the main buttons //////////
 
