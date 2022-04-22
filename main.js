@@ -279,9 +279,9 @@ compactFP_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Compact FootPrint/1.mp4',
-    'assets/Compact FootPrint/2.mp4',
-    'assets/Compact FootPrint/3.mp4'
+    'assets/Compact FootPrint/1.mp4#t=0.1',
+    'assets/Compact FootPrint/2.mp4#t=0.1',
+    'assets/Compact FootPrint/3.mp4#t=0.1'
   )
   createContent(
     '10%',
@@ -355,9 +355,9 @@ remoteAC_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4'
+    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
+    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
+    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
   )
   createContent(
     '12%',
@@ -432,9 +432,9 @@ quickC_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4'
+    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
+    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
+    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
   )
   if (x.matches) {
     createContent(
@@ -524,9 +524,9 @@ easilyAGP_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Easily Accessible Grace Port/1.mp4',
-    'assets/Easily Accessible Grace Port/2.mp4',
-    'assets/Easily Accessible Grace Port/3.mp4'
+    'assets/Easily Accessible Grace Port/1.mp4#t=0.1',
+    'assets/Easily Accessible Grace Port/2.mp4#t=0.1',
+    'assets/Easily Accessible Grace Port/3.mp4#t=0.1'
   )
   createContent(
     '10%',
@@ -605,9 +605,9 @@ fourCIDO_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Four Case Infeed Direction Options/1.mp4',
-    'assets/Four Case Infeed Direction Options/2.mp4',
-    'assets/Four Case Infeed Direction Options/3.mp4'
+    'assets/Four Case Infeed Direction Options/1.mp4#t=0.1',
+    'assets/Four Case Infeed Direction Options/2.mp4#t=0.1',
+    'assets/Four Case Infeed Direction Options/3.mp4#t=0.1'
   )
   createContent(
     '65%',
@@ -685,9 +685,9 @@ maximumU_button.addEventListener('click', function (e) {
   Setup()
 
   createVideos(
-    'assets/Maximum Uptime/1.mp4',
-    'assets/Maximum Uptime/2.mp4',
-    'assets/Maximum Uptime/3.mp4'
+    'assets/Maximum Uptime/1.mp4#t=0.1',
+    'assets/Maximum Uptime/2.mp4#t=0.1',
+    'assets/Maximum Uptime/3.mp4#t=0.1'
   )
   createContent(
     '58%',
@@ -759,7 +759,7 @@ function check1(counter){
 quickS_button.addEventListener('click', function (e) {
   Setup()
 
-  createVideos(null, 'assets/Quick Start Up/1.mp4', null)
+  createVideos(null, 'assets/Quick Start Up/1.mp4#t=0.1', null)
 
   if (x.matches) {
     createContent(
