@@ -23,32 +23,7 @@ const buttonContainer = document.querySelectorAll('.buttonContainer')
 let counter = 0
 let value = 0
 
-function Preload() {
-  const videos = [
-    'assets/Compact FootPrint/1.mp4',
-    'assets/Compact FootPrint/2.mp4',
-    'assets/Compact FootPrint/3.mp4',
-    'assets/Remote Access Capability - Quick Changeover/1.mp4',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4',
-    'assets/Easily Accessible Grace Port/1.mp4',
-    'assets/Easily Accessible Grace Port/2.mp4',
-    'assets/Easily Accessible Grace Port/3.mp4',
-    'assets/Four Case Infeed Direction Options/1.mp4',
-    'assets/Four Case Infeed Direction Options/2.mp4',
-    'assets/Four Case Infeed Direction Options/3.mp4',
-    'assets/Maximum Uptime/1.mp4',
-    'assets/Maximum Uptime/2.mp4',
-    'assets/Maximum Uptime/3.mp4',
-    'assets/Quick Start Up/1.mp4',
-  ]
 
-  for (let i = 0; i < videos.length; i++) {
-    const preloadedVideo = document.createElement('video')
-    preloadedVideo.src = videos[i]
-    preloadedVideo.remove()
-  }
-}
 
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
