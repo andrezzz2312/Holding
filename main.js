@@ -1,4 +1,6 @@
 const loop = document.getElementById('loopvideo')
+const loopContainer = document.getElementById('loop')
+
 const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
 let video2 = ''
@@ -81,7 +83,7 @@ function createVideos(source1, source2, source3) {
     video1.style.zIndex = '-2'
     video1.load()
     video1.pause()
-    videoHolder.appendChild(video1)
+    loopContainer.appendChild(video1)
   }
   if (source2) {
     video2 = document.createElement('video')
@@ -95,7 +97,7 @@ function createVideos(source1, source2, source3) {
     video2.style.zIndex = '-3'
     video2.load()
     video2.pause()
-    videoHolder.appendChild(video2)
+    loopContainer.appendChild(video2)
   }
   if (source3) {
     video3 = document.createElement('video')
@@ -108,7 +110,7 @@ function createVideos(source1, source2, source3) {
     video3.style.zIndex = '-4'
     video3.load()
     video3.pause()
-    videoHolder.appendChild(video3)
+    loopContainer.appendChild(video3)
   }
 }
 
@@ -122,6 +124,17 @@ function createContent(
   textId,
   labelId
 ) {
+  const svgContainerMade = document.createElement('div')
+  svgContainerMade.classList.add('svgContainer')
+  svgContainerMade.style.width = containVideoWidth + 'px'
+  svgContainerMade.style.height = containVideoHeight + 'px'
+  const centerContainerMade = document.createElement('div')
+  centerContainerMade.classList.add('centerContainer')
+  const textContainerMade = document.createElement('div')
+  textContainerMade.classList.add('textContainer')
+  textContainerMade.style.width = containVideoWidth + 'px'
+  textContainerMade.style.height = containVideoHeight + 'px'
+
   textContent = document.createElement('div')
   textContent.setAttribute('id', textId ? textId : '')
   textContent.classList.add('text')
@@ -145,6 +158,10 @@ function createContent(
   paragraph = document.createElement('p')
   paragraph.textContent = pContent
 
+  showCont.appendChild(centerContainerMade)
+
+  centerContainerMade.appendChild(textContainerMade)
+  textContainerMade.appendChild(textContent)
   textContent.appendChild(labelCont)
   textContent.appendChild(pCont)
   labelCont.appendChild(label)
@@ -153,6 +170,16 @@ function createContent(
 
 // Create the svgs for the showCont div / 4 first parameters are the x and y points of the first and second point respectively, last 2 are the x and y points of the dot
 function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
+  const svgContainerMade = document.createElement('div')
+  svgContainerMade.classList.add('svgContainer')
+  svgContainerMade.style.width = containVideoWidth + 'px'
+  svgContainerMade.style.height = containVideoHeight + 'px'
+  const centerContainerMade = document.createElement('div')
+  centerContainerMade.classList.add('centerContainer')
+
+  showCont.appendChild(centerContainerMade)
+  centerContainerMade.appendChild(svgContainerMade)
+
   svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
   svg1.setAttribute('width', '100%')
@@ -169,12 +196,6 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
 
   svg1.appendChild(line)
 
-  svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-
-  svg2.setAttribute('width', '100%')
-  svg2.setAttribute('height', '100%')
-  svg2.classList.add('svg')
-
   circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
 
   circle.setAttribute('cx', cx)
@@ -182,21 +203,31 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
   circle.setAttribute('r', '6px')
   circle.setAttribute('fill', '#f04923')
   circle.classList.add('svgDot')
-  svg2.appendChild(circle)
+  svg1.appendChild(circle)
 
-  showCont.appendChild(svg2)
-  showCont.appendChild(svg1)
+  svgContainerMade.appendChild(svg1)
 }
 
-function createBackButton(left, bottom) {
+function createBackButton() {
+  const centerContainerMade = document.createElement('div')
+  centerContainerMade.classList.add('centerContainer')
+  const buttonContainerMade = document.createElement('div')
+  buttonContainerMade.classList.add('buttonContainer')
+  buttonContainerMade.style.width = containVideoWidth + 'px'
+  buttonContainerMade.style.height = containVideoHeight + 'px'
+
   backButton = document.createElement('button')
-  backButton.classList.add('backButton')
+  backButton.classList.add('viewR_button')
   backButton.textContent = 'Back to Features'
 
   backButtonContainer = document.createElement('div')
   backButtonContainer.classList.add('viewR_container')
+
+  showCont.appendChild(centerContainerMade)
+  centerContainerMade.append(buttonContainerMade)
+
+  buttonContainerMade.appendChild(backButtonContainer)
   backButtonContainer.appendChild(backButton)
-  showCont.appendChild(backButtonContainer)
 }
 
 function ArreglarLineas() {
@@ -269,7 +300,7 @@ compactFP_button.addEventListener('click', function (e) {
     'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
   )
   createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
-  createBackButton('42%', '2rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -299,7 +330,6 @@ compactFP_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -323,7 +353,7 @@ remoteAC_button.addEventListener('click', function (e) {
     'remoteAC_p'
   )
   createSvg('15%', '27%', '60%', '25%', '60%', '25%')
-  createBackButton('5%', '4rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -355,7 +385,6 @@ remoteAC_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -394,7 +423,7 @@ quickC_button.addEventListener('click', function (e) {
     createSvg('19%', '34%', '60%', '25%', '60%', '25%')
   }
 
-  createBackButton('10%', '4rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -425,7 +454,6 @@ quickC_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -449,7 +477,7 @@ easilyAGP_button.addEventListener('click', function (e) {
     'easilyAGP_p'
   )
   createSvg('15%', '34%', '66%', '28%', '66%', '28%')
-  createBackButton('10%', '4rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -483,7 +511,6 @@ easilyAGP_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -509,7 +536,7 @@ fourCIDO_button.addEventListener('click', function (e) {
     'fourCIDO_label'
   )
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
-  createBackButton('43%', '2rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -540,7 +567,6 @@ fourCIDO_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -564,7 +590,7 @@ maximumU_button.addEventListener('click', function (e) {
     'maximumU_p'
   )
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
-  createBackButton('43%', '2rem')
+  createBackButton()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -594,7 +620,6 @@ maximumU_button.addEventListener('click', function (e) {
             svg1.remove()
             svg2.remove()
             backButtonContainer.remove()
-            backButtonContainer.remove
           }, 300)
         })
       })
@@ -631,7 +656,7 @@ quickS_button.addEventListener('click', function (e) {
     createSvg('13%', '79%', '35%', '75%', '35%', '75%')
   }
 
-  createBackButton('43%', '2rem')
+  createBackButton()
 
   setTimeout(() => {
     video2.play()
