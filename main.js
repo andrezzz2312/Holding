@@ -15,6 +15,7 @@ let backButtonContainer = ''
 let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
+const compactFP_line_svg = document.querySelector('#compactFP_line_svg')
 
 function Preload() {
   const videos = [
@@ -197,8 +198,41 @@ function createBackButton(left, bottom) {
 
 Preload()
 
-console.log(loop.offsetHeight)
-console.log(loop.offsetWidth)
+function getRenderedSize(contains, cWidth, cHeight, width, height, pos) {
+  var oRatio = width / height,
+    cRatio = cWidth / cHeight
+  return function () {
+    if (contains ? oRatio > cRatio : oRatio < cRatio) {
+      this.width = cWidth
+      this.height = cWidth / oRatio
+    } else {
+      this.width = cHeight * oRatio
+      this.height = cHeight
+    }
+    this.left = (cWidth - this.width) * (pos / 100)
+    this.right = this.width + this.left
+    return this
+  }.call({})
+}
+
+function getImgSizeInfo(img) {
+  var pos = window
+    .getComputedStyle(img)
+    .getPropertyValue('object-position')
+    .split(' ')
+  return getRenderedSize(
+    true,
+    img.offsetWidth,
+    img.offsetHeight,
+    img.videoWidth,
+    img.videoHeight,
+    parseInt(pos[0])
+  )
+}
+
+loop.addEventListener('loadedmetadata', function (e) {
+  console.log(getImgSizeInfo(e.target))
+})
 
 ////////// Event Listeners for the main buttons //////////
 
