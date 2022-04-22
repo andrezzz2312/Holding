@@ -79,7 +79,7 @@ function createVideos(source1, source2, source3) {
     video1.muted = true
     video1.setAttribute('playsinline', '')
     video1.controls = false
-    video1.preload = true
+    video1.preload = 'auto'
     video1.classList.add('video')
     video1.style.zIndex = '-2'
     video1.load()
@@ -93,7 +93,7 @@ function createVideos(source1, source2, source3) {
     video2.muted = true
     video2.setAttribute('playsinline', '')
     video2.controls = false
-    video2.preload = true
+    video2.preload = 'auto'
     video2.classList.add('video')
     video2.style.zIndex = '-3'
     video2.load()
@@ -104,7 +104,7 @@ function createVideos(source1, source2, source3) {
     video3 = document.createElement('video')
     video3.src = source3
     video3.muted = true
-    video3.preload = true
+    video3.preload = 'auto'
     video3.setAttribute('playsinline', '')
     video3.controls = false
     video3.classList.add('video')
@@ -316,22 +316,26 @@ compactFP_button.addEventListener('click', function (e) {
   )
   createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
   createBackButton()
-  
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  })
- 
+
+  check1(value) 
+
+ let video1check=false
+ let video2check=false
+ let video3check=false
+
 function check1(counter){ 
   clearcheck = setInterval(repeatcheck,500,counter)  
   function repeatcheck (counter){
-    if (value===3){      
+    if (video1.readyState === 4) {
+      video1check=true
+    }
+    if (video2.readyState === 4) {
+      video2check=true
+    }
+    if (video3.readyState === 4) {
+      video3check=true
+    }
+    if (video1check&&video2check&&video3check){      
       clearInterval(clearcheck)
       value=0
       counter=0
@@ -389,23 +393,24 @@ remoteAC_button.addEventListener('click', function (e) {
   )
   createSvg('15%', '27%', '60%', '25%', '60%', '25%')
   createBackButton()
-
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  
-  })
+  check1(value) 
+ let video1check=false
+ let video2check=false
+ let video3check=false
  
 function check1(counter){ 
   clearcheck = setInterval(repeatcheck,500,counter)  
   function repeatcheck (counter){
-    if (value===3){      
+    if (video1.readyState === 4) {
+      video1check=true
+    }
+    if (video2.readyState === 4) {
+      video2check=true
+    }
+    if (video3.readyState === 4) {
+      video3check=true
+    }
+    if (video1check&&video2check&&video3check){ 
       clearInterval(clearcheck)
       value=0
       counter=0
@@ -432,9 +437,9 @@ function check1(counter){
               Setup()
               setTimeout(() => {
                 loop.style.zIndex = '-1'
-                // video1.remove()
-                // video2.remove()
-                // video3.remove()
+                video1.remove()
+                video2.remove()
+                video3.remove()
                 showCont.innerHTML=''
               }, 500)
             })
@@ -480,23 +485,24 @@ quickC_button.addEventListener('click', function (e) {
   }
 
   createBackButton()
-
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  
-  })
-
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
-      if (value===3){      
+  check1(value) 
+  let video1check=false
+  let video2check=false
+  let video3check=false
+ 
+ function check1(counter){ 
+   clearcheck = setInterval(repeatcheck,500,counter)  
+   function repeatcheck (counter){
+     if (video1.readyState === 4) {
+       video1check=true
+     }
+     if (video2.readyState === 4) {
+       video2check=true
+     }
+     if (video3.readyState === 4) {
+       video3check=true
+     }
+     if (video1check&&video2check&&video3check){ 
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -557,23 +563,24 @@ easilyAGP_button.addEventListener('click', function (e) {
   createSvg('15%', '34%', '66%', '28%', '66%', '28%')
   createBackButton()
 
-
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  
-  })
-
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
-      if (value===3){      
+  check1(value) 
+  let video1check=false
+  let video2check=false
+  let video3check=false
+ 
+ function check1(counter){ 
+   clearcheck = setInterval(repeatcheck,500,counter)  
+   function repeatcheck (counter){
+     if (video1.readyState === 4) {
+       video1check=true
+     }
+     if (video2.readyState === 4) {
+       video2check=true
+     }
+     if (video3.readyState === 4) {
+       video3check=true
+     }
+     if (video1check&&video2check&&video3check){ 
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -639,23 +646,24 @@ fourCIDO_button.addEventListener('click', function (e) {
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
   createBackButton()
 
+  check1(value) 
+  let video1check=false
+ let video2check=false
+ let video3check=false
 
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  
-  })
-
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
-      if (value===3){      
+function check1(counter){ 
+  clearcheck = setInterval(repeatcheck,500,counter)  
+  function repeatcheck (counter){
+    if (video1.readyState === 4) {
+      video1check=true
+    }
+    if (video2.readyState === 4) {
+      video2check=true
+    }
+    if (video3.readyState === 4) {
+      video3check=true
+    }
+    if (video1check&&video2check&&video3check){   
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -716,23 +724,24 @@ maximumU_button.addEventListener('click', function (e) {
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
   createBackButton()
 
+  check1(value) 
+  let video1check=false
+ let video2check=false
+ let video3check=false
 
-  video1.addEventListener('canplaythrough', function(e){
-    value = value+1   
-    check1(value) 
-  })
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
-  video3.addEventListener('canplaythrough', function(e){
-    value = value+1
-  
-  })
-
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
-      if (value===3){      
+function check1(counter){ 
+  clearcheck = setInterval(repeatcheck,500,counter)  
+  function repeatcheck (counter){
+    if (video1.readyState === 4) {
+      video1check=true
+    }
+    if (video2.readyState === 4) {
+      video2check=true
+    }
+    if (video3.readyState === 4) {
+      video3check=true
+    }
+    if (video1check&&video2check&&video3check){ 
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -804,16 +813,20 @@ quickS_button.addEventListener('click', function (e) {
   createBackButton()
 
 
-
-  video2.addEventListener('canplaythrough', function(e){
-    value = value+1   
-  })
+  check1(value)
+  
+ let video2check=false
  
 
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
-      if (value===1){      
+function check1(counter){ 
+  clearcheck = setInterval(repeatcheck,500,counter)  
+  function repeatcheck (counter){
+    
+    if (video2.readyState === 4) {
+      video2check=true
+    }
+    
+    if (video2check){     
         clearInterval(clearcheck)
         value=0
         counter=0        
