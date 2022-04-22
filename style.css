@@ -8,11 +8,11 @@
 
 * {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
+
   font-weight: 600;
 }
 
-.loader{
+.loader {
   display: flex;
   position: absolute;
   width: 100%;
@@ -23,13 +23,11 @@
   justify-content: center;
   z-index: 200;
   background-color: white;
- 
 }
-.loadingIcon{
-
-color: #ff4500;
+.loadingIcon {
+  color: #ff4500;
   font-size: 10rem;
-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 body {
@@ -46,6 +44,24 @@ button {
   font-size: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
+.centerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonContainer {
+  position: relative;
+}
+.svgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .videoContainer > video {
   position: absolute;
   top: 0;
@@ -93,7 +109,6 @@ a {
   top: 10%;
 }
 #remoteAC_button {
-  /* left: 35.5%; */
   right: 51.5%;
   top: 6%;
 }
@@ -118,18 +133,16 @@ a {
   top: 77%;
 }
 .viewR_container {
-  position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-  height: 5%;
-  bottom: 0%;
-  margin-bottom: 1rem;
-  left: 0;
+  height: 100%;
 }
 #viewR_button {
   position: relative;
+  width: fit-content;
+  height: auto;
   border: none;
   color: white;
   background-color: #ff4500;
@@ -137,6 +150,7 @@ a {
   z-index: 2;
   overflow: hidden;
   padding: 0.4rem 2rem;
+  margin-bottom: 1rem;
 }
 .back::before,
 .button::before,
@@ -165,14 +179,12 @@ a {
   animation: gloss 1s ease-in-out infinite;
   overflow: hidden;
 }
-.mainButtons{
-
+.mainButtons {
 }
 .svg {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  top: 0;
-  
+  top: 0; */
 }
 .svgDot {
   position: absolute;
@@ -377,6 +389,10 @@ p {
   }
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

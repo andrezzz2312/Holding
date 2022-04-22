@@ -12,10 +12,13 @@ let circle = ''
 let svg2 = ''
 let backButton = ''
 let backButtonContainer = ''
+let containVideoWidth = ''
+let containVideoHeight = ''
 let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
-const compactFP_line_svg = document.querySelector('#compactFP_line_svg')
+const svgContainer = document.querySelectorAll('.svgContainer')
+const buttonContainer = document.querySelectorAll('.buttonContainer')
 
 function Preload() {
   const videos = [
@@ -196,6 +199,18 @@ function createBackButton(left, bottom) {
   showCont.appendChild(backButtonContainer)
 }
 
+function ArreglarLineas() {
+  for (let i = 0; i < svgContainer.length; i++) {
+    console.log('cycle')
+    svgContainer[i].style.width = containVideoWidth + 'px'
+    svgContainer[i].style.height = containVideoHeight + 'px'
+  }
+  for (let i = 0; i < buttonContainer.length; i++) {
+    buttonContainer[i].style.width = containVideoWidth + 'px'
+    buttonContainer[i].style.height = containVideoHeight + 'px'
+  }
+}
+
 Preload()
 
 function getRenderedSize(contains, cWidth, cHeight, width, height, pos) {
@@ -232,6 +247,9 @@ function getImgSizeInfo(img) {
 
 loop.addEventListener('loadedmetadata', function (e) {
   console.log(getImgSizeInfo(e.target))
+  containVideoWidth = getImgSizeInfo(e.target).width
+  containVideoHeight = getImgSizeInfo(e.target).height
+  ArreglarLineas()
 })
 
 ////////// Event Listeners for the main buttons //////////
