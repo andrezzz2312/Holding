@@ -218,7 +218,7 @@ function ArreglarLineas() {
   }
 }
 
-Preload()
+
 
 function getRenderedSize(contains, cWidth, cHeight, width, height, pos) {
   var oRatio = width / height,
