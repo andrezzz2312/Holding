@@ -56,10 +56,11 @@ function createVideos(source1, source2, source3) {
     video1.muted = true
     video1.setAttribute('playsinline', '')
     video1.controls = false
-    video1.preload = 'auto'
+    // video1.preload = 'auto'
+    video1.autoplay = 'true'
     video1.classList.add('video')
     video1.style.zIndex = '-2'
-    video1.load()
+    // video1.play()
     video1.pause()
     loopContainer.appendChild(video1)
   }
@@ -70,10 +71,11 @@ function createVideos(source1, source2, source3) {
     video2.muted = true
     video2.setAttribute('playsinline', '')
     video2.controls = false
-    video2.preload = 'auto'
+    // video2.preload = 'auto'
+    video2.autoplay = 'true'
     video2.classList.add('video')
     video2.style.zIndex = '-3'
-    video2.load()
+    // video2.play()
     video2.pause()
     loopContainer.appendChild(video2)
   }
@@ -81,12 +83,13 @@ function createVideos(source1, source2, source3) {
     video3 = document.createElement('video')
     video3.src = source3
     video3.muted = true
-    video3.preload = 'auto'
+    // video3.preload = 'auto'
+    video3.autoplay = 'true'
     video3.setAttribute('playsinline', '')
     video3.controls = false
     video3.classList.add('video')
     video3.style.zIndex = '-4'
-    video3.load()
+    // video3.play()
     video3.pause()
     loopContainer.appendChild(video3)
   }
@@ -682,13 +685,16 @@ fourCIDO_button.addEventListener('click', function (e) {
     function repeatcheck (counter){
       if (video1.readyState === 4) {
         video1check=true
+        console.log('video1 check');
       }
       if (video2.readyState === 4) {
         video2check=true
+        console.log('video2 check');
       }
       if (video3.readyState === 4) {
         video3check=true
-      }
+        console.log('video3 check');
+      } 
       setTimeout(() => {
         if (!video1check||!video2check||!video3check) {
           loader.style.zIndex='200'  
@@ -707,7 +713,10 @@ fourCIDO_button.addEventListener('click', function (e) {
           
         setTimeout(() => {
           loop.classList.add('short-vanish')
-          video1.play()
+          if (video1.readyState === 4) {
+            video1.play()
+          }
+          
           setTimeout(() => {
             HideShowCont()
             InterpolateVideo(loop, video1, video2)
@@ -716,7 +725,10 @@ fourCIDO_button.addEventListener('click', function (e) {
               backButton.style.pointerEvents = 'none'
               loop.currentTime = 0
               loop.pause()
-              InterpolateVideo(video2, video2, video3)
+              if (video3.readyState === 4) {
+                InterpolateVideo(video2, video2, video3)
+              }
+              
               HideShowCont()
               
               video3.addEventListener('ended', () => {
@@ -763,47 +775,57 @@ maximumU_button.addEventListener('click', function (e) {
 
   check1(value) 
   let video1check=false
- let video2check=false
- let video3check=false
+  let video2check=false
+  let video3check=false
 
-function check1(counter){ 
-  clearcheck = setInterval(repeatcheck,500,counter)  
-  function repeatcheck (counter){
-    if (video1.readyState === 4) {
-      video1check=true
-    }
-    if (video2.readyState === 4) {
-      video2check=true
-    }
-    if (video3.readyState === 4) {
-      video3check=true
-    } 
-    setTimeout(() => {
-      if (!video1check||!video2check||!video3check) {
-       loader.style.zIndex='200'  
-       loader.classList.add('show')     
+  function check1(counter){ 
+
+    clearcheck = setInterval(repeatcheck,500,counter)  
+
+    function repeatcheck (counter){
+
+      if (video1.readyState === 4) {
+        video1check=true
+        console.log('video1 check');
       }
-    },1000);
-    
-    if (video1check&&video2check&&video3check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
+      if (video2.readyState === 4) {
+        video2check=true
+        console.log('video2 check');
+      }
+      if (video3.readyState === 4) {
+        video3check=true
+        console.log('video3 check');
+      } 
+      setTimeout(() => {
+        if (!video1check||!video2check||!video3check) {
+        loader.style.zIndex='200'  
+        loader.classList.add('show')     
+        }
+      },1000);
       
+      if (video1check&&video2check&&video3check){   
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex='-200'
+        
         clearInterval(clearcheck)
         value=0
         counter=0
         
         setTimeout(() => {
           loop.classList.add('short-vanish')
-          video1.play()
+          if (video1.readyState === 4) {
+            video1.play()
+          }
 
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
             backButton.addEventListener('click', function () {
               backButton.style.pointerEvents = 'none'
-              InterpolateVideo(video2, video2, video3)
+              if (video3.readyState === 4) {
+                InterpolateVideo(video2, video2, video3)
+              }            
               HideShowCont()
               loop.style.zIndex = '-5'
               loop.classList.remove('short-vanish')
