@@ -335,7 +335,7 @@ p {
     max-width: 33%;
   }
   #fourCIDO_label {
-    max-width: 30%;
+    max-width: 32%;
   }
   p {
     font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
