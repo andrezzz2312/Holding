@@ -1,6 +1,6 @@
+// Variables
 const loop = document.getElementById('loopvideo')
 const loopContainer = document.getElementById('loop')
-
 const videoHolder = document.querySelector('#videoHolder')
 let video1 = ''
 let video2 = ''
@@ -15,15 +15,14 @@ let backButton = ''
 let backButtonContainer = ''
 let containVideoWidth = ''
 let containVideoHeight = ''
+let counter = 0
+let value = 0
 let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
-let counter = 0
-let value = 0
 const loader = document.querySelector('.loader')
-
 
 
 // Set which videos are going to swap
@@ -308,15 +307,12 @@ function check1(counter){
   function repeatcheck (counter){
     if (video1.readyState === 4) {
       video1check=true
-      console.log('vid1');
     }
     if (video2.readyState === 4) {
       video2check=true
-      console.log('vid2');
     }
     if (video3.readyState === 4) {
       video3check=true
-      console.log('vid3');
     } 
     setTimeout(() => {
       if (!video1check||!video2check||!video3check) {
@@ -684,16 +680,13 @@ fourCIDO_button.addEventListener('click', function (e) {
     clearcheck = setInterval(repeatcheck,500,counter)  
     function repeatcheck (counter){
       if (video1.readyState === 4) {
-        video1check=true
-        console.log('video1 check');
+        video1check=trucheck');
       }
       if (video2.readyState === 4) {
-        video2check=true
-        console.log('video2 check');
+        video2check=trucheck');
       }
       if (video3.readyState === 4) {
-        video3check=true
-        console.log('video3 check');
+        video3check=trucheck');
       } 
       setTimeout(() => {
         if (!video1check||!video2check||!video3check) {
@@ -785,16 +778,13 @@ maximumU_button.addEventListener('click', function (e) {
     function repeatcheck (counter){
 
       if (video1.readyState === 4) {
-        video1check=true
-        console.log('video1 check');
+        video1check=trucheck');
       }
       if (video2.readyState === 4) {
-        video2check=true
-        console.log('video2 check');
+        video2check=trucheck');
       }
       if (video3.readyState === 4) {
-        video3check=true
-        console.log('video3 check');
+        video3check=trucheck');
       } 
       setTimeout(() => {
         if (!video1check||!video2check||!video3check) {
