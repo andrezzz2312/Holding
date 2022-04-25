@@ -242,7 +242,7 @@ a {
 }
 
 .pCont {
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   max-width: 27%;
@@ -338,10 +338,10 @@ p {
     max-width: 32%;
   }
   p {
-    font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+    font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));
   }
   .label {
-    font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+    font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));
   }
   .backButton {
     font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
