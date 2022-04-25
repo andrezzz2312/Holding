@@ -307,12 +307,15 @@ function check1(counter){
   function repeatcheck (counter){
     if (video1.readyState === 4) {
       video1check=true
+
     }
     if (video2.readyState === 4) {
       video2check=true
+
     }
     if (video3.readyState === 4) {
       video3check=true
+
     } 
     setTimeout(() => {
       if (!video1check||!video2check||!video3check) {
@@ -680,13 +683,16 @@ fourCIDO_button.addEventListener('click', function (e) {
     clearcheck = setInterval(repeatcheck,500,counter)  
     function repeatcheck (counter){
       if (video1.readyState === 4) {
-        video1check=trucheck');
+        video1check=true
+        
       }
       if (video2.readyState === 4) {
-        video2check=trucheck');
+        video2check=true
+        
       }
       if (video3.readyState === 4) {
-        video3check=trucheck');
+        video3check=true
+        
       } 
       setTimeout(() => {
         if (!video1check||!video2check||!video3check) {
@@ -778,13 +784,16 @@ maximumU_button.addEventListener('click', function (e) {
     function repeatcheck (counter){
 
       if (video1.readyState === 4) {
-        video1check=trucheck');
+        video1check=true
+        
       }
       if (video2.readyState === 4) {
-        video2check=trucheck');
+        video2check=true
+        
       }
       if (video3.readyState === 4) {
-        video3check=trucheck');
+        video3check=true
+        
       } 
       setTimeout(() => {
         if (!video1check||!video2check||!video3check) {
