@@ -26,7 +26,7 @@
 }
 .loadingIcon {
   color: #ff4500;
-  font-size: 10rem;
+  font-size: 5rem;
   animation: spin 2s linear infinite;
 }
 
@@ -335,7 +335,7 @@ p {
     max-width: 33%;
   }
   #fourCIDO_label {
-    max-width: 29%;
+    max-width: 23%;
   }
   p {
     font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));
