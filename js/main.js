@@ -24,7 +24,6 @@ const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
 const loader = document.querySelector('.loader')
 
-
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -37,7 +36,6 @@ function Setup() {
   mainButtons.classList.toggle('show')
   mainButtons.classList.toggle('disabled')
   mainButtons.classList.toggle('short-vanish')
-  
 }
 
 // Vanish/show when a main button is pressed
@@ -211,8 +209,7 @@ function createBackButton() {
 }
 
 function ArreglarLineas() {
-  
-  for (let i = 0; i < svgContainer.length; i++) {    
+  for (let i = 0; i < svgContainer.length; i++) {
     svgContainer[i].style.width = containVideoWidth + 'px'
     svgContainer[i].style.height = containVideoHeight + 'px'
   }
@@ -221,8 +218,6 @@ function ArreglarLineas() {
     buttonContainer[i].style.height = containVideoHeight + 'px'
   }
 }
-
-
 
 function getRenderedSize(contains, cWidth, cHeight, width, height, pos) {
   var oRatio = width / height,
@@ -256,25 +251,32 @@ function getImgSizeInfo(img) {
   )
 }
 
- loop.addEventListener('loadedmetadata', function(e){
+loop.addEventListener('loadedmetadata', function (e) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
-  ArreglarLineas() 
-  })
+  ArreglarLineas()
+})
 
-
-if (loop.readyState >= 2) { 
+if (loop.readyState >= 2) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
-  ArreglarLineas()  
+  ArreglarLineas()
 }
 
-window.addEventListener("orientationchange", function() {  
-  setTimeout(() => {    
+window.addEventListener('orientationchange', function () {
+  setTimeout(() => {
     containVideoWidth = getImgSizeInfo(loop).width
-    containVideoHeight = getImgSizeInfo(loop).height 
-  ArreglarLineas() 
-  }, 100);  
+    containVideoHeight = getImgSizeInfo(loop).height
+    ArreglarLineas()
+  }, 100)
+})
+
+window.addEventListener('resize', function () {
+  setTimeout(() => {
+    containVideoWidth = getImgSizeInfo(loop).width
+    containVideoHeight = getImgSizeInfo(loop).height
+    ArreglarLineas()
+  }, 100)
 })
 
 ////////// Event Listeners for the main buttons //////////
@@ -296,77 +298,71 @@ compactFP_button.addEventListener('click', function (e) {
   createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
   createBackButton()
 
-  check1(value) 
+  check1(value)
 
- let video1check=false
- let video2check=false
- let video3check=false
+  let video1check = false
+  let video2check = false
+  let video3check = false
 
-function check1(counter){ 
-  clearcheck = setInterval(repeatcheck,500,counter)  
-  function repeatcheck (counter){
-    if (video1.readyState === 4) {
-      video1check=true
-
-    }
-    if (video2.readyState === 4) {
-      video2check=true
-
-    }
-    if (video3.readyState === 4) {
-      video3check=true
-
-    } 
-    setTimeout(() => {
-      if (!video1check||!video2check||!video3check) {
-       loader.style.zIndex='200'  
-       loader.classList.add('show')     
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
+      if (video1.readyState === 4) {
+        video1check = true
       }
-    },1000);
-    
-    if (video1check&&video2check&&video3check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
-          
-      clearInterval(clearcheck)
-      value=0
-      counter=0
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
       setTimeout(() => {
-        loop.classList.add('short-vanish')
-        video1.play()    
-        video1.addEventListener('ended', () => {
-          InterpolateVideo(loop, video1, video2)
-          HideShowCont()
-          backButton.addEventListener('click', function () {
-            backButton.style.pointerEvents = 'none'
-            InterpolateVideo(video2, video2, video3)
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
+        clearInterval(clearcheck)
+        value = 0
+        counter = 0
+        setTimeout(() => {
+          loop.classList.add('short-vanish')
+          video1.play()
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            loop.style.zIndex = '-5'
-            loop.classList.remove('short-vanish')
-            loop.currentTime = 0
-            loop.pause()
-            video3.addEventListener('ended', () => {
-              video3.classList.add('short-vanish')
-              loop.play()
-              Setup()
-              setTimeout(() => {
-                loop.style.zIndex = '-1'
-                video1.remove()
-                video2.remove()
-                video3.remove()
-                showCont.innerHTML=''            
-              }, 300)
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              InterpolateVideo(video2, video2, video3)
+              HideShowCont()
+              loop.style.zIndex = '-5'
+              loop.classList.remove('short-vanish')
+              loop.currentTime = 0
+              loop.pause()
+              video3.addEventListener('ended', () => {
+                video3.classList.add('short-vanish')
+                loop.play()
+                Setup()
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML = ''
+                }, 300)
+              })
             })
           })
-        })
-      }, 1000)
+        }, 1000)
+      }
     }
   }
-}
-
-
-  
 })
 
 remoteAC_button.addEventListener('click', function (e) {
@@ -386,75 +382,73 @@ remoteAC_button.addEventListener('click', function (e) {
   )
   createSvg('15%', '27%', '60%', '25%', '60%', '25%')
   createBackButton()
-  check1(value) 
- let video1check=false
- let video2check=false
- let video3check=false
- 
-function check1(counter){ 
-  clearcheck = setInterval(repeatcheck,500,counter)  
-  function repeatcheck (counter){
-    if (video1.readyState === 4) {
-      video1check=true
-    }
-    if (video2.readyState === 4) {
-      video2check=true
-    }
-    if (video3.readyState === 4) {
-      video3check=true
-    } 
-    setTimeout(() => {
-      if (!video1check||!video2check||!video3check) {
-       loader.style.zIndex='200'  
-       loader.classList.add('show')     
+  check1(value)
+  let video1check = false
+  let video2check = false
+  let video3check = false
+
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
+      if (video1.readyState === 4) {
+        video1check = true
       }
-    },1000);
-    
-    if (video1check&&video2check&&video3check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
-      
-      clearInterval(clearcheck)
-      value=0
-      counter=0
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
       setTimeout(() => {
-        loop.classList.add('short-vanish')
-        video1.play()
-    
-        video1.addEventListener('ended', () => {
-          InterpolateVideo(loop, video1, video2)
-          HideShowCont()
-          backButton.addEventListener('click', function () {
-            backButton.style.pointerEvents = 'none'
-            loop.currentTime = 0
-            loop.pause()
-            InterpolateVideo(video2, video2, video3)
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
+        clearInterval(clearcheck)
+        value = 0
+        counter = 0
+        setTimeout(() => {
+          loop.classList.add('short-vanish')
+          video1.play()
+
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            
-            video3.addEventListener('ended', () => {
-              loop.style.zIndex = '-5'
-              video3.classList.add('short-vanish')    
-              loop.classList.remove('short-vanish')
-              loop.play()
-    
-              Setup()
-              setTimeout(() => {
-                loop.style.zIndex = '-1'
-                video1.remove()
-                video2.remove()
-                video3.remove()
-                showCont.innerHTML=''
-              }, 500)
+            backButton.addEventListener('click', function () {
+              backButton.style.pointerEvents = 'none'
+              loop.currentTime = 0
+              loop.pause()
+              InterpolateVideo(video2, video2, video3)
+              HideShowCont()
+
+              video3.addEventListener('ended', () => {
+                loop.style.zIndex = '-5'
+                video3.classList.add('short-vanish')
+                loop.classList.remove('short-vanish')
+                loop.play()
+
+                Setup()
+                setTimeout(() => {
+                  loop.style.zIndex = '-1'
+                  video1.remove()
+                  video2.remove()
+                  video3.remove()
+                  showCont.innerHTML = ''
+                }, 500)
+              })
             })
           })
-        })
-      }, 1000)
-    
+        }, 1000)
+      }
     }
   }
-}
-  
 })
 
 quickC_button.addEventListener('click', function (e) {
@@ -489,43 +483,43 @@ quickC_button.addEventListener('click', function (e) {
   }
 
   createBackButton()
-  check1(value) 
-  let video1check=false
-  let video2check=false
-  let video3check=false
- 
- function check1(counter){ 
-   clearcheck = setInterval(repeatcheck,500,counter)  
-   function repeatcheck (counter){
-     if (video1.readyState === 4) {
-       video1check=true
-     }
-     if (video2.readyState === 4) {
-       video2check=true
-     }
-     if (video3.readyState === 4) {
-       video3check=true
-     } 
-    setTimeout(() => {
-      if (!video1check||!video2check||!video3check) {
-        loader.style.zIndex='200'  
-        loader.classList.add('show')     
+  check1(value)
+  let video1check = false
+  let video2check = false
+  let video3check = false
+
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
+      if (video1.readyState === 4) {
+        video1check = true
       }
-    },1000);
-    
-    if (video1check&&video2check&&video3check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
-      
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
+      setTimeout(() => {
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
         clearInterval(clearcheck)
-        value=0
-        counter=0
+        value = 0
+        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
-      
+
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
@@ -535,20 +529,20 @@ quickC_button.addEventListener('click', function (e) {
               loop.pause()
               InterpolateVideo(video2, video2, video3)
               HideShowCont()
-              
+
               video3.addEventListener('ended', () => {
                 loop.style.zIndex = '-5'
                 video3.classList.add('short-vanish')
                 loop.classList.remove('short-vanish')
                 loop.play()
-      
+
                 Setup()
                 setTimeout(() => {
                   loop.style.zIndex = '-1'
                   video1.remove()
                   video2.remove()
                   video3.remove()
-                  showCont.innerHTML=''
+                  showCont.innerHTML = ''
                 }, 300)
               })
             })
@@ -556,8 +550,7 @@ quickC_button.addEventListener('click', function (e) {
         }, 1000)
       }
     }
-  }    
-  
+  }
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
@@ -578,42 +571,42 @@ easilyAGP_button.addEventListener('click', function (e) {
   createSvg('15%', '34%', '66%', '28%', '66%', '28%')
   createBackButton()
 
-  check1(value) 
-  let video1check=false
-  let video2check=false
-  let video3check=false
- 
- function check1(counter){ 
-   clearcheck = setInterval(repeatcheck,500,counter)  
-   function repeatcheck (counter){
-     if (video1.readyState === 4) {
-       video1check=true
-     }
-     if (video2.readyState === 4) {
-       video2check=true
-     }
-     if (video3.readyState === 4) {
-       video3check=true
-     }
-     setTimeout(() => {
-      if (!video1check||!video2check||!video3check) {
-        loader.style.zIndex='200'  
-        loader.classList.add('show')     
+  check1(value)
+  let video1check = false
+  let video2check = false
+  let video3check = false
+
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
+      if (video1.readyState === 4) {
+        video1check = true
       }
-    },1000);
-  
-    if (video1check&&video2check&&video3check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
+      setTimeout(() => {
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
         clearInterval(clearcheck)
-        value=0
-        counter=0
+        value = 0
+        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
-      
+
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
@@ -625,21 +618,21 @@ easilyAGP_button.addEventListener('click', function (e) {
               setTimeout(() => {
                 InterpolateVideo(video2, video2, video3)
               }, 500)
-              
+
               video3.addEventListener('ended', () => {
                 loop.style.zIndex = '-5'
                 video3.classList.add('short-vanish')
                 loop.classList.remove('short-vanish')
                 loop.play()
-      
+
                 Setup()
-      
+
                 setTimeout(() => {
                   loop.style.zIndex = '-1'
                   video1.remove()
                   video2.remove()
                   video3.remove()
-                  showCont.innerHTML=''
+                  showCont.innerHTML = ''
                 }, 500)
               })
             })
@@ -648,7 +641,6 @@ easilyAGP_button.addEventListener('click', function (e) {
       }
     }
   }
-  
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
@@ -674,52 +666,49 @@ fourCIDO_button.addEventListener('click', function (e) {
 
   createBackButton()
 
-  check1(value) 
-  let video1check=false
-  let video2check=false
-  let video3check=false
+  check1(value)
+  let video1check = false
+  let video2check = false
+  let video3check = false
 
-  function check1(counter){ 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-    function repeatcheck (counter){
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
       if (video1.readyState === 4) {
-        video1check=true
-        
+        video1check = true
       }
       if (video2.readyState === 4) {
-        video2check=true
-        
+        video2check = true
       }
       if (video3.readyState === 4) {
-        video3check=true
-        
-      } 
+        video3check = true
+      }
       setTimeout(() => {
-        if (!video1check||!video2check||!video3check) {
-          loader.style.zIndex='200'  
-          loader.classList.add('show')     
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
         }
-      },1000);
-    
-      if (video1check&&video2check&&video3check){   
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
-        loader.style.zIndex='-200'
-        
-          clearInterval(clearcheck)
-          value=0
-          counter=0
-          
+        loader.style.zIndex = '-200'
+
+        clearInterval(clearcheck)
+        value = 0
+        counter = 0
+
         setTimeout(() => {
           loop.classList.add('short-vanish')
           if (video1.readyState === 4) {
             video1.play()
           }
-          
+
           setTimeout(() => {
             HideShowCont()
             InterpolateVideo(loop, video1, video2)
-      
+
             backButton.addEventListener('click', function () {
               backButton.style.pointerEvents = 'none'
               loop.currentTime = 0
@@ -727,22 +716,22 @@ fourCIDO_button.addEventListener('click', function (e) {
               if (video3.readyState === 4) {
                 InterpolateVideo(video2, video2, video3)
               }
-              
+
               HideShowCont()
-              
+
               video3.addEventListener('ended', () => {
                 loop.style.zIndex = '-5'
                 video3.classList.add('short-vanish')
                 loop.classList.remove('short-vanish')
                 loop.play()
-      
+
                 Setup()
                 setTimeout(() => {
                   loop.style.zIndex = '-1'
                   video1.remove()
                   video2.remove()
                   video3.remove()
-                  showCont.innerHTML=''
+                  showCont.innerHTML = ''
                 }, 300)
               })
             })
@@ -751,7 +740,6 @@ fourCIDO_button.addEventListener('click', function (e) {
       }
     }
   }
-  
 })
 
 maximumU_button.addEventListener('click', function (e) {
@@ -772,45 +760,40 @@ maximumU_button.addEventListener('click', function (e) {
   createSvg('59%', '37%', '18%', '60%', '18%', '60%')
   createBackButton()
 
-  check1(value) 
-  let video1check=false
-  let video2check=false
-  let video3check=false
+  check1(value)
+  let video1check = false
+  let video2check = false
+  let video3check = false
 
-  function check1(counter){ 
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
 
-    clearcheck = setInterval(repeatcheck,500,counter)  
-
-    function repeatcheck (counter){
-
+    function repeatcheck(counter) {
       if (video1.readyState === 4) {
-        video1check=true
-        
+        video1check = true
       }
       if (video2.readyState === 4) {
-        video2check=true
-        
+        video2check = true
       }
       if (video3.readyState === 4) {
-        video3check=true
-        
-      } 
+        video3check = true
+      }
       setTimeout(() => {
-        if (!video1check||!video2check||!video3check) {
-        loader.style.zIndex='200'  
-        loader.classList.add('show')     
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
         }
-      },1000);
-      
-      if (video1check&&video2check&&video3check){   
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
-        loader.style.zIndex='-200'
-        
+        loader.style.zIndex = '-200'
+
         clearInterval(clearcheck)
-        value=0
-        counter=0
-        
+        value = 0
+        counter = 0
+
         setTimeout(() => {
           loop.classList.add('short-vanish')
           if (video1.readyState === 4) {
@@ -824,7 +807,7 @@ maximumU_button.addEventListener('click', function (e) {
               backButton.style.pointerEvents = 'none'
               if (video3.readyState === 4) {
                 InterpolateVideo(video2, video2, video3)
-              }            
+              }
               HideShowCont()
               loop.style.zIndex = '-5'
               loop.classList.remove('short-vanish')
@@ -839,12 +822,12 @@ maximumU_button.addEventListener('click', function (e) {
                   video1.remove()
                   video2.remove()
                   video3.remove()
-                  showCont.innerHTML=''
+                  showCont.innerHTML = ''
                 }, 300)
               })
             })
           })
-        }, 1000)        
+        }, 1000)
       }
     }
   }
@@ -881,39 +864,34 @@ quickS_button.addEventListener('click', function (e) {
 
   createBackButton()
 
-
   check1(value)
-  
- let video2check=false
- 
 
-function check1(counter){ 
-  clearcheck = setInterval(repeatcheck,500,counter)  
-  function repeatcheck (counter){
-    
-    if (video2.readyState === 4) {
-      video2check=true
-    }
-    setTimeout(() => {
-      if (!video2check) {
-      
-       loader.style.zIndex='200'  
-       loader.classList.add('show')     
-       
+  let video2check = false
+
+  function check1(counter) {
+    clearcheck = setInterval(repeatcheck, 500, counter)
+    function repeatcheck(counter) {
+      if (video2.readyState === 4) {
+        video2check = true
       }
-    },1000);
-    
-    if (video2check){   
-      loader.classList.remove('show')
-      loader.classList.add('short-vanish')
-      loader.style.zIndex='-200'
-          
+      setTimeout(() => {
+        if (!video2check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video2check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
         clearInterval(clearcheck)
-        value=0
-        counter=0        
+        value = 0
+        counter = 0
         setTimeout(() => {
           video2.play()
-      
+
           InterpolateVideo(loop, loop, video2)
           HideShowCont()
           setTimeout(() => {
@@ -921,24 +899,23 @@ function check1(counter){
             loop.pause()
             loop.style.zIndex = '-5'
           }, 1000)
-      
+
           backButton.addEventListener('click', function () {
             backButton.style.pointerEvents = 'none'
             HideShowCont()
             video2.classList.add('short-vanish')
             loop.play()
             loop.classList.remove('short-vanish')
-      
+
             setTimeout(() => {
               Setup()
               loop.style.zIndex = '-1'
               video2.remove()
-              showCont.innerHTML=''
+              showCont.innerHTML = ''
             }, 300)
           })
         }, 1000)
       }
     }
   }
-        
 })
