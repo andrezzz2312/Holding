@@ -21,8 +21,8 @@
   top: 0;
   align-items: center;
   justify-content: center;
-  z-index: 200;
-  background-color: white;
+  z-index: -200;
+
 }
 .loadingIcon {
   color: #ff4500;
@@ -71,9 +71,11 @@ button {
   height: 100%;
   object-fit: contain;
 }
-.disabled > button {
+.disabled> div > div > button{
   pointer-events: none;
 }
+
+
 video::-webkit-media-controls {
   display: none !important;
 }
@@ -285,11 +287,6 @@ p {
   z-index: 50;
   overflow: hidden;
   font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
-}
-
-#easilyAGP_backButton {
-  bottom: 4rem;
-  left: 10%;
 }
 
 .vanish {

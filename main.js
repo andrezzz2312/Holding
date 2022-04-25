@@ -22,6 +22,7 @@ const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
 let counter = 0
 let value = 0
+const loader = document.querySelector('.loader')
 
 
 
@@ -37,6 +38,7 @@ function Setup() {
   mainButtons.classList.toggle('show')
   mainButtons.classList.toggle('disabled')
   mainButtons.classList.toggle('short-vanish')
+  
 }
 
 // Vanish/show when a main button is pressed
@@ -303,14 +305,28 @@ function check1(counter){
   function repeatcheck (counter){
     if (video1.readyState === 4) {
       video1check=true
+      console.log('vid1');
     }
     if (video2.readyState === 4) {
       video2check=true
+      console.log('vid2');
     }
     if (video3.readyState === 4) {
       video3check=true
-    }
-    if (video1check&&video2check&&video3check){      
+      console.log('vid3');
+    } 
+    setTimeout(() => {
+      if (!video1check||!video2check||!video3check) {
+       loader.style.zIndex='200'  
+       loader.classList.add('show')     
+      }
+    },500);
+    
+    if (video1check&&video2check&&video3check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
+          
       clearInterval(clearcheck)
       value=0
       counter=0
@@ -384,8 +400,19 @@ function check1(counter){
     }
     if (video3.readyState === 4) {
       video3check=true
-    }
-    if (video1check&&video2check&&video3check){ 
+    } 
+    setTimeout(() => {
+      if (!video1check||!video2check||!video3check) {
+       loader.style.zIndex='200'  
+       loader.classList.add('show')     
+      }
+    },500);
+    
+    if (video1check&&video2check&&video3check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
+      
       clearInterval(clearcheck)
       value=0
       counter=0
@@ -476,8 +503,19 @@ quickC_button.addEventListener('click', function (e) {
      }
      if (video3.readyState === 4) {
        video3check=true
-     }
-     if (video1check&&video2check&&video3check){ 
+     } 
+    setTimeout(() => {
+      if (!video1check||!video2check||!video3check) {
+        loader.style.zIndex='200'  
+        loader.classList.add('show')     
+      }
+    },500);
+    
+    if (video1check&&video2check&&video3check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
+      
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -555,7 +593,17 @@ easilyAGP_button.addEventListener('click', function (e) {
      if (video3.readyState === 4) {
        video3check=true
      }
-     if (video1check&&video2check&&video3check){ 
+     setTimeout(() => {
+      if (!video1check||!video2check||!video3check) {
+        loader.style.zIndex='200'  
+        loader.classList.add('show')     
+      }
+    },500);
+  
+    if (video1check&&video2check&&video3check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -609,6 +657,7 @@ fourCIDO_button.addEventListener('click', function (e) {
     'assets/Four Case Infeed Direction Options/2.mp4#t=0.1',
     'assets/Four Case Infeed Direction Options/3.mp4#t=0.1'
   )
+
   createContent(
     '65%',
     '40%',
@@ -618,31 +667,44 @@ fourCIDO_button.addEventListener('click', function (e) {
     'fourCIDO_text',
     'fourCIDO_label'
   )
+
   createSvg('66%', '42%', '60%', '50%', '60%', '50%')
+  
   createBackButton()
 
   check1(value) 
   let video1check=false
- let video2check=false
- let video3check=false
+  let video2check=false
+  let video3check=false
 
-function check1(counter){ 
-  clearcheck = setInterval(repeatcheck,500,counter)  
-  function repeatcheck (counter){
-    if (video1.readyState === 4) {
-      video1check=true
-    }
-    if (video2.readyState === 4) {
-      video2check=true
-    }
-    if (video3.readyState === 4) {
-      video3check=true
-    }
-    if (video1check&&video2check&&video3check){   
-        clearInterval(clearcheck)
-        value=0
-        counter=0
-
+  function check1(counter){ 
+    clearcheck = setInterval(repeatcheck,500,counter)  
+    function repeatcheck (counter){
+      if (video1.readyState === 4) {
+        video1check=true
+      }
+      if (video2.readyState === 4) {
+        video2check=true
+      }
+      if (video3.readyState === 4) {
+        video3check=true
+      }
+      setTimeout(() => {
+        if (!video1check||!video2check||!video3check) {
+          loader.style.zIndex='200'  
+          loader.classList.add('show')     
+        }
+      },500);
+    
+      if (video1check&&video2check&&video3check){   
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex='-200'
+        
+          clearInterval(clearcheck)
+          value=0
+          counter=0
+          
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
@@ -715,8 +777,19 @@ function check1(counter){
     }
     if (video3.readyState === 4) {
       video3check=true
-    }
-    if (video1check&&video2check&&video3check){ 
+    } 
+    setTimeout(() => {
+      if (!video1check||!video2check||!video3check) {
+       loader.style.zIndex='200'  
+       loader.classList.add('show')     
+      }
+    },500);
+    
+    if (video1check&&video2check&&video3check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
+      
         clearInterval(clearcheck)
         value=0
         counter=0
@@ -800,8 +873,20 @@ function check1(counter){
     if (video2.readyState === 4) {
       video2check=true
     }
+    setTimeout(() => {
+      if (!video2check) {
+      
+       loader.style.zIndex='200'  
+       loader.classList.add('show')     
+       
+      }
+    },500);
     
-    if (video2check){     
+    if (video2check){   
+      loader.classList.remove('show')
+      loader.classList.add('short-vanish')
+      loader.style.zIndex='-200'
+          
         clearInterval(clearcheck)
         value=0
         counter=0        
