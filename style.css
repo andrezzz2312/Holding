@@ -332,7 +332,7 @@ p {
 }
 @media (max-height: 550px) and (orientation: landscape) {
   #fourCIDO_p {
-    max-width: 33%;
+    max-width: 37%;
   }
   #fourCIDO_label {
     max-width: 23%;
