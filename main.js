@@ -342,7 +342,7 @@ function check1(counter){
             HideShowCont()
             loop.style.zIndex = '-5'
             loop.classList.remove('short-vanish')
-            loop.load()
+            loop.currentTime = 0
             loop.pause()
             video3.addEventListener('ended', () => {
               video3.classList.add('short-vanish')
@@ -425,7 +425,7 @@ function check1(counter){
           HideShowCont()
           backButton.addEventListener('click', function () {
             backButton.style.pointerEvents = 'none'
-            loop.load()
+            loop.currentTime = 0
             loop.pause()
             InterpolateVideo(video2, video2, video3)
             HideShowCont()
@@ -529,7 +529,7 @@ quickC_button.addEventListener('click', function (e) {
             HideShowCont()
             backButton.addEventListener('click', function () {
               backButton.style.pointerEvents = 'none'
-              loop.load()
+              loop.currentTime = 0
               loop.pause()
               InterpolateVideo(video2, video2, video3)
               HideShowCont()
@@ -618,7 +618,7 @@ easilyAGP_button.addEventListener('click', function (e) {
             backButton.addEventListener('click', function () {
               backButton.style.pointerEvents = 'none'
               HideShowCont()
-              loop.load()
+              loop.currentTime = 0
               loop.pause()
               setTimeout(() => {
                 InterpolateVideo(video2, video2, video3)
@@ -714,7 +714,7 @@ fourCIDO_button.addEventListener('click', function (e) {
       
             backButton.addEventListener('click', function () {
               backButton.style.pointerEvents = 'none'
-              loop.load()
+              loop.currentTime = 0
               loop.pause()
               InterpolateVideo(video2, video2, video3)
               HideShowCont()
@@ -807,7 +807,7 @@ function check1(counter){
               HideShowCont()
               loop.style.zIndex = '-5'
               loop.classList.remove('short-vanish')
-              loop.load()
+              loop.currentTime = 0
               loop.pause()
               video3.addEventListener('ended', () => {
                 video3.classList.add('short-vanish')
@@ -896,7 +896,7 @@ function check1(counter){
           InterpolateVideo(loop, loop, video2)
           HideShowCont()
           setTimeout(() => {
-            loop.load()
+            loop.currentTime = 0
             loop.pause()
             loop.style.zIndex = '-5'
           }, 1000)
