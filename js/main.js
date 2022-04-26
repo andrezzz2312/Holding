@@ -1310,42 +1310,35 @@ quickS_button.addEventListener('click', function (e) {
   }
 })
 
+var SirvOptions = {
+  spin: {
+    onready: function () {
+      createBackButton()
+      backButton.addEventListener('click', function () {
+        backButton.style.pointerEvents = 'none'
+
+        loop.style.zIndex = '-5'
+        loop.currentTime = 0
+        loop.classList.remove('short-vanish')
+        setTimeout(() => {
+          HideShowCont()
+        }, 500)
+
+        // loop.play()
+        Setup()
+        setTimeout(() => {
+          loop.style.zIndex = '-1'
+
+          showCont.innerHTML = ''
+        }, 1000)
+      })
+      console.log('ready')
+    },
+  },
+}
+
 viewR_button.addEventListener('click', function (e) {
   Setup()
-
-  createBackButton()
-
-  // window.addEventListener('resize', function (e) {
-  //   const backButtonContainer = document.querySelector(
-  //     '#centerContainer_backButton'
-  //   )
-
-  //   backButtonContainer.remove()
-
-  //   createBackButton()
-
-  //   backButton.addEventListener('click', function () {
-  //     backButton.style.pointerEvents = 'none'
-  //     InterpolateVideo(video2, video2, video3)
-  //     HideShowCont()
-  //     loop.style.zIndex = '-5'
-  //     loop.classList.remove('short-vanish')
-  //     loop.currentTime = 0
-  //     loop.pause()
-  //     video3.addEventListener('ended', () => {
-  //       video3.classList.add('short-vanish')
-  //       loop.play()
-  //       Setup()
-  //       setTimeout(() => {
-  //         loop.style.zIndex = '-1'
-  //         video1.remove()
-  //         video2.remove()
-  //         video3.remove()
-  //         showCont.innerHTML = ''
-  //       }, 300)
-  //     })
-  //   })
-  // })
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -1356,30 +1349,12 @@ viewR_button.addEventListener('click', function (e) {
     model.classList.add('Sirv')
     model.setAttribute(
       'data-src',
-      'https://listyara.sirv.com/propeller/propeller.spin'
+      'https://listyara.sirv.com/propeller%204k/propeller%204k.spin?zoom=5'
     )
 
-    centerContainerMade.appendChild(model)
-    showCont.appendChild(centerContainerMade)
+    // centerContainerMade.appendChild(model)
+    // showCont.appendChild(centerContainerMade)
+    showCont.appendChild(model)
     HideShowCont()
-
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-
-      loop.style.zIndex = '-5'
-      loop.currentTime = 0
-      loop.classList.remove('short-vanish')
-      setTimeout(() => {
-        HideShowCont()
-      }, 500)
-
-      // loop.play()
-      Setup()
-      setTimeout(() => {
-        loop.style.zIndex = '-1'
-
-        showCont.innerHTML = ''
-      }, 1000)
-    })
   }, 1000)
 })
