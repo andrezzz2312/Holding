@@ -23,6 +23,7 @@ const showCont = document.querySelector('#showCont')
 const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
 const loader = document.querySelector('.loader')
+const viewR_button = document.querySelector('#viewR_button')
 
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
@@ -1307,4 +1308,78 @@ quickS_button.addEventListener('click', function (e) {
       }
     }
   }
+})
+
+viewR_button.addEventListener('click', function (e) {
+  Setup()
+
+  createBackButton()
+
+  // window.addEventListener('resize', function (e) {
+  //   const backButtonContainer = document.querySelector(
+  //     '#centerContainer_backButton'
+  //   )
+
+  //   backButtonContainer.remove()
+
+  //   createBackButton()
+
+  //   backButton.addEventListener('click', function () {
+  //     backButton.style.pointerEvents = 'none'
+  //     InterpolateVideo(video2, video2, video3)
+  //     HideShowCont()
+  //     loop.style.zIndex = '-5'
+  //     loop.classList.remove('short-vanish')
+  //     loop.currentTime = 0
+  //     loop.pause()
+  //     video3.addEventListener('ended', () => {
+  //       video3.classList.add('short-vanish')
+  //       loop.play()
+  //       Setup()
+  //       setTimeout(() => {
+  //         loop.style.zIndex = '-1'
+  //         video1.remove()
+  //         video2.remove()
+  //         video3.remove()
+  //         showCont.innerHTML = ''
+  //       }, 300)
+  //     })
+  //   })
+  // })
+
+  setTimeout(() => {
+    loop.classList.add('short-vanish')
+    const centerContainerMade = document.createElement('div')
+    centerContainerMade.classList.add('centerContainer')
+    centerContainerMade.setAttribute('id', 'centerContainer_model')
+    const model = document.createElement('div')
+    model.classList.add('Sirv')
+    model.setAttribute(
+      'data-src',
+      'https://listyara.sirv.com/propeller/propeller.spin'
+    )
+
+    centerContainerMade.appendChild(model)
+    showCont.appendChild(centerContainerMade)
+    HideShowCont()
+
+    backButton.addEventListener('click', function () {
+      backButton.style.pointerEvents = 'none'
+
+      loop.style.zIndex = '-5'
+      loop.currentTime = 0
+      loop.classList.remove('short-vanish')
+      setTimeout(() => {
+        HideShowCont()
+      }, 500)
+
+      // loop.play()
+      Setup()
+      setTimeout(() => {
+        loop.style.zIndex = '-1'
+
+        showCont.innerHTML = ''
+      }, 1000)
+    })
+  }, 1000)
 })
