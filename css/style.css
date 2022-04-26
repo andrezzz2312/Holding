@@ -150,13 +150,11 @@ a {
   width: 100%;
   height: 100%;
 }
-.viewR_button {
-}
+
 .back::before,
 .button::before,
 .backButton::before,
 .label::before,
-.viewR_button::before,
 .viewR_a::before {
   content: '';
   position: absolute;

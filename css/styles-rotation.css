@@ -15,9 +15,6 @@
   width: 80%;
 }
 
-.cloudimage-360 {
-}
-
 .centerContainer {
   width: 100%;
   top: 90%;
@@ -30,10 +27,10 @@
   height: 10%;
 }
 
-/* .cloudimage-360-icons-container {
+.cloudimage-360-icons-container {
   top: 5%;
   right: 5%;
-} */
+}
 
 .cloudimage-360-img-magnifier-glass {
   /* width: 60%;
