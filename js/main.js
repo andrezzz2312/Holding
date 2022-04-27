@@ -15,8 +15,9 @@ let backButton = ''
 let backButtonContainer = ''
 let containVideoWidth = ''
 let containVideoHeight = ''
-let counter = 0
-let value = 0
+let video1check = false
+let video2check = false
+let video3check = false
 let x = window.matchMedia('(max-height: 550px)')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
@@ -33,7 +34,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 }
 
 // Vanish/show the main buttons and svgs
-function Setup() {
+function HideShowMainButtons() {
   mainButtons.classList.toggle('show')
   mainButtons.classList.toggle('disabled')
   mainButtons.classList.toggle('short-vanish')
@@ -54,11 +55,9 @@ function createVideos(source1, source2, source3) {
     video1.muted = true
     video1.setAttribute('playsinline', '')
     video1.controls = false
-    // video1.preload = 'auto'
     video1.autoplay = 'true'
     video1.classList.add('video')
     video1.style.zIndex = '-2'
-    // video1.play()
     video1.pause()
     loopContainer.appendChild(video1)
   }
@@ -69,11 +68,9 @@ function createVideos(source1, source2, source3) {
     video2.muted = true
     video2.setAttribute('playsinline', '')
     video2.controls = false
-    // video2.preload = 'auto'
     video2.autoplay = 'true'
     video2.classList.add('video')
     video2.style.zIndex = '-3'
-    // video2.play()
     video2.pause()
     loopContainer.appendChild(video2)
   }
@@ -81,13 +78,11 @@ function createVideos(source1, source2, source3) {
     video3 = document.createElement('video')
     video3.src = source3
     video3.muted = true
-    // video3.preload = 'auto'
     video3.autoplay = 'true'
     video3.setAttribute('playsinline', '')
     video3.controls = false
     video3.classList.add('video')
     video3.style.zIndex = '-4'
-    // video3.play()
     video3.pause()
     loopContainer.appendChild(video3)
   }
@@ -149,7 +144,7 @@ function createContent(
 }
 
 // Create the svgs for the showCont div / 4 first parameters are the x and y points of the first and second point respectively, last 2 are the x and y points of the dot
-function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
+function createSvg(lx1, ly1, lx2, ly2) {
   const svgContainerMade = document.createElement('div')
   svgContainerMade.classList.add('svgContainer')
   svgContainerMade.style.width = containVideoWidth + 'px'
@@ -179,8 +174,8 @@ function createSvg(lx1, ly1, lx2, ly2, cx, cy) {
 
   circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
 
-  circle.setAttribute('cx', cx)
-  circle.setAttribute('cy', cy)
+  circle.setAttribute('cx', lx2)
+  circle.setAttribute('cy', ly2)
   circle.setAttribute('r', '6px')
   circle.setAttribute('fill', '#f04923')
   circle.classList.add('svgDot')
@@ -283,10 +278,34 @@ window.addEventListener('resize', function () {
   }, 100)
 })
 
+function backButtonSetup() {
+  backButton.addEventListener('click', function () {
+    backButton.style.pointerEvents = 'none'
+    InterpolateVideo(video2, video2, video3)
+    HideShowCont()
+    loop.style.zIndex = '-5'
+    loop.classList.remove('short-vanish')
+    loop.currentTime = 0
+    loop.pause()
+    video3.addEventListener('ended', () => {
+      video3.classList.add('short-vanish')
+      loop.play()
+      HideShowMainButtons()
+      setTimeout(() => {
+        loop.style.zIndex = '-1'
+        video1.remove()
+        video2.remove()
+        video3.remove()
+        showCont.innerHTML = ''
+      }, 300)
+    })
+  })
+}
+
 ////////// Event Listeners for the main buttons //////////
 
 compactFP_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Compact FootPrint/1.mp4#t=0.1',
@@ -300,7 +319,7 @@ compactFP_button.addEventListener('click', function (e) {
     'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
   )
 
-  createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
+  createSvg('21%', '19%', '49%', '42.7%')
 
   createBackButton()
 
@@ -319,41 +338,20 @@ compactFP_button.addEventListener('click', function (e) {
       'Compact FootPrint',
       'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
     )
-    createSvg('21%', '19%', '49%', '42.7%', '49%', '42.7%')
+    createSvg('21%', '19%', '49%', '42.7%')
     createBackButton()
-
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      InterpolateVideo(video2, video2, video3)
-      HideShowCont()
-      loop.style.zIndex = '-5'
-      loop.classList.remove('short-vanish')
-      loop.currentTime = 0
-      loop.pause()
-      video3.addEventListener('ended', () => {
-        video3.classList.add('short-vanish')
-        loop.play()
-        Setup()
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          video1.remove()
-          video2.remove()
-          video3.remove()
-          showCont.innerHTML = ''
-        }, 300)
-      })
-    })
+    backButtonSetup()
   })
 
-  check1(value)
+  check1()
 
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -376,35 +374,14 @@ compactFP_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
+
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              InterpolateVideo(video2, video2, video3)
-              HideShowCont()
-              loop.style.zIndex = '-5'
-              loop.classList.remove('short-vanish')
-              loop.currentTime = 0
-              loop.pause()
-              video3.addEventListener('ended', () => {
-                video3.classList.add('short-vanish')
-                loop.play()
-                Setup()
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 300)
-              })
-            })
+            backButtonSetup()
           })
         }, 1000)
       }
@@ -413,7 +390,7 @@ compactFP_button.addEventListener('click', function (e) {
 })
 
 remoteAC_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
@@ -428,7 +405,7 @@ remoteAC_button.addEventListener('click', function (e) {
     'remoteAC_p'
   )
 
-  createSvg('15%', '27%', '60%', '25%', '60%', '25%')
+  createSvg('15%', '27%', '60%', '25%')
 
   createBackButton()
 
@@ -448,42 +425,19 @@ remoteAC_button.addEventListener('click', function (e) {
       `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`,
       'remoteAC_p'
     )
-    createSvg('15%', '27%', '60%', '25%', '60%', '25%')
+    createSvg('15%', '27%', '60%', '25%')
     createBackButton()
-
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      loop.currentTime = 0
-      loop.pause()
-      InterpolateVideo(video2, video2, video3)
-      HideShowCont()
-
-      video3.addEventListener('ended', () => {
-        loop.style.zIndex = '-5'
-        video3.classList.add('short-vanish')
-        loop.classList.remove('short-vanish')
-        loop.play()
-
-        Setup()
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          video1.remove()
-          video2.remove()
-          video3.remove()
-          showCont.innerHTML = ''
-        }, 500)
-      })
-    })
+    backButtonSetup(500)
   })
 
-  check1(value)
+  check1()
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -506,38 +460,14 @@ remoteAC_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
+
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
-
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              loop.currentTime = 0
-              loop.pause()
-              InterpolateVideo(video2, video2, video3)
-              HideShowCont()
-
-              video3.addEventListener('ended', () => {
-                loop.style.zIndex = '-5'
-                video3.classList.add('short-vanish')
-                loop.classList.remove('short-vanish')
-                loop.play()
-
-                Setup()
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 500)
-              })
-            })
+            backButtonSetup(500)
           })
         }, 1000)
       }
@@ -546,7 +476,7 @@ remoteAC_button.addEventListener('click', function (e) {
 })
 
 quickC_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
@@ -561,7 +491,7 @@ quickC_button.addEventListener('click', function (e) {
       `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
       'quickC_p'
     )
-    createSvg('19%', '24%', '60%', '25%', '60%', '25%')
+    createSvg('19%', '24%', '60%', '25%')
 
     window.addEventListener('resize', function (e) {
       const textContainer = document.querySelector('#centerContainer_text')
@@ -579,32 +509,10 @@ quickC_button.addEventListener('click', function (e) {
         `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
         'quickC_p'
       )
-      createSvg('19%', '24%', '60%', '25%', '60%', '25%')
+      createSvg('19%', '24%', '60%', '25%')
       createBackButton()
 
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        loop.currentTime = 0
-        loop.pause()
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-          loop.classList.remove('short-vanish')
-          loop.play()
-
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML = ''
-          }, 300)
-        })
-      })
+      backButtonSetup()
     })
   } else {
     createContent(
@@ -614,7 +522,7 @@ quickC_button.addEventListener('click', function (e) {
       `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
       'quickC_p'
     )
-    createSvg('19%', '34%', '60%', '25%', '60%', '25%')
+    createSvg('19%', '34%', '60%', '25%')
     window.addEventListener('resize', function (e) {
       const textContainer = document.querySelector('#centerContainer_text')
       const svgContainer = document.querySelector('#centerContainer_svg')
@@ -631,45 +539,23 @@ quickC_button.addEventListener('click', function (e) {
         `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
         'quickC_p'
       )
-      createSvg('19%', '34%', '60%', '25%', '60%', '25%')
+      createSvg('19%', '34%', '60%', '25%')
       createBackButton()
 
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        loop.currentTime = 0
-        loop.pause()
-        InterpolateVideo(video2, video2, video3)
-        HideShowCont()
-
-        video3.addEventListener('ended', () => {
-          loop.style.zIndex = '-5'
-          video3.classList.add('short-vanish')
-          loop.classList.remove('short-vanish')
-          loop.play()
-
-          Setup()
-          setTimeout(() => {
-            loop.style.zIndex = '-1'
-            video1.remove()
-            video2.remove()
-            video3.remove()
-            showCont.innerHTML = ''
-          }, 300)
-        })
-      })
+      backButtonSetup()
     })
   }
 
   createBackButton()
 
-  check1(value)
+  check1()
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -692,39 +578,14 @@ quickC_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
-
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              loop.currentTime = 0
-              loop.pause()
-              InterpolateVideo(video2, video2, video3)
-              HideShowCont()
-
-              video3.addEventListener('ended', () => {
-                loop.style.zIndex = '-5'
-                video3.classList.add('short-vanish')
-                loop.classList.remove('short-vanish')
-                loop.play()
-
-                Setup()
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 300)
-              })
-            })
+            backButtonSetup()
           })
         }, 1000)
       }
@@ -733,7 +594,7 @@ quickC_button.addEventListener('click', function (e) {
 })
 
 easilyAGP_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Easily Accessible Grace Port/1.mp4#t=0.1',
@@ -747,7 +608,7 @@ easilyAGP_button.addEventListener('click', function (e) {
     `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`,
     'easilyAGP_p'
   )
-  createSvg('15%', '34%', '66%', '28%', '66%', '28%')
+  createSvg('15%', '34%', '66%', '28%')
   createBackButton()
 
   window.addEventListener('resize', function (e) {
@@ -766,46 +627,21 @@ easilyAGP_button.addEventListener('click', function (e) {
       `Grace ports provide convenient communication\nand low-voltage power portals at the outside of the\nmachine's electrical cabinet`,
       'easilyAGP_p'
     )
-    createSvg('15%', '34%', '66%', '28%', '66%', '28%')
+    createSvg('15%', '34%', '66%', '28%')
 
     createBackButton()
 
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      HideShowCont()
-      loop.currentTime = 0
-      loop.pause()
-      setTimeout(() => {
-        InterpolateVideo(video2, video2, video3)
-      }, 500)
-
-      video3.addEventListener('ended', () => {
-        loop.style.zIndex = '-5'
-        video3.classList.add('short-vanish')
-        loop.classList.remove('short-vanish')
-        loop.play()
-
-        Setup()
-
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          video1.remove()
-          video2.remove()
-          video3.remove()
-          showCont.innerHTML = ''
-        }, 500)
-      })
-    })
+    backButtonSetup(500)
   })
 
-  check1(value)
+  check1()
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -827,42 +663,14 @@ easilyAGP_button.addEventListener('click', function (e) {
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
           video1.play()
-
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              HideShowCont()
-              loop.currentTime = 0
-              loop.pause()
-              setTimeout(() => {
-                InterpolateVideo(video2, video2, video3)
-              }, 500)
-
-              video3.addEventListener('ended', () => {
-                loop.style.zIndex = '-5'
-                video3.classList.add('short-vanish')
-                loop.classList.remove('short-vanish')
-                loop.play()
-
-                Setup()
-
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 500)
-              })
-            })
+            backButtonSetup(500)
           })
         }, 1000)
       }
@@ -871,7 +679,7 @@ easilyAGP_button.addEventListener('click', function (e) {
 })
 
 fourCIDO_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Four Case Infeed Direction Options/1.mp4#t=0.1',
@@ -889,7 +697,7 @@ fourCIDO_button.addEventListener('click', function (e) {
     'fourCIDO_label'
   )
 
-  createSvg('66%', '42%', '60%', '50%', '60%', '50%')
+  createSvg('66%', '42%', '60%', '50%')
 
   createBackButton()
 
@@ -912,46 +720,20 @@ fourCIDO_button.addEventListener('click', function (e) {
       'fourCIDO_label'
     )
 
-    createSvg('66%', '42%', '60%', '50%', '60%', '50%')
+    createSvg('66%', '42%', '60%', '50%')
 
     createBackButton()
-
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      loop.currentTime = 0
-      loop.pause()
-      if (video3.readyState === 4) {
-        InterpolateVideo(video2, video2, video3)
-      }
-
-      HideShowCont()
-
-      video3.addEventListener('ended', () => {
-        loop.style.zIndex = '-5'
-        video3.classList.add('short-vanish')
-        loop.classList.remove('short-vanish')
-        loop.play()
-
-        Setup()
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          video1.remove()
-          video2.remove()
-          video3.remove()
-          showCont.innerHTML = ''
-        }, 300)
-      })
-    })
+    backButtonSetup()
   })
 
-  check1(value)
+  check1()
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -974,45 +756,14 @@ fourCIDO_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
-          if (video1.readyState === 4) {
-            video1.play()
-          }
-
+          video1.play()
           setTimeout(() => {
             HideShowCont()
             InterpolateVideo(loop, video1, video2)
-
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              loop.currentTime = 0
-              loop.pause()
-              if (video3.readyState === 4) {
-                InterpolateVideo(video2, video2, video3)
-              }
-
-              HideShowCont()
-
-              video3.addEventListener('ended', () => {
-                loop.style.zIndex = '-5'
-                video3.classList.add('short-vanish')
-                loop.classList.remove('short-vanish')
-                loop.play()
-
-                Setup()
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 300)
-              })
-            })
+            backButtonSetup()
           }, 6000)
         }, 1000)
       }
@@ -1021,7 +772,7 @@ fourCIDO_button.addEventListener('click', function (e) {
 })
 
 maximumU_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(
     'assets/Maximum Uptime/1.mp4#t=0.1',
@@ -1035,7 +786,7 @@ maximumU_button.addEventListener('click', function (e) {
     'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
     'maximumU_p'
   )
-  createSvg('59%', '37%', '18%', '60%', '18%', '60%')
+  createSvg('59%', '37%', '18%', '60%')
   createBackButton()
 
   window.addEventListener('resize', function (e) {
@@ -1054,44 +805,22 @@ maximumU_button.addEventListener('click', function (e) {
       'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
       'maximumU_p'
     )
-    createSvg('59%', '37%', '18%', '60%', '18%', '60%')
+    createSvg('59%', '37%', '18%', '60%')
 
     createBackButton()
 
-    backButton.addEventListener('click', function () {
-      backButton.style.pointerEvents = 'none'
-      if (video3.readyState === 4) {
-        InterpolateVideo(video2, video2, video3)
-      }
-      HideShowCont()
-      loop.style.zIndex = '-5'
-      loop.classList.remove('short-vanish')
-      loop.currentTime = 0
-      loop.pause()
-      video3.addEventListener('ended', () => {
-        video3.classList.add('short-vanish')
-        loop.play()
-        Setup()
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          video1.remove()
-          video2.remove()
-          video3.remove()
-          showCont.innerHTML = ''
-        }, 300)
-      })
-    })
+    backButtonSetup()
   })
 
-  check1(value)
+  check1()
   let video1check = false
   let video2check = false
   let video3check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
 
-    function repeatcheck(counter) {
+    function repeatcheck() {
       if (video1.readyState === 4) {
         video1check = true
       }
@@ -1114,41 +843,16 @@ maximumU_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
 
         setTimeout(() => {
           loop.classList.add('short-vanish')
           if (video1.readyState === 4) {
             video1.play()
           }
-
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
-            backButton.addEventListener('click', function () {
-              backButton.style.pointerEvents = 'none'
-              if (video3.readyState === 4) {
-                InterpolateVideo(video2, video2, video3)
-              }
-              HideShowCont()
-              loop.style.zIndex = '-5'
-              loop.classList.remove('short-vanish')
-              loop.currentTime = 0
-              loop.pause()
-              video3.addEventListener('ended', () => {
-                video3.classList.add('short-vanish')
-                loop.play()
-                Setup()
-                setTimeout(() => {
-                  loop.style.zIndex = '-1'
-                  video1.remove()
-                  video2.remove()
-                  video3.remove()
-                  showCont.innerHTML = ''
-                }, 300)
-              })
-            })
+            backButtonSetup()
           })
         }, 1000)
       }
@@ -1157,7 +861,7 @@ maximumU_button.addEventListener('click', function (e) {
 })
 
 quickS_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   createVideos(null, 'assets/Quick Start Up/1.mp4#t=0.1', null)
 
@@ -1169,7 +873,9 @@ quickS_button.addEventListener('click', function (e) {
       'The cell comespre-assembled on a common base for easy placement and start-up',
       'quickS_p'
     )
-    createSvg('13%', '30%', '35%', '75%', '35%', '75%')
+
+    createSvg('13%', '30%', '35%', '75%')
+
     window.addEventListener('resize', function (e) {
       const textContainer = document.querySelector('#centerContainer_text')
       const svgContainer = document.querySelector('#centerContainer_svg')
@@ -1186,7 +892,7 @@ quickS_button.addEventListener('click', function (e) {
         'The cell comespre-assembled on a common base for easy placement and start-up',
         'quickS_p'
       )
-      createSvg('13%', '30%', '35%', '75%', '35%', '75%')
+      createSvg('13%', '30%', '35%', '75%')
 
       createBackButton()
 
@@ -1198,7 +904,7 @@ quickS_button.addEventListener('click', function (e) {
         loop.classList.remove('short-vanish')
 
         setTimeout(() => {
-          Setup()
+          HideShowMainButtons()
           loop.style.zIndex = '-1'
           video2.remove()
           showCont.innerHTML = ''
@@ -1213,7 +919,7 @@ quickS_button.addEventListener('click', function (e) {
       'The cell comespre-assembled on a common base for easy placement and start-up',
       'quickS_p'
     )
-    createSvg('13%', '79%', '35%', '75%', '35%', '75%')
+    createSvg('13%', '79%', '35%', '75%')
 
     window.addEventListener('resize', function (e) {
       const textContainer = document.querySelector('#centerContainer_text')
@@ -1231,7 +937,7 @@ quickS_button.addEventListener('click', function (e) {
         'The cell comespre-assembled on a common base for easy placement and start-up',
         'quickS_p'
       )
-      createSvg('13%', '79%', '35%', '75%', '35%', '75%')
+      createSvg('13%', '79%', '35%', '75%')
 
       createBackButton()
 
@@ -1243,7 +949,7 @@ quickS_button.addEventListener('click', function (e) {
         loop.classList.remove('short-vanish')
 
         setTimeout(() => {
-          Setup()
+          HideShowMainButtons()
           loop.style.zIndex = '-1'
           video2.remove()
           showCont.innerHTML = ''
@@ -1254,13 +960,13 @@ quickS_button.addEventListener('click', function (e) {
 
   createBackButton()
 
-  check1(value)
+  check1()
 
   let video2check = false
 
-  function check1(counter) {
-    clearcheck = setInterval(repeatcheck, 500, counter)
-    function repeatcheck(counter) {
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
       if (video2.readyState === 4) {
         video2check = true
       }
@@ -1277,8 +983,7 @@ quickS_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
 
         clearInterval(clearcheck)
-        value = 0
-        counter = 0
+
         setTimeout(() => {
           video2.play()
 
@@ -1298,7 +1003,7 @@ quickS_button.addEventListener('click', function (e) {
             loop.classList.remove('short-vanish')
 
             setTimeout(() => {
-              Setup()
+              HideShowMainButtons()
               loop.style.zIndex = '-1'
               video2.remove()
               showCont.innerHTML = ''
@@ -1310,13 +1015,13 @@ quickS_button.addEventListener('click', function (e) {
   }
 })
 
+// Check when the spinner is fully loaded
 var SirvOptions = {
   spin: {
     onready: function () {
       createBackButton()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
-
         loop.style.zIndex = '-5'
         loop.currentTime = 0
         loop.classList.remove('short-vanish')
@@ -1324,21 +1029,19 @@ var SirvOptions = {
           HideShowCont()
         }, 500)
 
-        // loop.play()
-        Setup()
+        HideShowMainButtons()
         setTimeout(() => {
           loop.style.zIndex = '-1'
-
           showCont.innerHTML = ''
         }, 1000)
       })
-      console.log('ready')
     },
   },
 }
 
+// View rotation button
 viewR_button.addEventListener('click', function (e) {
-  Setup()
+  HideShowMainButtons()
 
   setTimeout(() => {
     loop.classList.add('short-vanish')
@@ -1352,8 +1055,6 @@ viewR_button.addEventListener('click', function (e) {
       'https://listyara.sirv.com/propeller%204k/propeller%204k.spin?zoom=5'
     )
 
-    // centerContainerMade.appendChild(model)
-    // showCont.appendChild(centerContainerMade)
     showCont.appendChild(model)
     HideShowCont()
   }, 1000)
