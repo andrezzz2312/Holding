@@ -38,7 +38,7 @@ body {
 }
 
 button {
-  font-size: calc(5px + (16 - 5) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(5px + (14 - 5) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .viewR_a {
@@ -53,7 +53,7 @@ button {
   overflow: hidden;
   padding: 0.4rem 2rem;
   margin-bottom: 1rem;
-  font-size: calc(5px + (16 - 5) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(5px + (14 - 5) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .centerContainer {
@@ -186,13 +186,7 @@ a {
   animation: gloss 1s ease-in-out infinite;
   overflow: hidden;
 }
-.mainButtons {
-}
-.svg {
-  /* position: absolute;
-  left: 0;
-  top: 0; */
-}
+
 .svgDot {
   position: absolute;
   left: 30%;
