@@ -173,17 +173,16 @@ a {
   height: 100%;
   background: linear-gradient(
     35deg,
-    transparent,
-    transparent,
-    transparent,
-    transparent,
-    #fff,
-    transparent,
-    transparent,
-    transparent,
-    transparent
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0),
+    rgb(255, 255, 255),
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0)
   );
-  transition: 0.5s;
   animation: gloss 1s ease-in-out infinite;
   overflow: hidden;
 }
