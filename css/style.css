@@ -357,7 +357,7 @@ p {
 }
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {
   .warning {
-    z-index: 100;
+    z-index: 300;
     opacity: 1;
   }
 }
