@@ -256,7 +256,9 @@ function getImgSizeInfo(img) {
 loop.addEventListener('loadedmetadata', function (e) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
+
   ArreglarLineas()
+  alert('charged metadata')
   initial.classList.add('short-vanish')
   setTimeout(() => {
     initial.style.zIndex = '-200'
@@ -267,6 +269,7 @@ if (loop.readyState >= 2) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
   ArreglarLineas()
+  alert('charged readystate')
   initial.classList.add('short-vanish')
   setTimeout(() => {
     initial.style.zIndex = '-200'
