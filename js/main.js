@@ -336,7 +336,7 @@ compactFP_button.addEventListener('click', function (e) {
   createContent(
     '10%',
     '17%',
-    'compactFP',
+    'Compact Footprint',
     'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
   )
 
@@ -356,7 +356,7 @@ compactFP_button.addEventListener('click', function (e) {
     createContent(
       '10%',
       '17%',
-      'compactFP',
+      'Compact Footprint',
       'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
     )
     createSvg('21%', '19%', '49%', '42.7%')
@@ -432,7 +432,7 @@ remoteAC_button.addEventListener('click', function (e) {
   createContent(
     '12%',
     '24%',
-    ' Remote Access Capability',
+    'Remote Access Capability',
     `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`,
     'remoteAC_p'
   )
@@ -453,7 +453,7 @@ remoteAC_button.addEventListener('click', function (e) {
     createContent(
       '12%',
       '24%',
-      ' Remote Access Capability',
+      'Remote Access Capability',
       `Allows Pearson's support team on-demand\naccess to the equipment's PLC and HMI\nthrough a secure VPN connection via an eWON\nrouter ISECOM STAR and ISO 27001 certified\nto support emergency troubleshooting and\nreduce on-site visits`,
       'remoteAC_p'
     )
@@ -527,7 +527,7 @@ quickC_button.addEventListener('click', function (e) {
     createContent(
       '12%',
       '20%',
-      ' Quick Changeover',
+      'Quick Changeover',
       `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
       'quickC_p'
     )
@@ -545,7 +545,7 @@ quickC_button.addEventListener('click', function (e) {
       createContent(
         '12%',
         '20%',
-        ' Quick Changeover',
+        'Quick Changeover',
         `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
         'quickC_p'
       )
@@ -558,7 +558,7 @@ quickC_button.addEventListener('click', function (e) {
     createContent(
       '12%',
       '30%',
-      ' Quick Changeover',
+      'Quick Changeover',
       `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
       'quickC_p'
     )
@@ -575,7 +575,7 @@ quickC_button.addEventListener('click', function (e) {
       createContent(
         '12%',
         '30%',
-        ' Quick Changeover',
+        'Quick Changeover',
         `The easy-to use pallet configuration tool\nallows to quickly create, modify, copy or\nclear new pattern recipes on the HMI or\nadjust parameters such as case or pallet\nheight, number of layers, pick/drop speeds\nor delays during production. A changeover\nusing a pre-programmed recipe can be\naccomplished in under 1min. To set up a\nnew recipe, trained technicians require\napproximately 5 min`,
         'quickC_p'
       )
@@ -745,7 +745,7 @@ fourCIDO_button.addEventListener('click', function (e) {
   createContent(
     '65%',
     '40%',
-    'fourCIDO',
+    'Four Case Infeed Direction Options',
     `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
     'fourCIDO_p',
     'fourCIDO_text',
@@ -768,7 +768,7 @@ fourCIDO_button.addEventListener('click', function (e) {
     createContent(
       '65%',
       '40%',
-      'fourCIDO',
+      'Four Case Infeed Direction Options',
       `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
       'fourCIDO_p',
       'fourCIDO_text',
@@ -846,7 +846,7 @@ maximumU_button.addEventListener('click', function (e) {
   createContent(
     '58%',
     '35%',
-    'maximumU',
+    'Maximum Update',
     'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
     'maximumU_p'
   )
@@ -865,7 +865,7 @@ maximumU_button.addEventListener('click', function (e) {
     createContent(
       '58%',
       '35%',
-      'maximumU',
+      'Maximum Update',
       'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
       'maximumU_p'
     )
