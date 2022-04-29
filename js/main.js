@@ -316,15 +316,15 @@ compactFP_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Compact FootPrint/compactFP_C_1.m4v#t=0.1',
-      'assets/Compact FootPrint/compactFP_C_2.m4v#t=0.1',
-      'assets/Compact FootPrint/compactFP_C_3.m4v#t=0.1'
+      'assets/Compact FootPrint/compactFP_C_1.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C_2.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C_3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Compact FootPrint/1.mp4#t=0.1',
-      'assets/Compact FootPrint/2.mp4#t=0.1',
-      'assets/Compact FootPrint/3.mp4#t=0.1'
+      'assets/Compact FootPrint/compactFP1.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP2.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP3.mp4#t=0.1'
     )
   }
 
@@ -410,11 +410,20 @@ compactFP_button.addEventListener('click', function (e) {
 remoteAC_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+    )
+  }
+
   createContent(
     '12%',
     '24%',
@@ -496,11 +505,19 @@ remoteAC_button.addEventListener('click', function (e) {
 quickC_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+    )
+  }
   if (x.matches) {
     createContent(
       '12%',
@@ -613,12 +630,20 @@ quickC_button.addEventListener('click', function (e) {
 
 easilyAGP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
+  if (x.matches) {
+    createVideos(
+      'assets/Easily Accessible Grace Port/easilyAGP_C1.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP_C2.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Easily Accessible Grace Port/easilyAGP1.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP2.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP3.mp4#t=0.1'
+    )
+  }
 
-  createVideos(
-    'assets/Easily Accessible Grace Port/1.mp4#t=0.1',
-    'assets/Easily Accessible Grace Port/2.mp4#t=0.1',
-    'assets/Easily Accessible Grace Port/3.mp4#t=0.1'
-  )
   createContent(
     '10%',
     '30%',
@@ -699,12 +724,19 @@ easilyAGP_button.addEventListener('click', function (e) {
 fourCIDO_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Four Case Infeed Direction Options/1.mp4#t=0.1',
-    'assets/Four Case Infeed Direction Options/2.mp4#t=0.1',
-    'assets/Four Case Infeed Direction Options/3.mp4#t=0.1'
-  )
-
+  if (x.matches) {
+    createVideos(
+      'assets/Four Case Infeed Direction Options/fourCIDO1_C.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO2_C.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO3_C.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Four Case Infeed Direction Options/fourCIDO1.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO2.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO3.mp4#t=0.1'
+    )
+  }
   createContent(
     '65%',
     '40%',
@@ -792,11 +824,20 @@ fourCIDO_button.addEventListener('click', function (e) {
 maximumU_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Maximum Uptime/1.mp4#t=0.1',
-    'assets/Maximum Uptime/2.mp4#t=0.1',
-    'assets/Maximum Uptime/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Maximum Uptime/maximumU_C1.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU_C2.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Maximum Uptime/maximumU1.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU2.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU3.mp4#t=0.1'
+    )
+  }
+
   createContent(
     '58%',
     '35%',
@@ -879,7 +920,11 @@ maximumU_button.addEventListener('click', function (e) {
 quickS_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(null, 'assets/Quick Start Up/1.mp4#t=0.1', null)
+  if (x.matches) {
+    createVideos(null, 'assets/Quick Start Up/quickS_C1.mp4#t=0.1', null)
+  } else {
+    createVideos(null, 'assets/Quick Start Up/quickS1.mp4#t=0.1', null)
+  }
 
   if (x.matches) {
     createContent(
