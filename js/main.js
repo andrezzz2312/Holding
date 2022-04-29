@@ -27,8 +27,6 @@ const loader = document.querySelector('.loader')
 const viewR_button = document.querySelector('#viewR_button')
 const initial = document.querySelector('.initial')
 
-loop.play()
-
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -260,7 +258,7 @@ loop.addEventListener('loadedmetadata', function (e) {
   containVideoHeight = getImgSizeInfo(loop).height
 
   ArreglarLineas()
-  alert('charged metadata')
+
   initial.classList.add('short-vanish')
   setTimeout(() => {
     initial.style.zIndex = '-200'
@@ -271,7 +269,7 @@ if (loop.readyState >= 1) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
   ArreglarLineas()
-  alert('charged readystate')
+
   initial.classList.add('short-vanish')
   setTimeout(() => {
     initial.style.zIndex = '-200'
