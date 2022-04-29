@@ -219,7 +219,7 @@ function ArreglarLineas() {
     buttonContainer[i].style.width = containVideoWidth + 'px'
     buttonContainer[i].style.height = containVideoHeight + 'px'
   }
-  mainButtons.style.opacity = '0'
+  // mainButtons.style.opacity = '0'
   mainButtons.classList.add('show')
 }
 
