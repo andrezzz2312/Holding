@@ -30,7 +30,9 @@
   font-size: 5rem;
   animation: spin 2s linear infinite;
 }
-
+.mainButtons {
+  opacity: 0;
+}
 .initial {
   position: absolute;
   height: 100%;
