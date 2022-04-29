@@ -263,19 +263,15 @@ if (loop.readyState >= 2) {
 }
 
 window.addEventListener('orientationchange', function () {
-  setTimeout(() => {
-    containVideoWidth = getImgSizeInfo(loop).width
-    containVideoHeight = getImgSizeInfo(loop).height
-    ArreglarLineas()
-  }, 100)
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas()
 })
 
 window.addEventListener('resize', function () {
-  setTimeout(() => {
-    containVideoWidth = getImgSizeInfo(loop).width
-    containVideoHeight = getImgSizeInfo(loop).height
-    ArreglarLineas()
-  }, 100)
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas()
 })
 
 function backButtonSetup() {
