@@ -267,7 +267,7 @@ loop.addEventListener('loadedmetadata', function (e) {
   }, 500)
 })
 
-if (loop.readyState >= 2) {
+if (loop.readyState >= 1) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
   ArreglarLineas()
