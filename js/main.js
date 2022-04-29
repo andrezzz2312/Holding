@@ -921,9 +921,9 @@ quickS_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
   if (x.matches) {
-    createVideos(null, 'assets/Quick Start Up/quickS_C1.mp4#t=0.1', null)
+    createVideos(null, 'assets/Quick Start Up/quickS_C.mp4#t=0.1', null)
   } else {
-    createVideos(null, 'assets/Quick Start Up/quickS1.mp4#t=0.1', null)
+    createVideos(null, 'assets/Quick Start Up/quickS.mp4#t=0.1', null)
   }
 
   if (x.matches) {
