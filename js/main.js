@@ -1106,6 +1106,7 @@ var SirvOptions = {
 
 // View rotation button
 viewR_button.addEventListener('click', function (e) {
+  loader.classList.remove('short-vanish')
   loader.style.zIndex = '100'
   initial.style.zIndex = '99'
   initial.classList.remove('short-vanish')
