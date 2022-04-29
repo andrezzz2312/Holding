@@ -316,9 +316,9 @@ compactFP_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Compact FootPrint/compactFP_C_1.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP_C_2.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP_C_3.mp4#t=0.1'
+      'assets/Compact FootPrint/compactFP_C1.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C2.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
@@ -726,9 +726,9 @@ fourCIDO_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Four Case Infeed Direction Options/fourCIDO1_C.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO2_C.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO3_C.mp4#t=0.1'
+      'assets/Four Case Infeed Direction Options/fourCIDO_C1.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO_C2.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
