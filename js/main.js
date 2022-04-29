@@ -25,12 +25,15 @@ const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
 const loader = document.querySelector('.loader')
 const viewR_button = document.querySelector('#viewR_button')
+const initial = document.querySelector('.initial')
 
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
   videoToVanish.classList.add('short-vanish')
-  videoToPlay.play()
+  setTimeout(() => {
+    videoToPlay.play()
+  }, 500)
 }
 
 // Vanish/show the main buttons and svgs
@@ -253,29 +256,36 @@ function getImgSizeInfo(img) {
 loop.addEventListener('loadedmetadata', function (e) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
+
   ArreglarLineas()
+
+  initial.classList.add('short-vanish')
+  setTimeout(() => {
+    initial.style.zIndex = '-200'
+  }, 500)
 })
 
-if (loop.readyState >= 2) {
+if (loop.readyState >= 1) {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
   ArreglarLineas()
+
+  initial.classList.add('short-vanish')
+  setTimeout(() => {
+    initial.style.zIndex = '-200'
+  }, 500)
 }
 
 window.addEventListener('orientationchange', function () {
-  setTimeout(() => {
-    containVideoWidth = getImgSizeInfo(loop).width
-    containVideoHeight = getImgSizeInfo(loop).height
-    ArreglarLineas()
-  }, 100)
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas()
 })
 
 window.addEventListener('resize', function () {
-  setTimeout(() => {
-    containVideoWidth = getImgSizeInfo(loop).width
-    containVideoHeight = getImgSizeInfo(loop).height
-    ArreglarLineas()
-  }, 100)
+  containVideoWidth = getImgSizeInfo(loop).width
+  containVideoHeight = getImgSizeInfo(loop).height
+  ArreglarLineas()
 })
 
 function backButtonSetup() {
@@ -307,11 +317,20 @@ function backButtonSetup() {
 compactFP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Compact FootPrint/1.mp4#t=0.1',
-    'assets/Compact FootPrint/2.mp4#t=0.1',
-    'assets/Compact FootPrint/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Compact FootPrint/compactFP_C1.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C2.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Compact FootPrint/compactFP1.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP2.mp4#t=0.1',
+      'assets/Compact FootPrint/compactFP3.mp4#t=0.1'
+    )
+  }
+
   createContent(
     '10%',
     '17%',
@@ -375,15 +394,17 @@ compactFP_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        // setTimeout(() => {
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
           video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
             backButtonSetup()
           })
-        }, 1000)
+        }, 500)
+        // }, 1000)
       }
     }
   }
@@ -392,11 +413,20 @@ compactFP_button.addEventListener('click', function (e) {
 remoteAC_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+    )
+  }
+
   createContent(
     '12%',
     '24%',
@@ -461,15 +491,15 @@ remoteAC_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
           video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
             backButtonSetup(500)
           })
-        }, 1000)
+        }, 500)
       }
     }
   }
@@ -478,11 +508,19 @@ remoteAC_button.addEventListener('click', function (e) {
 quickC_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Remote Access Capability - Quick Changeover/1.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/2.mp4#t=0.1',
-    'assets/Remote Access Capability - Quick Changeover/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
+      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+    )
+  }
   if (x.matches) {
     createContent(
       '12%',
@@ -579,15 +617,15 @@ quickC_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
           video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
             backButtonSetup()
           })
-        }, 1000)
+        }, 500)
       }
     }
   }
@@ -595,12 +633,20 @@ quickC_button.addEventListener('click', function (e) {
 
 easilyAGP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
+  if (x.matches) {
+    createVideos(
+      'assets/Easily Accessible Grace Port/easilyAGP_C1.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP_C2.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Easily Accessible Grace Port/easilyAGP1.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP2.mp4#t=0.1',
+      'assets/Easily Accessible Grace Port/easilyAGP3.mp4#t=0.1'
+    )
+  }
 
-  createVideos(
-    'assets/Easily Accessible Grace Port/1.mp4#t=0.1',
-    'assets/Easily Accessible Grace Port/2.mp4#t=0.1',
-    'assets/Easily Accessible Grace Port/3.mp4#t=0.1'
-  )
   createContent(
     '10%',
     '30%',
@@ -664,15 +710,15 @@ easilyAGP_button.addEventListener('click', function (e) {
         loader.style.zIndex = '-200'
         clearInterval(clearcheck)
 
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
           video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
             backButtonSetup(500)
           })
-        }, 1000)
+        }, 500)
       }
     }
   }
@@ -681,12 +727,19 @@ easilyAGP_button.addEventListener('click', function (e) {
 fourCIDO_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Four Case Infeed Direction Options/1.mp4#t=0.1',
-    'assets/Four Case Infeed Direction Options/2.mp4#t=0.1',
-    'assets/Four Case Infeed Direction Options/3.mp4#t=0.1'
-  )
-
+  if (x.matches) {
+    createVideos(
+      'assets/Four Case Infeed Direction Options/fourCIDO_C1.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO_C2.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Four Case Infeed Direction Options/fourCIDO1.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO2.mp4#t=0.1',
+      'assets/Four Case Infeed Direction Options/fourCIDO3.mp4#t=0.1'
+    )
+  }
   createContent(
     '65%',
     '40%',
@@ -757,8 +810,8 @@ fourCIDO_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
           video1.play()
           setTimeout(() => {
             HideShowCont()
@@ -774,11 +827,20 @@ fourCIDO_button.addEventListener('click', function (e) {
 maximumU_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(
-    'assets/Maximum Uptime/1.mp4#t=0.1',
-    'assets/Maximum Uptime/2.mp4#t=0.1',
-    'assets/Maximum Uptime/3.mp4#t=0.1'
-  )
+  if (x.matches) {
+    createVideos(
+      'assets/Maximum Uptime/maximumU_C1.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU_C2.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU_C3.mp4#t=0.1'
+    )
+  } else {
+    createVideos(
+      'assets/Maximum Uptime/maximumU1.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU2.mp4#t=0.1',
+      'assets/Maximum Uptime/maximumU3.mp4#t=0.1'
+    )
+  }
+
   createContent(
     '58%',
     '35%',
@@ -844,11 +906,9 @@ maximumU_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.classList.add('short-vanish')
-          if (video1.readyState === 4) {
-            video1.play()
-          }
+          video1.play()
           video1.addEventListener('ended', () => {
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
@@ -863,7 +923,11 @@ maximumU_button.addEventListener('click', function (e) {
 quickS_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
-  createVideos(null, 'assets/Quick Start Up/1.mp4#t=0.1', null)
+  if (x.matches) {
+    createVideos(null, 'assets/Quick Start Up/quickS_C.mp4#t=0.1', null)
+  } else {
+    createVideos(null, 'assets/Quick Start Up/quickS.mp4#t=0.1', null)
+  }
 
   if (x.matches) {
     createContent(
@@ -984,32 +1048,30 @@ quickS_button.addEventListener('click', function (e) {
 
         clearInterval(clearcheck)
 
+        video2.play()
+
+        InterpolateVideo(loop, loop, video2)
+        HideShowCont()
         setTimeout(() => {
-          video2.play()
+          loop.currentTime = 0
+          loop.pause()
+          loop.style.zIndex = '-5'
+        }, 500)
 
-          InterpolateVideo(loop, loop, video2)
+        backButton.addEventListener('click', function () {
+          backButton.style.pointerEvents = 'none'
           HideShowCont()
+          video2.classList.add('short-vanish')
+          loop.play()
+          loop.classList.remove('short-vanish')
+
           setTimeout(() => {
-            loop.currentTime = 0
-            loop.pause()
-            loop.style.zIndex = '-5'
-          }, 1000)
-
-          backButton.addEventListener('click', function () {
-            backButton.style.pointerEvents = 'none'
-            HideShowCont()
-            video2.classList.add('short-vanish')
-            loop.play()
-            loop.classList.remove('short-vanish')
-
-            setTimeout(() => {
-              HideShowMainButtons()
-              loop.style.zIndex = '-1'
-              video2.remove()
-              showCont.innerHTML = ''
-            }, 300)
-          })
-        }, 1000)
+            HideShowMainButtons()
+            loop.style.zIndex = '-1'
+            video2.remove()
+            showCont.innerHTML = ''
+          }, 300)
+        })
       }
     }
   }
@@ -1019,6 +1081,12 @@ quickS_button.addEventListener('click', function (e) {
 var SirvOptions = {
   spin: {
     onready: function () {
+      initial.classList.remove('show')
+      initial.classList.add('short-vanish')
+      loader.style.zIndex = '-100'
+      setTimeout(() => {
+        initial.style.zIndex = '-200'
+      }, 300)
       createBackButton()
       backButton.addEventListener('click', function () {
         backButton.style.pointerEvents = 'none'
@@ -1041,6 +1109,12 @@ var SirvOptions = {
 
 // View rotation button
 viewR_button.addEventListener('click', function (e) {
+  loader.classList.remove('short-vanish')
+  loader.style.zIndex = '100'
+  initial.style.zIndex = '99'
+  initial.classList.remove('short-vanish')
+  initial.classList.add('show')
+
   HideShowMainButtons()
 
   setTimeout(() => {
