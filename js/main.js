@@ -321,22 +321,22 @@ compactFP_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Compact FootPrint/compactFP_C1.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP_C2.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP_C3.mp4#t=0.1'
+      'assets/compactFP/compactFP_C1.mp4#t=0.1',
+      'assets/compactFP/compactFP_C2.mp4#t=0.1',
+      'assets/compactFP/compactFP_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Compact FootPrint/compactFP1.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP2.mp4#t=0.1',
-      'assets/Compact FootPrint/compactFP3.mp4#t=0.1'
+      'assets/compactFP/compactFP1.mp4#t=0.1',
+      'assets/compactFP/compactFP2.mp4#t=0.1',
+      'assets/compactFP/compactFP3.mp4#t=0.1'
     )
   }
 
   createContent(
     '10%',
     '17%',
-    'Compact FootPrint',
+    'compactFP',
     'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
   )
 
@@ -356,7 +356,7 @@ compactFP_button.addEventListener('click', function (e) {
     createContent(
       '10%',
       '17%',
-      'Compact FootPrint',
+      'compactFP',
       'Smallest, fully contained, palletizing unit\nfor a single pallet and load/unload\nfunction utlizing a pallet jack or forklift.'
     )
     createSvg('21%', '19%', '49%', '42.7%')
@@ -417,15 +417,15 @@ remoteAC_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC_C1.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC_C2.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC1.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC2.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC3.mp4#t=0.1'
     )
   }
 
@@ -512,15 +512,15 @@ quickC_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C1.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C2.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC_C3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC_C1.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC_C2.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Remote Access Capability - Quick Changeover/remoteAC1.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC2.mp4#t=0.1',
-      'assets/Remote Access Capability - Quick Changeover/remoteAC3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC1.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC2.mp4#t=0.1',
+      'assets/remoteAC-quickC/remoteAC3.mp4#t=0.1'
     )
   }
   if (x.matches) {
@@ -637,15 +637,15 @@ easilyAGP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
   if (x.matches) {
     createVideos(
-      'assets/Easily Accessible Grace Port/easilyAGP_C1.mp4#t=0.1',
-      'assets/Easily Accessible Grace Port/easilyAGP_C2.mp4#t=0.1',
-      'assets/Easily Accessible Grace Port/easilyAGP_C3.mp4#t=0.1'
+      'assets/easilyAGP/easilyAGP_C1.mp4#t=0.1',
+      'assets/easilyAGP/easilyAGP_C2.mp4#t=0.1',
+      'assets/easilyAGP/easilyAGP_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Easily Accessible Grace Port/easilyAGP1.mp4#t=0.1',
-      'assets/Easily Accessible Grace Port/easilyAGP2.mp4#t=0.1',
-      'assets/Easily Accessible Grace Port/easilyAGP3.mp4#t=0.1'
+      'assets/easilyAGP/easilyAGP1.mp4#t=0.1',
+      'assets/easilyAGP/easilyAGP2.mp4#t=0.1',
+      'assets/easilyAGP/easilyAGP3.mp4#t=0.1'
     )
   }
 
@@ -731,21 +731,21 @@ fourCIDO_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Four Case Infeed Direction Options/fourCIDO_C1.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO_C2.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO_C3.mp4#t=0.1'
+      'assets/fourCIDO/fourCIDO_C1.mp4#t=0.1',
+      'assets/fourCIDO/fourCIDO_C2.mp4#t=0.1',
+      'assets/fourCIDO/fourCIDO_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Four Case Infeed Direction Options/fourCIDO1.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO2.mp4#t=0.1',
-      'assets/Four Case Infeed Direction Options/fourCIDO3.mp4#t=0.1'
+      'assets/fourCIDO/fourCIDO1.mp4#t=0.1',
+      'assets/fourCIDO/fourCIDO2.mp4#t=0.1',
+      'assets/fourCIDO/fourCIDO3.mp4#t=0.1'
     )
   }
   createContent(
     '65%',
     '40%',
-    'Four Case Infeed Direction Options',
+    'fourCIDO',
     `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
     'fourCIDO_p',
     'fourCIDO_text',
@@ -768,7 +768,7 @@ fourCIDO_button.addEventListener('click', function (e) {
     createContent(
       '65%',
       '40%',
-      'Four Case Infeed Direction Options',
+      'fourCIDO',
       `The modular configuration offers various infeed configurations to choose from to better accomodate your plant layout`,
       'fourCIDO_p',
       'fourCIDO_text',
@@ -831,22 +831,22 @@ maximumU_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/Maximum Uptime/maximumU_C1.mp4#t=0.1',
-      'assets/Maximum Uptime/maximumU_C2.mp4#t=0.1',
-      'assets/Maximum Uptime/maximumU_C3.mp4#t=0.1'
+      'assets/maximumU/maximumU_C1.mp4#t=0.1',
+      'assets/maximumU/maximumU_C2.mp4#t=0.1',
+      'assets/maximumU/maximumU_C3.mp4#t=0.1'
     )
   } else {
     createVideos(
-      'assets/Maximum Uptime/maximumU1.mp4#t=0.1',
-      'assets/Maximum Uptime/maximumU2.mp4#t=0.1',
-      'assets/Maximum Uptime/maximumU3.mp4#t=0.1'
+      'assets/maximumU/maximumU1.mp4#t=0.1',
+      'assets/maximumU/maximumU2.mp4#t=0.1',
+      'assets/maximumU/maximumU3.mp4#t=0.1'
     )
   }
 
   createContent(
     '58%',
     '35%',
-    'Maximum Uptime',
+    'maximumU',
     'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
     'maximumU_p'
   )
@@ -865,7 +865,7 @@ maximumU_button.addEventListener('click', function (e) {
     createContent(
       '58%',
       '35%',
-      'Maximum Uptime',
+      'maximumU',
       'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
       'maximumU_p'
     )
@@ -926,9 +926,9 @@ quickS_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
   if (x.matches) {
-    createVideos(null, 'assets/Quick Start Up/quickS_C.mp4#t=0.1', null)
+    createVideos(null, 'assets/quickS/quickS_C.mp4#t=0.1', null)
   } else {
-    createVideos(null, 'assets/Quick Start Up/quickS.mp4#t=0.1', null)
+    createVideos(null, 'assets/quickS/quickS.mp4#t=0.1', null)
   }
 
   if (x.matches) {
