@@ -278,19 +278,23 @@ if (loop.readyState >= 1) {
   }, 500)
 }
 
-window.addEventListener('orientationchange', function () {
-  containVideoWidth = getImgSizeInfo(loop).width
-  containVideoHeight = getImgSizeInfo(loop).height
-  if (!mainButtons.classList.contains('disabled')) {
-    ArreglarLineas()
-  }
-})
+// window.addEventListener('orientationchange', function () {
+//   if (loop.readyState >= 1) {
+//     containVideoWidth = getImgSizeInfo(loop).width
+//     containVideoHeight = getImgSizeInfo(loop).height
+//     if (!mainButtons.classList.contains('disabled')) {
+//       ArreglarLineas()
+//     }
+//   }
+// })
 
 window.addEventListener('resize', function () {
-  containVideoWidth = getImgSizeInfo(loop).width
-  containVideoHeight = getImgSizeInfo(loop).height
-  if (!mainButtons.classList.contains('disabled')) {
-    ArreglarLineas()
+  if (loop.readyState >= 1) {
+    containVideoWidth = getImgSizeInfo(loop).width
+    containVideoHeight = getImgSizeInfo(loop).height
+    if (!mainButtons.classList.contains('disabled')) {
+      ArreglarLineas()
+    }
   }
 })
 
