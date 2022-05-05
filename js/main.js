@@ -281,13 +281,17 @@ if (loop.readyState >= 1) {
 window.addEventListener('orientationchange', function () {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
-  ArreglarLineas()
+  if (!mainButtons.classList.contains('disabled')) {
+    ArreglarLineas()
+  }
 })
 
 window.addEventListener('resize', function () {
   containVideoWidth = getImgSizeInfo(loop).width
   containVideoHeight = getImgSizeInfo(loop).height
-  ArreglarLineas()
+  if (!mainButtons.classList.contains('disabled')) {
+    ArreglarLineas()
+  }
 })
 
 function backButtonSetup() {
