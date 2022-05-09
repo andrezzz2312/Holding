@@ -356,7 +356,27 @@ p {
   .backButton {
     font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
   }
+ 
 }
+@media (max-height: 340px) and (orientation: landscape) {
+  .button {
+    font-size: calc(2px + (14 - 2) * ((100vw - 320px) / (1440 - 320)));
+  }
+  .viewR_a {
+    font-size: calc(
+      2px + (14 - 2) * ((100vw - 320px) / (1440 - 320))
+    ) !important;
+  }
+  p {
+    font-size: calc(4px + (14 - 4) * ((100vw - 320px) / (1440 - 320)));
+  }
+  .label {
+    font-size: calc(4px + (14 - 4) * ((100vw - 320px) / (1440 - 320)));
+  }
+  .backButton {
+    font-size: calc(4px + (12 - 4) * ((100vw - 320px) / (1440 - 320)));
+}
+
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {
   .warning {
     z-index: 300;
