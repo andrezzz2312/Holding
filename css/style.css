@@ -356,7 +356,6 @@ p {
   .backButton {
     font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
   }
- 
 }
 @media (max-height: 340px) and (orientation: landscape) {
   .button {
@@ -375,6 +374,7 @@ p {
   }
   .backButton {
     font-size: calc(4px + (12 - 4) * ((100vw - 320px) / (1440 - 320)));
+  }
 }
 
 @media (pointer: none), (pointer: coarse) and (orientation: portrait) {
