@@ -1179,12 +1179,3 @@ viewR_button.addEventListener('click', function (e) {
     showCont.appendChild(model)
   }, 1000)
 })
-let counter = false
-test.addEventListener('click', function (e) {
-  loop.classList.toggle('short-vanish')
-  if (!counter) {
-    createVideos('assets/remoteAC-quickC/remoteAC3.mp4#t=0.1', null, null)
-    video1.play()
-    counter = true
-  }
-})
