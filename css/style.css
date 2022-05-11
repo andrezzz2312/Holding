@@ -306,16 +306,12 @@ p {
   font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
-.vanish {
-  animation: vanish 1s ease-in-out forwards;
-  pointer-events: none;
-}
-
 .short-vanish {
   animation: vanish 0.5s ease-in-out forwards;
 }
 .show {
   animation: show 0.5s ease-in-out forwards;
+  pointer-events: all;
 }
 
 .warning {

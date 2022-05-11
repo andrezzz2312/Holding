@@ -1133,8 +1133,9 @@ viewR_button.addEventListener('click', function (e) {
 
   const centerContainerMade = document.createElement('div')
   centerContainerMade.classList.add('centerContainer')
-  // centerContainerMade.style.opacity = '0'
-  // centerContainerMade.classList.add('show')
+  centerContainerMade.style.opacity = '0'
+  centerContainerMade.classList.add('show')
+  centerContainerMade.style.zIndex = '100'
   centerContainerMade.setAttribute('id', 'centerContainer_backButton')
   const buttonContainerMade = document.createElement('div')
   buttonContainerMade.classList.add('buttonContainer')
@@ -1155,9 +1156,11 @@ viewR_button.addEventListener('click', function (e) {
     loop.style.zIndex = '-5'
     loop.currentTime = 0
     loop.classList.remove('short-vanish')
+
+    centerContainerMade.classList.remove('show')
     centerContainerMade.classList.add('short-vanish')
+    HideShowCont()
     setTimeout(() => {
-      HideShowCont()
       initial.classList.remove('show')
       initial.classList.add('short-vanish')
       loader.style.zIndex = '-100'
@@ -1167,6 +1170,7 @@ viewR_button.addEventListener('click', function (e) {
     }, 500)
 
     HideShowMainButtons()
+
     setTimeout(() => {
       loop.style.zIndex = '-1'
       showCont.innerHTML = ''
