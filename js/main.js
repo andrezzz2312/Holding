@@ -1155,6 +1155,12 @@ viewR_button.addEventListener('click', function (e) {
     loop.classList.remove('short-vanish')
     setTimeout(() => {
       HideShowCont()
+      initial.classList.remove('show')
+      initial.classList.add('short-vanish')
+      loader.style.zIndex = '-100'
+      setTimeout(() => {
+        initial.style.zIndex = '-200'
+      }, 300)
     }, 500)
 
     HideShowMainButtons()
@@ -1164,8 +1170,8 @@ viewR_button.addEventListener('click', function (e) {
       centerContainer_backButton.remove()
     }, 1000)
   })
+
   setTimeout(() => {
-    loop.classList.add('short-vanish')
     const centerContainerMade = document.createElement('div')
     centerContainerMade.classList.add('centerContainer')
     centerContainerMade.setAttribute('id', 'centerContainer_model')
