@@ -23,9 +23,12 @@ const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
 const svgContainer = document.querySelectorAll('.svgContainer')
 const buttonContainer = document.querySelectorAll('.buttonContainer')
+const mainContainer = document.querySelector('.container')
 const loader = document.querySelector('.loader')
 const viewR_button = document.querySelector('#viewR_button')
 const initial = document.querySelector('.initial')
+const warningText = document.querySelector('.warningText')
+const warning = document.querySelector('.warning')
 
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
@@ -195,17 +198,13 @@ function createBackButton() {
   buttonContainerMade.classList.add('buttonContainer')
   buttonContainerMade.style.width = containVideoWidth + 'px'
   buttonContainerMade.style.height = containVideoHeight + 'px'
-
   backButton = document.createElement('button')
   backButton.classList.add('viewR_a')
   backButton.textContent = 'Back to Features'
-
   backButtonContainer = document.createElement('div')
   backButtonContainer.classList.add('viewR_container')
-
   showCont.appendChild(centerContainerMade)
   centerContainerMade.append(buttonContainerMade)
-
   buttonContainerMade.appendChild(backButtonContainer)
   backButtonContainer.appendChild(backButton)
 }
@@ -278,15 +277,21 @@ if (loop.readyState >= 1) {
   }, 500)
 }
 
-// window.addEventListener('orientationchange', function () {
-//   if (loop.readyState >= 1) {
-//     containVideoWidth = getImgSizeInfo(loop).width
-//     containVideoHeight = getImgSizeInfo(loop).height
-//     if (!mainButtons.classList.contains('disabled')) {
-//       ArreglarLineas()
-//     }
-//   }
-// })
+if (screen.availHeight > screen.availWidth) {
+  warningText.innerHTML =
+    ' Use the device in landscape mode in order to properly use this website'
+  warning.style.opacity = '1'
+  warning.style.zIndex = '300'
+} else {
+  if (window.innerWidth > window.innerHeight * 4) {
+    warning.style.opacity = '1'
+    warning.style.zIndex = '300'
+    warningText.innerHTML = 'The website is not usable in these dimensions'
+  } else {
+    warning.style.opacity = '0'
+    warning.style.zIndex = '-100'
+  }
+}
 
 window.addEventListener('resize', function () {
   if (loop.readyState >= 1) {
@@ -294,6 +299,21 @@ window.addEventListener('resize', function () {
     containVideoHeight = getImgSizeInfo(loop).height
     if (!mainButtons.classList.contains('disabled')) {
       ArreglarLineas()
+    }
+  }
+  if (screen.availHeight > screen.availWidth) {
+    warningText.innerHTML =
+      ' Use the device in landscape mode in order to properly use this website'
+    warning.style.opacity = '1'
+    warning.style.zIndex = '300'
+  } else {
+    if (window.innerWidth > window.innerHeight * 4) {
+      warning.style.opacity = '1'
+      warning.style.zIndex = '300'
+      warningText.innerHTML = 'The website is not usable in these dimensions'
+    } else {
+      warning.style.opacity = '0'
+      warning.style.zIndex = '-100'
     }
   }
 })
@@ -413,8 +433,7 @@ compactFP_button.addEventListener('click', function (e) {
             HideShowCont()
             backButtonSetup()
           })
-        }, 500)
-        // }, 1000)
+        }, 1000)
       }
     }
   }
@@ -1097,22 +1116,6 @@ var SirvOptions = {
       setTimeout(() => {
         initial.style.zIndex = '-200'
       }, 300)
-      createBackButton()
-      backButton.addEventListener('click', function () {
-        backButton.style.pointerEvents = 'none'
-        loop.style.zIndex = '-5'
-        loop.currentTime = 0
-        loop.classList.remove('short-vanish')
-        setTimeout(() => {
-          HideShowCont()
-        }, 500)
-
-        HideShowMainButtons()
-        setTimeout(() => {
-          loop.style.zIndex = '-1'
-          showCont.innerHTML = ''
-        }, 1000)
-      })
     },
   },
 }
@@ -1120,13 +1123,47 @@ var SirvOptions = {
 // View rotation button
 viewR_button.addEventListener('click', function (e) {
   loader.classList.remove('short-vanish')
-  loader.style.zIndex = '100'
-  initial.style.zIndex = '99'
+  loader.style.zIndex = '1'
+  initial.style.zIndex = '0'
   initial.classList.remove('short-vanish')
   initial.classList.add('show')
 
   HideShowMainButtons()
+  HideShowCont()
 
+  const centerContainerMade = document.createElement('div')
+  centerContainerMade.classList.add('centerContainer')
+  centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+  const buttonContainerMade = document.createElement('div')
+  buttonContainerMade.classList.add('buttonContainer')
+  buttonContainerMade.style.width = containVideoWidth + 'px'
+  buttonContainerMade.style.height = containVideoHeight + 'px'
+  backButton = document.createElement('button')
+  backButton.classList.add('viewR_a')
+  backButton.textContent = 'Back to Features'
+  backButtonContainer = document.createElement('div')
+  backButtonContainer.classList.add('viewR_container')
+  mainContainer.appendChild(centerContainerMade)
+  centerContainerMade.append(buttonContainerMade)
+  buttonContainerMade.appendChild(backButtonContainer)
+  backButtonContainer.appendChild(backButton)
+
+  backButton.addEventListener('click', function () {
+    backButton.style.pointerEvents = 'none'
+    loop.style.zIndex = '-5'
+    loop.currentTime = 0
+    loop.classList.remove('short-vanish')
+    setTimeout(() => {
+      HideShowCont()
+    }, 500)
+
+    HideShowMainButtons()
+    setTimeout(() => {
+      loop.style.zIndex = '-1'
+      showCont.innerHTML = ''
+      centerContainer_backButton.remove()
+    }, 1000)
+  })
   setTimeout(() => {
     loop.classList.add('short-vanish')
     const centerContainerMade = document.createElement('div')
@@ -1140,6 +1177,14 @@ viewR_button.addEventListener('click', function (e) {
     )
 
     showCont.appendChild(model)
-    HideShowCont()
   }, 1000)
+})
+let counter = false
+test.addEventListener('click', function (e) {
+  loop.classList.toggle('short-vanish')
+  if (!counter) {
+    createVideos('assets/remoteAC-quickC/remoteAC3.mp4#t=0.1', null, null)
+    video1.play()
+    counter = true
+  }
 })

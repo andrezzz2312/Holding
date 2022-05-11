@@ -10,7 +10,6 @@
 
 * {
   font-family: 'Roboto', sans-serif;
-
   font-weight: 600;
 }
 
@@ -30,6 +29,7 @@
   font-size: 5rem;
   animation: spin 2s linear infinite;
 }
+
 .mainButtons {
   opacity: 0;
 }
@@ -40,7 +40,6 @@
   left: 0;
   top: 0;
   background-color: rgb(255, 255, 255);
-  z-index: 200;
 }
 body {
   position: absolute;
@@ -162,6 +161,10 @@ a {
 #quickS_button {
   left: 8%;
   top: 77%;
+}
+#test {
+  left: 8%;
+  top: 50%;
 }
 .viewR_container {
   display: flex;
@@ -290,6 +293,7 @@ p {
 #quickS_p {
   max-width: 32%;
 }
+
 .backButton {
   position: relative;
   border: none;
@@ -327,6 +331,7 @@ p {
   z-index: -100;
   opacity: 0;
 }
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -334,10 +339,11 @@ p {
   justify-content: center;
   align-items: center;
   background-color: white;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 2rem;
-  margin: 2rem;
+  /* margin: 2rem; */
   text-align: center;
+  width: 100%;
 }
 .warnIcon {
   font-size: 3rem;
@@ -377,13 +383,6 @@ p {
   }
   .backButton {
     font-size: calc(4px + (12 - 4) * ((100vw - 320px) / (1440 - 320)));
-  }
-}
-
-@media (pointer: none), (pointer: coarse) and (orientation: portrait) {
-  .warning {
-    z-index: 300;
-    opacity: 1;
   }
 }
 
