@@ -347,11 +347,10 @@ p {
   justify-content: center;
   align-items: center;
   background-color: white;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 2rem;
-  /* margin: 2rem; */
+  margin: 2rem;
   text-align: center;
-  width: 100%;
 }
 .warnIcon {
   font-size: 3rem;
