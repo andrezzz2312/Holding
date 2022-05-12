@@ -283,7 +283,7 @@ if (screen.availHeight > screen.availWidth) {
   warning.style.opacity = '1'
   warning.style.zIndex = '300'
 } else {
-  if (window.innerWidth > window.innerHeight * 4) {
+  if (screen.availWidth > screen.availHeight * 4) {
     warning.style.opacity = '1'
     warning.style.zIndex = '300'
     warningText.innerHTML = 'The website is not usable in these dimensions'
