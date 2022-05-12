@@ -64,6 +64,7 @@ button {
   padding: 0.4rem 2rem;
   margin-bottom: 1rem;
   font-size: calc(5px + (14 - 5) * ((100vw - 320px) / (1440 - 320)));
+  pointer-events: all;
 }
 
 .centerContainer {
@@ -75,6 +76,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#centerContainer_backButton {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 .buttonContainer {
   position: relative;
