@@ -283,16 +283,17 @@ window.addEventListener('DOMContentLoaded', function () {
       ' Use the device in landscape mode in order to properly use this website'
     warning.style.opacity = '1'
     warning.style.zIndex = '300'
-  } else {
-    if (window.innerWidth > window.innerHeight * 4) {
-      warning.style.opacity = '1'
-      warning.style.zIndex = '300'
-      warningText.innerHTML = 'The website is not usable in these dimensions'
-    } else {
-      warning.style.opacity = '0'
-      warning.style.zIndex = '-100'
-    }
   }
+  // else {
+  //   if (window.innerWidth > window.innerHeight * 4) {
+  //     warning.style.opacity = '1'
+  //     warning.style.zIndex = '300'
+  //     warningText.innerHTML = 'The website is not usable in these dimensions'
+  //   } else {
+  //     warning.style.opacity = '0'
+  //     warning.style.zIndex = '-100'
+  //   }
+  // }
 })
 
 window.addEventListener('resize', function () {
@@ -308,16 +309,17 @@ window.addEventListener('resize', function () {
       ' Use the device in landscape mode in order to properly use this website'
     warning.style.opacity = '1'
     warning.style.zIndex = '300'
-  } else {
-    if (window.innerWidth > window.innerHeight * 4) {
-      warning.style.opacity = '1'
-      warning.style.zIndex = '300'
-      warningText.innerHTML = 'The website is not usable in these dimensions'
-    } else {
-      warning.style.opacity = '0'
-      warning.style.zIndex = '-100'
-    }
   }
+  //  else {
+  //   if (window.innerWidth > window.innerHeight * 4) {
+  //     warning.style.opacity = '1'
+  //     warning.style.zIndex = '300'
+  //     warningText.innerHTML = 'The website is not usable in these dimensions'
+  //   } else {
+  //     warning.style.opacity = '0'
+  //     warning.style.zIndex = '-100'
+  //   }
+  // }
 })
 
 function backButtonSetup() {
