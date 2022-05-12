@@ -1194,3 +1194,14 @@ viewR_button.addEventListener('click', function (e) {
     showCont.appendChild(model)
   }, 1000)
 })
+
+test_button.addEventListener('click', function (e) {
+  alert(
+    'height: ' +
+      window.innerHeight +
+      'px' +
+      ' \nwidth: ' +
+      window.innerWidth +
+      'px'
+  )
+})
