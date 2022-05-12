@@ -278,7 +278,7 @@ if (loop.readyState >= 1) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-  if (screen.availHeight > screen.availWidth) {
+  if (window.innerWidth > window.innerHeight * 4) {
     warningText.innerHTML =
       ' Use the device in landscape mode in order to properly use this website'
     warning.style.opacity = '1'
@@ -303,7 +303,7 @@ window.addEventListener('resize', function () {
       ArreglarLineas()
     }
   }
-  if (screen.availHeight > screen.availWidth) {
+  if (window.innerWidth > window.innerHeight * 4) {
     warningText.innerHTML =
       ' Use the device in landscape mode in order to properly use this website'
     warning.style.opacity = '1'
