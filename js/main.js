@@ -277,21 +277,23 @@ if (loop.readyState >= 1) {
   }, 500)
 }
 
-if (screen.availHeight > screen.availWidth) {
-  warningText.innerHTML =
-    ' Use the device in landscape mode in order to properly use this website'
-  warning.style.opacity = '1'
-  warning.style.zIndex = '300'
-} else {
-  if (screen.availWidth > screen.availHeight * 4) {
+window.addEventListener('DOMContentLoaded', function () {
+  if (screen.availHeight > screen.availWidth) {
+    warningText.innerHTML =
+      ' Use the device in landscape mode in order to properly use this website'
     warning.style.opacity = '1'
     warning.style.zIndex = '300'
-    warningText.innerHTML = 'The website is not usable in these dimensions'
   } else {
-    warning.style.opacity = '0'
-    warning.style.zIndex = '-100'
+    if (window.innerWidth > window.innerHeight * 4) {
+      warning.style.opacity = '1'
+      warning.style.zIndex = '300'
+      warningText.innerHTML = 'The website is not usable in these dimensions'
+    } else {
+      warning.style.opacity = '0'
+      warning.style.zIndex = '-100'
+    }
   }
-}
+})
 
 window.addEventListener('resize', function () {
   if (loop.readyState >= 1) {
