@@ -153,6 +153,7 @@ a {
 #test_button {
   right: 76%;
   top: 40%;
+  display: none;
 }
 #remoteAC_button {
   right: 51.5%;
