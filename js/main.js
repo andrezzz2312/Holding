@@ -302,6 +302,19 @@ window.addEventListener('resize', function () {
   if (loop.readyState >= 1) {
     containVideoWidth = getImgSizeInfo(loop).width
     containVideoHeight = getImgSizeInfo(loop).height
+
+    const test = document.querySelectorAll('.button')
+    console.log(containVideoWidth)
+    // let fontvar = `calc(3px + (10 - 3) * ((${containVideoWidth} - 320px) / (1440 - 320)))`
+    let fontvar = `calc(4px + (17 - 4) * ((${
+      containVideoWidth + 'px'
+    } - 320px) / (1440 - 320)))`
+    console.log(fontvar)
+    for (let i = 0; i < test.length; i++) {
+      test[i].style.fontSize = fontvar
+    }
+
+    viewR_button.style.fontSize = fontvar
     if (!mainButtons.classList.contains('disabled')) {
       ArreglarLineas()
     }
@@ -1207,6 +1220,13 @@ viewR_button.addEventListener('click', function (e) {
 })
 
 test_button.addEventListener('click', function (e) {
+  const element = document.querySelector('#test_button')
+  const element2 = document.querySelector('#remoteAC_button')
+
+  const style = getComputedStyle(element)
+  const style2 = getComputedStyle(element2)
+  console.log(style.fontSize)
+  console.log(style2.fontSize)
   alert(
     'height: ' +
       window.innerHeight +
