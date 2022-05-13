@@ -278,13 +278,12 @@ if (loop.readyState >= 1) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-  if (window.matchMedia('(orientation: portrait)').matches) {
-    warningText.innerHTML =
-      ' Use the device in landscape mode in order to properly use this website'
-    warning.style.opacity = '1'
-    warning.style.zIndex = '300'
-  }
-  // else {
+  // if (window.matchMedia('(orientation: portrait)').matches) {
+  //   warningText.innerHTML =
+  //     ' Use the device in landscape mode in order to properly use this website'
+  //   warning.style.opacity = '1'
+  //   warning.style.zIndex = '300'
+  // } else {
   //   if (window.innerWidth > window.innerHeight * 4) {
   //     warning.style.opacity = '1'
   //     warning.style.zIndex = '300'
@@ -304,13 +303,12 @@ window.addEventListener('resize', function () {
       ArreglarLineas()
     }
   }
-  if (window.matchMedia('(orientation: portrait)').matches) {
-    warningText.innerHTML =
-      ' Use the device in landscape mode in order to properly use this website'
-    warning.style.opacity = '1'
-    warning.style.zIndex = '300'
-  }
-  //  else {
+  // if (window.matchMedia('(orientation: portrait)').matches) {
+  //   warningText.innerHTML =
+  //     ' Use the device in landscape mode in order to properly use this website'
+  //   warning.style.opacity = '1'
+  //   warning.style.zIndex = '300'
+  // } else {
   //   if (window.innerWidth > window.innerHeight * 4) {
   //     warning.style.opacity = '1'
   //     warning.style.zIndex = '300'
