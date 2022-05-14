@@ -374,16 +374,6 @@ window.addEventListener('resize', function () {
       warning.style.zIndex = '-100'
     }
   }
-  //  else {
-  //   if (window.innerWidth > window.innerHeight * 4) {
-  //     warning.style.opacity = '1'
-  //     warning.style.zIndex = '300'
-  //     warningText.innerHTML = 'The website is not usable in these dimensions'
-  //   } else {
-  //     warning.style.opacity = '0'
-  //     warning.style.zIndex = '-100'
-  //   }
-  // }
 })
 
 ////////// Event Listeners for the main buttons //////////
