@@ -987,7 +987,6 @@ quickS_button.addEventListener('click', function (e) {
   } else {
     createVideos(null, 'assets/quickS/quickS.mp4#t=0.1', null)
   }
-
   if (x.matches) {
     createContent(
       '7%',
@@ -1085,7 +1084,26 @@ quickS_button.addEventListener('click', function (e) {
     })
   }
 
-  createBackButton()
+  const centerContainerMade = document.createElement('div')
+  centerContainerMade.classList.add('centerContainer')
+  centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+  const buttonContainerMade = document.createElement('div')
+  buttonContainerMade.classList.add('buttonContainer')
+  buttonContainerMade.style.width = containVideoWidth + 'px'
+  buttonContainerMade.style.height = containVideoHeight + 'px'
+  backButton = document.createElement('button')
+  let fontvar = `calc(4px + (17 - 4) * ((${
+    containVideoWidth + 'px'
+  } - 320px) / (1440 - 320)))`
+  backButton.style.fontSize = fontvar
+  backButton.classList.add('viewR_a')
+  backButton.textContent = 'Back to Features'
+  backButtonContainer = document.createElement('div')
+  backButtonContainer.classList.add('viewR_container')
+  showCont.appendChild(centerContainerMade)
+  centerContainerMade.append(buttonContainerMade)
+  buttonContainerMade.appendChild(backButtonContainer)
+  backButtonContainer.appendChild(backButton)
 
   check1()
 
