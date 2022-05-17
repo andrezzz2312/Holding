@@ -338,16 +338,6 @@ window.addEventListener('DOMContentLoaded', function () {
       warning.style.zIndex = '300'
     }
   }
-  //else {
-  //   if (window.innerWidth > window.innerHeight * 4) {
-  //     warning.style.opacity = '1'
-  //     warning.style.zIndex = '300'
-  //     warningText.innerHTML = 'The website is not usable in these dimensions'
-  //   } else {
-  //     warning.style.opacity = '0'
-  //     warning.style.zIndex = '-100'
-  //   }
-  // }
 })
 
 window.addEventListener('resize', function () {
@@ -1256,21 +1246,4 @@ viewR_button.addEventListener('click', function (e) {
 
     showCont.appendChild(model)
   }, 1000)
-})
-
-test_button.addEventListener('click', function (e) {
-  const element = document.querySelector('#test_button')
-  const element2 = document.querySelector('#remoteAC_button')
-
-  const style = getComputedStyle(element)
-  const style2 = getComputedStyle(element2)
-
-  alert(
-    'height: ' +
-      window.innerHeight +
-      'px' +
-      ' \nwidth: ' +
-      window.innerWidth +
-      'px'
-  )
 })
