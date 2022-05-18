@@ -47,10 +47,6 @@ body {
   width: 100%;
 }
 
-button {
-  font-size: calc(5px + (14 - 5) * ((100vw - 320px) / (1440 - 320)));
-}
-
 .viewR_a {
   position: relative;
   width: fit-content;
@@ -61,7 +57,7 @@ button {
   cursor: pointer;
   z-index: 2;
   overflow: hidden;
-  padding: 0.4rem 2rem;
+  padding: 0.4rem 1.5rem;
   margin-bottom: 1rem;
   font-size: calc(5px + (14 - 5) * ((100vw - 320px) / (1440 - 320)));
   pointer-events: all;
@@ -372,25 +368,6 @@ p {
   }
   .backButton {
     font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
-  }
-}
-@media (max-height: 340px) and (orientation: landscape) {
-  .button {
-    font-size: calc(2px + (14 - 2) * ((100vw - 320px) / (1440 - 320)));
-  }
-  .viewR_a {
-    font-size: calc(
-      2px + (14 - 2) * ((100vw - 320px) / (1440 - 320))
-    ) !important;
-  }
-  p {
-    font-size: calc(4px + (14 - 4) * ((100vw - 320px) / (1440 - 320)));
-  }
-  .label {
-    font-size: calc(4px + (14 - 4) * ((100vw - 320px) / (1440 - 320)));
-  }
-  .backButton {
-    font-size: calc(4px + (12 - 4) * ((100vw - 320px) / (1440 - 320)));
   }
 }
 
