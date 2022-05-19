@@ -370,8 +370,9 @@ window.addEventListener('resize', function () {
 fullscreen_button.addEventListener('click', function (e) {
   console.log('check')
   if (!document.fullscreenElement) {
-    mainContainer.requestFullscreen()
+    mainContainer.webkitRequestFullscreen()
     mainContainer.webkitEnterFullscreen()
+    mainContainer.requestFullscreen()
   } else {
     document.exitFullscreen()
     document.webkitExitFullscreen()
