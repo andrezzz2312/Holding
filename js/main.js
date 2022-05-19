@@ -31,11 +31,14 @@ const warningText = document.querySelector('.warningText')
 const warning = document.querySelector('.warning')
 const expand = document.querySelector('#expand')
 const contract = document.querySelector('#contract')
-let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+let details = navigator.userAgent
+let regexp = /android|iphone|kindle|ipad/i
+let isMobileDevice = regexp.test(details)
 
-if (isSafari) {
+if (!isMobileDevice) {
   fullscreen_button.style.display = 'none'
 }
+
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
