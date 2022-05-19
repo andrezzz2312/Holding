@@ -29,7 +29,13 @@ const viewR_button = document.querySelector('#viewR_button')
 const initial = document.querySelector('.initial')
 const warningText = document.querySelector('.warningText')
 const warning = document.querySelector('.warning')
+const expand = document.querySelector('#expand')
+const contract = document.querySelector('#contract')
+let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
+if (isSafari) {
+  fullscreen_button.style.display = 'none'
+}
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -362,12 +368,16 @@ window.addEventListener('resize', function () {
     if (window.matchMedia('(orientation: landscape)').matches) {
       warning.style.opacity = '0'
       warning.style.zIndex = '-100'
+      window.scrollTo(0, document.body.scrollHeight)
     }
   }
 })
 
 ////////// Event Listeners for the main buttons //////////
 fullscreen_button.addEventListener('click', function (e) {
+  expand.classList.toggle('disabledb')
+  contract.classList.toggle('disabledb')
+
   console.log('check')
   if (!document.fullscreenElement) {
     mainContainer.webkitRequestFullscreen()

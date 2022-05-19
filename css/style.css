@@ -103,6 +103,9 @@ body {
 .disabled > div > div > button {
   pointer-events: none;
 }
+.disabledb {
+  display: none !important;
+}
 
 video::-webkit-media-controls {
   display: none !important;
