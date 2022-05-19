@@ -33,12 +33,17 @@ const expand = document.querySelector('#expand')
 const contract = document.querySelector('#contract')
 let details = navigator.userAgent
 let regexp = /android|iphone|kindle|ipad/i
+let ios = /iphone|ipad/i
 let isMobileDevice = regexp.test(details)
+let isIOS = ios.test(details)
 
 if (!isMobileDevice) {
   fullscreen_button.style.display = 'none'
+} else {
+  if (isIOS) {
+    fullscreen_button.style.display = 'none'
+  }
 }
-
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
