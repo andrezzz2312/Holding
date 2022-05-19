@@ -146,7 +146,10 @@ a {
   right: 76%;
   top: 15%;
 }
-
+#fullscreen_button {
+  right: 10%;
+  top: 15%;
+}
 #remoteAC_button {
   right: 51.5%;
   top: 6%;
@@ -234,7 +237,7 @@ a {
 .container {
   position: relative;
   overflow: hidden;
-  height: 110%;
+  height: 100%;
   width: 100%;
 }
 .textContainer {

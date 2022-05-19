@@ -367,6 +367,14 @@ window.addEventListener('resize', function () {
 })
 
 ////////// Event Listeners for the main buttons //////////
+fullscreen_button.addEventListener('click', function (e) {
+  console.log('check')
+  if (!document.fullscreenElement) {
+    mainContainer.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
+})
 
 compactFP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
