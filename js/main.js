@@ -371,7 +371,7 @@ fullscreen_button.addEventListener('click', function (e) {
   console.log('check')
   if (!document.fullscreenElement) {
     mainContainer.requestFullscreen()
-    mainContainer.webkitRequestFullscreen()
+    mainContainer.webkitEnterFullscreen()
   } else {
     document.exitFullscreen()
     document.webkitExitFullscreen()
