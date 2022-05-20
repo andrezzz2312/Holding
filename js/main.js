@@ -923,7 +923,7 @@ maximumU_button.addEventListener('click', function (e) {
   createContent(
     '58%',
     '35%',
-    'Maximum Update',
+    'Maximum Uptime',
     'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
     'maximumU_p'
   )
@@ -943,7 +943,7 @@ maximumU_button.addEventListener('click', function (e) {
       createContent(
         '58%',
         '35%',
-        'Maximum Update',
+        'Maximum Uptime',
         'Utilizing a FANUC M710iC/50H robot with a MTBF 80,000 hrs maximizes uptime and minimizes maintenance requirements',
         'maximumU_p'
       )
