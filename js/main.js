@@ -74,6 +74,7 @@ function createVideos(source1, source2, source3) {
     video1.src = source1
     video1.muted = true
     video1.setAttribute('playsinline', '')
+    video1.setAttribute('poster', '')
     video1.controls = false
     video1.autoplay = 'true'
     video1.classList.add('video')
@@ -87,6 +88,7 @@ function createVideos(source1, source2, source3) {
     video2.loop = true
     video2.muted = true
     video2.setAttribute('playsinline', '')
+    video2.setAttribute('poster', '')
     video2.controls = false
     video2.autoplay = 'true'
     video2.classList.add('video')
@@ -100,6 +102,7 @@ function createVideos(source1, source2, source3) {
     video3.muted = true
     video3.autoplay = 'true'
     video3.setAttribute('playsinline', '')
+    video3.setAttribute('poster', '')
     video3.controls = false
     video3.classList.add('video')
     video3.style.zIndex = '-4'
