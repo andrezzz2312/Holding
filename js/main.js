@@ -72,7 +72,6 @@ function createVideos(source1, source2, source3) {
   if (source1) {
     video1 = document.createElement('video')
     video1.src = source1
-
     video1.setAttribute('muted', '')
     video1.setAttribute('playsinline', '')
     video1.setAttribute('poster', '')
@@ -87,7 +86,6 @@ function createVideos(source1, source2, source3) {
     video2 = document.createElement('video')
     video2.src = source2
     video2.loop = true
-
     video2.setAttribute('muted', '')
     video2.setAttribute('playsinline', '')
     video2.setAttribute('poster', '')
@@ -101,7 +99,6 @@ function createVideos(source1, source2, source3) {
   if (source3) {
     video3 = document.createElement('video')
     video3.src = source3
-
     video3.setAttribute('muted', '')
     video3.autoplay = 'true'
     video3.setAttribute('playsinline', '')
@@ -503,15 +500,15 @@ remoteAC_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/remoteAC-quickC/remoteAC_C1.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC_C2.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC_C3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC_C1.mp4',
+      'assets/remoteAC-quickC/remoteAC_C2.mp4',
+      'assets/remoteAC-quickC/remoteAC_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/remoteAC-quickC/remoteAC1.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC2.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC1.mp4',
+      'assets/remoteAC-quickC/remoteAC2.mp4',
+      'assets/remoteAC-quickC/remoteAC3.mp4'
     )
   }
 
@@ -599,15 +596,15 @@ quickC_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/remoteAC-quickC/remoteAC_C1.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC_C2.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC_C3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC_C1.mp4',
+      'assets/remoteAC-quickC/remoteAC_C2.mp4',
+      'assets/remoteAC-quickC/remoteAC_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/remoteAC-quickC/remoteAC1.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC2.mp4#t=0.1',
-      'assets/remoteAC-quickC/remoteAC3.mp4#t=0.1'
+      'assets/remoteAC-quickC/remoteAC1.mp4',
+      'assets/remoteAC-quickC/remoteAC2.mp4',
+      'assets/remoteAC-quickC/remoteAC3.mp4'
     )
   }
   if (x.matches) {
@@ -724,15 +721,15 @@ easilyAGP_button.addEventListener('click', function (e) {
   HideShowMainButtons()
   if (x.matches) {
     createVideos(
-      'assets/easilyAGP/easilyAGP_C1.mp4#t=0.1',
-      'assets/easilyAGP/easilyAGP_C2.mp4#t=0.1',
-      'assets/easilyAGP/easilyAGP_C3.mp4#t=0.1'
+      'assets/easilyAGP/easilyAGP_C1.mp4',
+      'assets/easilyAGP/easilyAGP_C2.mp4',
+      'assets/easilyAGP/easilyAGP_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/easilyAGP/easilyAGP1.mp4#t=0.1',
-      'assets/easilyAGP/easilyAGP2.mp4#t=0.1',
-      'assets/easilyAGP/easilyAGP3.mp4#t=0.1'
+      'assets/easilyAGP/easilyAGP1.mp4',
+      'assets/easilyAGP/easilyAGP2.mp4',
+      'assets/easilyAGP/easilyAGP3.mp4'
     )
   }
 
@@ -817,15 +814,15 @@ fourCIDO_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/fourCIDO/fourCIDO_C1.mp4#t=0.1',
-      'assets/fourCIDO/fourCIDO_C2.mp4#t=0.1',
-      'assets/fourCIDO/fourCIDO_C3.mp4#t=0.1'
+      'assets/fourCIDO/fourCIDO_C1.mp4',
+      'assets/fourCIDO/fourCIDO_C2.mp4',
+      'assets/fourCIDO/fourCIDO_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/fourCIDO/fourCIDO1.mp4#t=0.1',
-      'assets/fourCIDO/fourCIDO2.mp4#t=0.1',
-      'assets/fourCIDO/fourCIDO3.mp4#t=0.1'
+      'assets/fourCIDO/fourCIDO1.mp4',
+      'assets/fourCIDO/fourCIDO2.mp4',
+      'assets/fourCIDO/fourCIDO3.mp4'
     )
   }
   createContent(
@@ -918,15 +915,15 @@ maximumU_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/maximumU/maximumU_C1.mp4#t=0.1',
-      'assets/maximumU/maximumU_C2.mp4#t=0.1',
-      'assets/maximumU/maximumU_C3.mp4#t=0.1'
+      'assets/maximumU/maximumU_C1.mp4',
+      'assets/maximumU/maximumU_C2.mp4',
+      'assets/maximumU/maximumU_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/maximumU/maximumU1.mp4#t=0.1',
-      'assets/maximumU/maximumU2.mp4#t=0.1',
-      'assets/maximumU/maximumU3.mp4#t=0.1'
+      'assets/maximumU/maximumU1.mp4',
+      'assets/maximumU/maximumU2.mp4',
+      'assets/maximumU/maximumU3.mp4'
     )
   }
 
@@ -1013,9 +1010,9 @@ quickS_button.addEventListener('click', function (e) {
   HideShowMainButtons()
 
   if (x.matches) {
-    createVideos(null, 'assets/quickS/quickS_C.mp4#t=0.1', null)
+    createVideos(null, 'assets/quickS/quickS_C.mp4', null)
   } else {
-    createVideos(null, 'assets/quickS/quickS.mp4#t=0.1', null)
+    createVideos(null, 'assets/quickS/quickS.mp4', null)
   }
   if (x.matches) {
     createContent(
