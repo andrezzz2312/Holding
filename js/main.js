@@ -361,7 +361,7 @@ window.addEventListener('resize', function () {
   if (loop.readyState >= 1) {
     containVideoWidth = getImgSizeInfo(loop).width
     containVideoHeight = getImgSizeInfo(loop).height
-    console.log(containVideoWidth)
+
     setFontSizes()
 
     if (!mainButtons.classList.contains('disabled')) {
@@ -389,7 +389,6 @@ fullscreen_button.addEventListener('click', function (e) {
   expand.classList.toggle('disabledb')
   contract.classList.toggle('disabledb')
 
-  console.log('check')
   if (!document.fullscreenElement) {
     mainContainer.webkitRequestFullscreen()
     mainContainer.webkitEnterFullscreen()
@@ -401,6 +400,7 @@ fullscreen_button.addEventListener('click', function (e) {
 })
 
 compactFP_button.addEventListener('click', function (e) {
+  console.time('test1')
   HideShowMainButtons()
 
   if (x.matches) {
@@ -475,6 +475,7 @@ compactFP_button.addEventListener('click', function (e) {
       }, 1000)
 
       if (video1check && video2check && video3check) {
+        console.timeEnd('test1')
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
@@ -907,6 +908,7 @@ fourCIDO_button.addEventListener('click', function (e) {
 })
 
 maximumU_button.addEventListener('click', function (e) {
+  console.time('test1')
   HideShowMainButtons()
 
   if (x.matches) {
@@ -982,6 +984,7 @@ maximumU_button.addEventListener('click', function (e) {
       }, 1000)
 
       if (video1check && video2check && video3check) {
+        console.timeEnd('test1')
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
