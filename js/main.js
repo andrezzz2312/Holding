@@ -408,15 +408,15 @@ compactFP_button.addEventListener('click', function (e) {
 
   if (x.matches) {
     createVideos(
-      'assets/compactFP/compactFP_C1.mp4#t=0.1',
-      'assets/compactFP/compactFP_C2.mp4#t=0.1',
-      'assets/compactFP/compactFP_C3.mp4#t=0.1'
+      'assets/compactFP/compactFP_C1.mp4',
+      'assets/compactFP/compactFP_C2.mp4',
+      'assets/compactFP/compactFP_C3.mp4'
     )
   } else {
     createVideos(
-      'assets/compactFP/compactFP1.mp4#t=0.1',
-      'assets/compactFP/compactFP2.mp4#t=0.1',
-      'assets/compactFP/compactFP3.mp4#t=0.1'
+      'assets/compactFP/compactFP1.mp4',
+      'assets/compactFP/compactFP2.mp4',
+      'assets/compactFP/compactFP3.mp4'
     )
   }
 
