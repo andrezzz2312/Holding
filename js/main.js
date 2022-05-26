@@ -591,6 +591,7 @@ remoteAC_button.addEventListener('click', function (e) {
 })
 
 quickC_button.addEventListener('click', function (e) {
+  console.time('test3')
   HideShowMainButtons()
 
   if (x.matches) {
@@ -696,6 +697,7 @@ quickC_button.addEventListener('click', function (e) {
       }, 1000)
 
       if (video1check && video2check && video3check) {
+        console.timeEnd('test3')
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
