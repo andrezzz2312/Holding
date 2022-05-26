@@ -72,7 +72,8 @@ function createVideos(source1, source2, source3) {
   if (source1) {
     video1 = document.createElement('video')
     video1.src = source1
-    video1.muted = true
+
+    video1.setAttribute('muted', '')
     video1.setAttribute('playsinline', '')
     video1.setAttribute('poster', '')
     video1.controls = false
@@ -86,7 +87,8 @@ function createVideos(source1, source2, source3) {
     video2 = document.createElement('video')
     video2.src = source2
     video2.loop = true
-    video2.muted = true
+
+    video2.setAttribute('muted', '')
     video2.setAttribute('playsinline', '')
     video2.setAttribute('poster', '')
     video2.controls = false
@@ -99,7 +101,8 @@ function createVideos(source1, source2, source3) {
   if (source3) {
     video3 = document.createElement('video')
     video3.src = source3
-    video3.muted = true
+
+    video3.setAttribute('muted', '')
     video3.autoplay = 'true'
     video3.setAttribute('playsinline', '')
     video3.setAttribute('poster', '')
