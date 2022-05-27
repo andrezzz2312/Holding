@@ -37,6 +37,7 @@ let ios = /iphone|ipad/i
 let mac = /mac/
 let isMobileDevice = regexp.test(details)
 let isIOS = ios.test(details)
+let isMac = mac.test(details)
 
 if (!isMobileDevice) {
   fullscreen_button.style.display = 'none'
@@ -45,7 +46,7 @@ if (!isMobileDevice) {
     fullscreen_button.style.display = 'none'
   }
 }
-if (mac) {
+if (isMac) {
   alert('mac check')
 }
 // Set which videos are going to swap
