@@ -34,10 +34,10 @@ const contract = document.querySelector('#contract')
 let details = navigator.userAgent
 let regexp = /android|iphone|kindle|ipad/i
 let ios = /iphone|ipad/i
-let mac = /mac/i
+let macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i
 let isMobileDevice = regexp.test(details)
 let isIOS = ios.test(details)
-let isMac = mac.test(details)
+let isMac = macosPlatforms.test(details)
 
 if (!isMobileDevice) {
   fullscreen_button.style.display = 'none'
