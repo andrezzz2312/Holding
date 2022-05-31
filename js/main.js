@@ -46,9 +46,7 @@ if (!isMobileDevice) {
     fullscreen_button.style.display = 'none'
   }
 }
-if (isMac) {
-  alert('mac check')
-}
+
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
