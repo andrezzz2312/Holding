@@ -31,6 +31,9 @@ const warningText = document.querySelector('.warningText')
 const warning = document.querySelector('.warning')
 const expand = document.querySelector('#expand')
 const contract = document.querySelector('#contract')
+const close = document.querySelector('#close')
+const alertdiv = document.querySelector('.alertdiv')
+const modalalert = document.querySelector('.modalalert')
 let details = navigator.userAgent
 let regexp = /android|iphone|kindle|ipad/i
 let ios = /iphone|ipad/i
@@ -46,7 +49,9 @@ if (!isMobileDevice) {
     fullscreen_button.style.display = 'none'
   }
 }
-
+if (isMac) {
+  alertdiv.style.display = 'flex'
+}
 // Set which videos are going to swap
 function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
   videoToPause.pause()
@@ -1286,4 +1291,11 @@ viewR_button.addEventListener('click', function (e) {
 
     showCont.appendChild(model)
   }, 1000)
+})
+
+close.addEventListener('click', function (e) {
+  modalalert.style.pointerEvents = 'none'
+  modalalert.style.transform = 'scale(0)'
+  alertdiv.style.opacity = 0
+  alertdiv.style.pointerEvents = 'none'
 })
